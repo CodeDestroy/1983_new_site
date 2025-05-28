@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Движ по недвижке</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/mini-logo.png' %}">
+    <link href="{% static 'libs/bulma/css/bulma.min.css' %}" rel="stylesheet">
+    <link href="{% static 'libs/fontawesome/css/all.min.css' %}" rel="stylesheet">
+    <style>
+        .hero {
+            background-image: url("{% static 'images/forums/dvizh-nedvizh/bg.jpg' %}");
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .hero p.has-text-white-bis { font-size: 30pt !important; }
+        .hero h1 { font-size: 48pt; }
+        .hero p { font-size: 18pt; }
+        #where .is-one-quarter-tablet {
+            background-image: url("{% static 'images/forums/dvizh-nedvizh/event.jpg' %}");
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #speakers .avatar, #offers .image {
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+        #where ul { --icon-size: .8em; --gutter: .5em; padding: 0 0 0 var(--icon-size); }
+        #where ul li, #speakers ul li { padding-left: var(--gutter); }
+        #where li::marker { content: var(--icon); /* FontAwesome Unicode */ font-family: FontAwesome; }
+        #general-partner .box, #official-partner .box, #partners .box, #info-partners .box, #speakers .avatar { background-size: cover; }
+        .carousel-item:not(.active) { display: none; }
+        footer .box { max-width: 50%; margin: 0 auto; }
+    </style>
+</head>
+<body>
+	<section class="hero is-info">
+	    <div class="container is-fluid">
+	        <div class="columns is-justify-content-end">
+	            <div class="column is-one-quarter-tablet has-background-white-bis">
+	                <img src="{% static 'images/logos/logo-horizontal.png' %}" alt="Логотип" class="img-fluid">
+	            </div>
+	        </div>
+	    </div>
+	    <div class="hero-body">
+	        <div class="container">
+	            <p class="has-text-white-bis has-text-weight-semibold">Форум &laquo;Движ по недвижке 3.0&raquo;</p>
+	            <h1 class="is-uppercase has-text-white-bis has-text-weight-semibold mb-5">&laquo;Деньги делают деньги&raquo;</h1>
+	            <div class="has-background-white-bis is-display-inline-block has-text-weight-semibold p-4 content is-size-5 mb-0">
+	                <p>Для тех, кто хочет:</p>
+	                <ul style="list-style: outside '&#10004';">
+	                    <li>изменить свое денежное мышление</li>
+	                    <li>развить сильный личный бренд</li>
+	                    <li>вырасти в доходе в х10 раз</li>
+	                </ul>
+	            </div>
+	            <div class="columns justify-content-center mt-6">
+	                <div class="column has-text-centered p-0">
+	                    <a href="#register" class="button is-danger is-large is-display-inline-block is-rounded">Зарегистрироваться<br>на форум</a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<section id="where" class="section">
+	    <div class="container">
+	        <div class="columns is-gap-6">
+	            <div class="column is-one-quarter-tablet"></div>
+	            <div class="column">
+	                <ul class="is-size-4 my-6">
+	                    <li class="mb-3" style="--icon: '\f073';"><span class="has-text-weight-semibold">Дата:</span> 5 cентября 2024г.</li>
+	                    <li class="mb-3" style="--icon: '\f017';"><span class="has-text-weight-semibold">Время:</span> 13:00 - 18:00</li>
+	                    <li class="mb-3" style="--icon: '\f3c5';"><span class="has-text-weight-semibold">Место проведения:</span><br><span class="fs-3">Площадка 1900,</span><br><span class="is-size-4">ул. Кольцовская д.24ж</span></li>
+	                    <li style="--icon: '\e533';"><span class="has-text-weight-semibold">Количество участников:</span><br>120 человек</li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<section id="speakers" class="section">
+	    <div class="container">
+	        <h2 class="is-uppercase has-text-weight-semibold has-text-centered is-size-2 mb-6">Спикеры форума</h2>
+	        <div class="columns">
+	            <div class="column is-display-flex is-flex-direction-column content">
+	                <figure class="avatar image is-1by1 mx-auto mb-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/speakers/korotova.png' %}'); background-size: contain;"></figure>
+	                <p class="has-text-weight-semibold has-text-centered is-size-4 mb-5">Марина Коротова</p>
+	                <ul class="mb-3">
+	                    <li>Cобственник агентства недвижимости &laquo;Новостройки Voronezh&raquo;</li>
+	                    <li>Практикующий Топ-менеджер с 2010 года</li>
+	                    <li>Сертифицированный бизнес-коуч, бизнес-тренер по международным стандартам ICU</li>
+	                    <li>Основатель кадрового агентства и корпоративного университета для малого и среднего бизнеса Level UP</li>
+	                    <li>Эксперт по развитию потенциала бизнеса и личности</li>
+	                    <li>Победитель в номинации «Человек мира. Профессионал, эксперт, наставник, международное признание в области уникальных авторских программ с доказанной эффективностью» в церемонии вручения премии BEAUTYVISION Award by The ICONIC в Дубае в 2024 году</li>
+	                </ul>
+	                <p class="is-size-5 has-text-weight-semibold has-text-centered mt-auto">Разбор бизнеса со сцены для участника форума. Раскроет главные секреты, которые приведут к росту дохода в х10 раз</p>
+	            </div>
+	            <div class="column is-display-flex is-flex-direction-column content">
+	                <figure class="avatar image is-1by1 mx-auto mb-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/speakers/amalya.png' %}'); background-size: contain;"></figure>
+	                <p class="has-text-weight-semibold has-text-centered is-size-4 mb-5">Амаля Асатурян</p>
+	                <ul class="mb-3">
+	                    <li>Член международного союза коучей ICU</li>
+	                    <li>Сертифицированный НЛП-практик</li>
+	                    <li>Сертифицированный коуч ICU</li>
+	                    <li>Ведущий специалист в области зависимости и созависимости</li>
+	                    <li>Спикер Synergy Univesity</li>
+	                    <li>Спикер международных конференций по психологии</li>
+	                    <li>Супервизор для психологов</li>
+	                    <li>Номинант премии &laquo;Главные женщины РФ&raquo;</li>
+	                    <li>Номинант Международного проекта The ICONIC</li>
+	                </ul>
+	                <p class="is-size-5 has-text-weight-semibold has-text-centered mt-auto mb-5">Тема: &laquo;Как настроить психику на большие деньги&raquo;</p>
+	            </div>
+	            <div class="column is-display-flex is-flex-direction-column content">
+	                <figure class="avatar image is-1by1 mx-auto mb-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/speakers/akulova.png' %}'); background-size: contain;"></figure>
+	                <p class="has-text-weight-semibold has-text-centered is-size-4 mb-5">Лилия Акулова</p>
+	                <ul class="mb-3">
+	                    <li>Управляющий партнер медиапроекта PulsePRIME</li>
+	                    <li>7 лет в продвижении личного бренда и бизнеса</li>
+	                    <li>7 лет опыт организации мероприятий для VIP-сегмента</li>
+	                    <li>8 лет в маркетинге</li>
+	                    <li>25 лет в продажах премиум-сегмента</li>
+	                </ul>
+	                <p class="is-size-5 has-text-weight-semibold has-text-centered mt-auto mb-5">Тема: &laquo;Топ эффективных площадок для продвижения вашего бизнеса и личного бренда в 2024 году&raquo;</p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<section id="program" class="section">
+	    <div class="container content">
+	        <h2 class="is-uppercase has-text-weight-semibold has-text-centered is-size-2 mb-6">Программа форума</h2>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">13:00 - 13:30</span> - Регистрация гостей, фотосессия от профессионального фотографа</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">13:30 - 14:00</span> - Праздничное открытие Форума</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">14:00 - 14:40</span> - Выступление спикеров (начало)</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">14:40 - 15:40</span> - Квиз с вручением призов победителям</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">15:40 - 16:00</span> - Выступление спикеров (продолжение)</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">16:20 - 16:50</span> - Кофе-брейк и нетворкинг</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">16:50 - 17:20</span> - Консультации по недвижимости и ипотеке</p>
+	        <p class="is-size-5"><span class="has-text-weight-semibold">17:20 - 18:00</span> - Розыгрыш подарков от спонсоров. Завершение форума</p>
+	        <p class="is-size-5">В течение всего форума:</p>
+	        <ul class="is-size-5">
+	            <li>Консультации по недвижимости: новостройки (Воронеж, Москва, Калининград, Турция, Северный Кипр), вторичка, ИЖС;</li>
+	            <li>Нетворкинг.</li>
+	        </ul>
+	    </div>
+	</section>
+	<section id="offers" class="section">
+	    <div class="container has-text-centered">
+	        <h2 class="is-uppercase has-text-weight-semibold is-size-2 mb-6">А также мегавыгодные предложения от застройщиков и банков:</h2>
+	        <div class="columns">
+	            <div class="column">
+	                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/sale.jpg' %}');"></figure>
+	                <p class="is-uppercase has-text-weight-semibold is-size-5">Спеццены на ряд квартир</p>
+	            </div>
+	            <div class="column">
+	                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/discount.jpg' %}');"></figure>
+	                <p class="is-uppercase has-text-weight-semibold is-size-5">Скидки при покупке квартиры до 750 тыс. руб.</p>
+	            </div>
+	            <div class="column">
+	                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/gift.jpg' %}');"></figure>
+	                <p class="is-uppercase has-text-weight-semibold is-size-5">Подарки при покупке квартиры</p>
+	            </div>
+	            <div class="column">
+	                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/mortgage.jpg' %}');"></figure>
+	                <p class="is-uppercase has-text-weight-semibold is-size-5">Выгодные ипотечные предложения</p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+</body>
+</html>

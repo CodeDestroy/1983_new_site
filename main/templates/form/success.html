@@ -1,0 +1,22 @@
+ {% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_body %}
+    <h1 class="title is-size-1 mb-6 is-uppercase">Новостройки<br><span class="has-text-weight-medium">Voronezh</span></h1>
+    <p class="subtitle is-size-3">Самая большая база новостроек<br>напрямую от всех застройщиков города</p>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card what-next">
+        <div class="card-header">
+            <p class="card-header-title is-shadowless is-size-2">Ваша форма успешно отправлена!</p>
+        </div>
+        <div class="card-content has-text-centered">
+            <p class="mb-5">В ближайшее время с Вами свяжутся наши менеджеры, чтобы уточнить некоторые детали</p>
+            <a href="{% url 'main:index' %}" class="button is-warning">На главную</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

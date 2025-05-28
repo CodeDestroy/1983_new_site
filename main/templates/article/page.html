@@ -1,0 +1,21 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+    <p class="is-size-4">{{ article.created_at }}</p>
+{% endblock %}
+
+{% block container %}
+{% if article.description %}
+<section class="section">
+    <div class="card">
+        <div class="card-content content">{{ article.description|safe }}</div>
+    </div>
+</section>
+{% endif %}
+{% include 'blocks/consultation.html' %}
+{% include 'blocks/new_flats.html' with flats=flats %}
+{% endblock %}

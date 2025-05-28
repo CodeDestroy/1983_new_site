@@ -1,0 +1,222 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block head_scripts %}<script src="https://res.smartwidgets.ru/app.js" defer></script>{% endblock %}
+
+{% block hero_class %}hero-home is-medium{% endblock %}
+{% block hero_body %}<h1 class="title is-size-2 is-uppercase">Дома и таунхаусы от 3 до 50 млн. рублей</h1>{% endblock %}
+
+{% block container %}
+<section id="questions" class="section">
+    <h2 class="is-size-3 mb-6">Пройдите тест за 1 минуту и получите подборку подходящих вариантов</h2>
+    <form class="card tab-panels" method="post" action="{% url 'main:feedback-page' %}">{% csrf_token %}
+        <input type="hidden" name="url" value="{{ url }}">
+        <div class="tab show">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №1. Какой объект рассматриваете для покупки?</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="home_type" value="Таунхаус"> Таунхаус
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="home_type" value="Дом"> Дом
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="home_type" value="Услуги строительства дома"> Услуги строительства дома
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №2. На какой бюджет расчитываете?</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="До 4 млн. руб" /> До 4 млн. руб</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="4-7 млн. руб." /> 4-7 млн. руб.</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="7-10 млн. руб." /> 7-10 млн. руб.</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="Свыше 10 млн. руб." /> Свыше 10 млн. руб.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №3. Какой способ наиболее предпочтителен?</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="com_method" value="Телефон"> Телефон
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="com_method" value="Whatsapp"> Whatsapp
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="com_method" value="Telegram"> Telegram
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-content">
+                <div class="field">
+                    <label class="label is-size-4">Ваше имя</label>
+                    <div class="control">
+                        <input class="input is-medium" type="text" name="name" placeholder="Ваше имя">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label is-size-4">Оставьте номер телефона</label>
+                    <div class="control">
+                        <input class="input is-medium phone-mask" type="text" name="phone">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="submit" class="button is-success is-rounded">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<section class="section" id="sales">
+    <h3 class="is-size-3 mb-6">Всегда в продаже</h3>
+    <div class="columns">
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-image">
+                    <div class="image is-4by3"><img src="{% static 'images/home/sales/1.png' %}"></div>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Частные дома</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-image">
+                    <div class="image is-4by3"><img src="{% static 'images/home/sales/2.png' %}"></div>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Таунхаусы</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-image">
+                    <div class="image is-4by3"><img src="{% static 'images/home/sales/3.png' %}"></div>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Земельные участки</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section" id="sales">
+    <h3 class="is-size-3 mb-6">Наши услуги</h3>
+    <div class="columns">
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-image">
+                    <div class="image is-4by3"><img src="{% static 'images/home/services/1.png' %}"></div>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Ремонт &laquo;под ключ&raquo;</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-image">
+                    <div class="image is-4by3"><img src="{% static 'images/home/services/2.png' %}"></div>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Дизайн помещений</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-image">
+                    <div class="image is-4by3"><img src="{% static 'images/home/services/3.png' %}"></div>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Строительство домов</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="sw-app" data-app="b17b4683bd9bad3469bc258965fde0d6"></div>
+</section>
+<section class="section has-text-centered">
+    <a href="https://yandex.ru/maps/193/voronezh/?ll=39.184269%2C51.697948&mode=poi&poi%5Bpoint%5D=39.184127%2C51.697789&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D28974348316&z=19.3" target="_blank" class="button is-warning is-rounded is-medium">Больше отзывов о нас на Яндекс.Картах</a>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/tabs.js' %}"></script>{% endblock %}

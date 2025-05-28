@@ -1,0 +1,26 @@
+{% extends "profile/registration/base_page.html" %}
+
+{% block page_name %}Регистрация{% endblock %}
+
+{% block container %}
+<form class="card" method="post">{% csrf_token %}
+    <div class="card-header">
+        <p class="card-header-title">Регистрация</p>
+    </div>
+    <div class="card-content">
+        <input type="hidden" name="next" value="{{ next }}"/>
+        {{ form.as_div }}
+    </div>
+    <div class="card-footer">
+        <div class="card-footer-item">
+            <a href="{% url 'main:password_reset' %}">Забыли пароль?</a>
+        </div>
+        <div class="card-footer-item">
+            <a href="{% url 'main:login' %}">У меня уже есть аккаунт</a>
+        </div>
+        <div class="card-footer-item">
+            <button class="button is-success" type="submit">Зарегистрироваться</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

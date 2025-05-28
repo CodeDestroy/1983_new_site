@@ -1,0 +1,162 @@
+<section class="section" id="infrastructure">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-4">Инфраструктура</p>
+        </div>
+        <div class="card-content">
+            <div class="columns">
+                <div class="column is-one-quarter-tablet">
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-danger"><i class="fa-regular fa-hospital"></i></span><span>Медицинские учреждения</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-info"><i class="fa-solid fa-book"></i></span><span>Школы</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-primary"><i class="fa-solid fa-shapes"></i></span><span>Детские сады</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-link"><i class="fa-solid fa-van-shuttle"></i></span><span>Автобусные остановки</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-warning"><i class="fa-solid fa-basket-shopping"></i></span><span>Продуктовые магазины</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-danger-30"><i class="fa-solid fa-prescription-bottle-medical"></i></span><span>Аптеки</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-info-30"><i class="fa-solid fa-graduation-cap"></i></span><span>Колледжи</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-info-40"><i class="fa-solid fa-building-columns"></i></span><span>Университеты</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-warning-30"><i class="fa-solid fa-cart-shopping"></i></span><span>Рынки</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-danger-40"><i class="fa-solid fa-dumbbell"></i></span><span>Спорт</span>
+                        </span>
+                    </p>
+                    <p class="block">
+                        <span class="icon-text">
+                            <span class="icon has-text-success"><i class="fa-solid fa-icons"></i></span><span>Развлечение</span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column">
+                    <div id="map" class="image is-1by1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://api-maps.yandex.ru/2.1/?apikey={{ yandex_map_key }}&lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+    // Функция ymaps.ready() будет вызвана, когда загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(() => {
+        let result = ymaps.geoQuery(ymaps.geocode('{% if object.obj.parent %}{{ object.obj.parent.region }}, {{ object.obj.parent.city }}{% else %}{{ object.obj.region }}, {{ object.obj.city }}{% endif %}, {{ object.obj.address }}'));
+        console.log(result); // result = 0
+        
+        // myMap.setBounds(myResult.getBounds());
+        // Создание карты.
+        let myMap = new ymaps.Map("map", {
+            // Координаты центра карты. Порядок по умолчанию: «широта, долгота».
+            center: [51.660781, 39.200296],
+            // Уровень масштабирования. Допустимые значения: от 0 (весь мир) до 19.
+            zoom: 15
+        });
+        result.then(function () {
+            result.addToMap(myMap);
+        });
+        return;
+        // Добавляем метку дома
+        myMap.geoObjects.add(new ymaps.GeoObject({geometry: {type: 'Point', coordinates: [{{ coord_for_map }}]}}));
+        // Добавляем радиус к дому
+        myMap.geoObjects.add(new ymaps.Circle([[{{ coord_for_map }}], 1000], {
+            // Описываем свойства круга. Содержимое балуна.
+            balloonContent: "Радиус 1 км",
+            // Содержимое хинта.
+            // hintContent: "Радиус 1 км"
+        }, {
+            // Опции круга.
+            draggable: false,
+            // Цвет заливки.
+            fillColor: "#33C2FF33",
+            // Цвет обводки.
+            strokeColor: "#33C2FF5E",
+            // Прозрачность обводки.
+            strokeOpacity: 1,
+            // Ширина обводки в пикселях.
+            strokeWidth: 1
+        }));
+        // Начало прогрузки объектов на карту через api
+        [
+            {c_name: 'amenity', c_var: 'hospital', elem_type: ['node'], icon: 'fa-regular fa-hospital', background: 'has-background-danger'},
+            {c_name: 'amenity', c_var: 'clinic', elem_type: ['node'], icon: 'fa-regular fa-hospital', background: 'has-background-danger'},
+            {c_name: 'building', c_var: 'school', elem_type: ['way'], icon: 'fa-solid fa-book', background: 'has-background-info'},
+            {c_name: 'building', c_var: 'kindergarten', elem_type: ['way'], icon: 'fa-solid fa-shapes', background: 'has-background-primary'},
+            {c_name: 'highway', c_var: 'bus_stop', elem_type: ['node'], icon: 'fa-solid fa-van-shuttle', background: 'has-background-link has-text-white-bis'},
+            {c_name: 'shop', c_var: 'convenience', elem_type: ['node'], icon: 'fa-solid fa-basket-shopping', background: 'has-background-warning'},
+            {c_name: 'amenity', c_var: 'pharmacy', elem_type: ['node'], icon: 'fa-solid fa-prescription-bottle-medical', background: 'has-background-danger-30 has-text-white-bis'},
+            {c_name: 'amenity', c_var: 'college', elem_type: ['node'], icon: 'fa-solid fa-graduation-cap', background: 'has-background-info-30 has-text-white-bis'},
+            {c_name: 'building', c_var: 'university', elem_type: ['way'], icon: 'fa-solid fa-building-columns', background: 'has-background-info-40 has-text-white-bis'},
+            {c_name: 'amenity', c_var: 'marketplace', elem_type: ['way'], icon: 'fa-solid fa-cart-shopping', background: 'has-background-success'},
+            {c_name: 'leisure', c_var: 'sports_centre', elem_type: ['node'], icon: 'fa-solid fa-dumbbell', background: 'has-background-danger-40 has-text-white-bis'},
+            {c_name: 'amenity', c_var: 'theatre', elem_type: ['node'], icon: 'fa-solid fa-icons', background: 'has-background-success'},
+            {c_name: 'building', c_var: 'theatre', elem_type: ['node'], icon: 'fa-solid fa-icons', background: 'has-background-success'},
+            {c_name: 'amenity', c_var: 'cinema', elem_type: ['node'], icon: 'fa-solid fa-icons', background: 'has-background-success'},
+        ].forEach((type) => {
+            $.ajax({
+                url: '{% url 'main:ajax-map-objects' %}',
+                method: 'post',
+                beforeSend: function(request) {
+                    request.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                },
+                dataType: 'json',
+                data: {city: '{{ city }}', c_name: type.c_name, c_var: type.c_var, elem_type: type.elem_type},
+                success: (data) => { data.forEach((elem) => {
+                    fillMap(myMap, elem, type.icon, type.background);
+                });}
+            });
+        });
+    });
+    function fillMap(map, elem, icon, background) {
+        if (elem.geometry.type === "Point") {
+            let tmp = elem.geometry.coordinates[0];
+            elem.geometry.coordinates[0] = elem.geometry.coordinates[1];
+            elem.geometry.coordinates[1] = tmp;
+
+            let properties = {icon: icon, background: background};
+            if (elem.tags.hasOwnProperty('name')) properties.balloonContent = elem.tags.name;
+            map.geoObjects.add(new ymaps.Placemark(elem.geometry.coordinates, properties, {
+                iconLayout: ymaps.templateLayoutFactory.createClass(`{% include 'yandex/mark.html' %}`)
+            }));
+        }
+        else {
+            for (let i = 0; i < elem.geometry.coordinates.length; i++) {
+                let tmp = elem.geometry.coordinates[i][0];
+                elem.geometry.coordinates[i][0] = elem.geometry.coordinates[i][1];
+                elem.geometry.coordinates[i][1] = tmp;
+            }
+        }
+    }
+</script>

@@ -1,0 +1,59 @@
+{% load static %}
+<section class="section">
+    <div class="card about-company border-0 mb-5">
+        <div class="card-content">
+            <div class="columns is-align-items-center">
+                <div class="column">
+                    <img src="{% static 'images/about/logo.png' %}" alt="Новостройки Voronezh">
+                    <div class="columns contacts">
+                        <div class="column">
+                            <div class="content">
+                                <p>ул. Беговая, 63</p>
+                                <p>Московский пр-кт, 132</p>
+                                <p>Пн-пт: 9:00 - 20:00</p>
+                                <p>Сб: 10:00 - 17:00</p>
+                                <p>Вс: 10:00 - 16:00</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="content">
+                                <p><a href="tel:74732023233" class="fw-bolder ">+7 (473) 202-32-33</a></p>
+                                <p><a href="mailto:info@квартиры36.рф" class="">info@квартиры36.рф</a></p>
+                                <div class="social-networks mt-3">
+                                    <a href="https://vk.com/novstroy36" target="_blank" class="fs-3  me-2">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a>
+                                    <a href="https://t.me/novstroy36" target="_blank" class="fs-3 ">
+                                        <i class="fa-brands fa-telegram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-7-tablet">
+                    <div id="map" class="is-aspect-ratio-1by1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey={{ yandex_map_key }}&lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+    // Функция ymaps.ready() будет вызвана, когда загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        let myMap = new ymaps.Map("map", {
+            // Координаты центра карты. Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную, воспользуйтесь инструментом Определение координат.
+            center: [51.697840, 39.184225],
+            // Уровень масштабирования. Допустимые значения: от 0 (весь мир) до 19.
+            zoom: 17
+        });
+        myMap.geoObjects.add(new ymaps.GeoObject({
+            geometry: {type: 'Point', coordinates: [51.697840, 39.184225]},
+        }));
+    }
+</script>

@@ -1,0 +1,126 @@
+{% extends 'base_view.html' %}
+
+{% block hero_class %}hero-trade-in is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+    <p class="is-size-4">Программа «Меняем старое жилье на новое» &mdash; отличная возможность продать старую квартиру и купить новую. В нашей базе недвижимости более 6 000 квартир и более 70 жилых комплексов.</p>
+{% endblock %}
+
+{% block container %}
+<section id="steps" class="section">
+    <h2 class="has-text-weight-semibold is-size-2 mb-6">Как обменять старое жилье на новую квартиру?</h2>
+    <div class="columns is-multiline is-justify-content-center">
+        <div class="column is-one-third-tablet">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title">1. Выбрать квартиру в нашем агентстве</p>
+                    <span class="card-header-icon">
+                        <span class="icon">
+                            <i class="fa-solid fa-house-chimney-window is-size-3 nv-text-color"></i>
+                        </span>
+                    </span>
+                </div>
+                <p class="card-content">Выберите квартиру мечты из базы агентства</p>
+            </div>
+        </div>
+        <div class="column is-one-third-tablet">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title">2. Реально оценить стоимость Вашей квартиры</p>
+                    <span class="card-header-icon">
+                        <span class="icon">
+                            <i class="fa-solid fa-ruble-sign is-size-3 nv-text-color"></i>
+                        </span>
+                    </span>
+                </div>
+                <p class="card-content">Наши эксперты произведут оценку имеющейся у Вас квартиры в течение 3-5 дней</p>
+            </div>
+        </div>
+        <div class="column is-one-third-tablet">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title">3. Продать старую квартиру через наш отдел вторичной недвижимости</p>
+                    <span class="card-header-icon">
+                        <span class="icon">
+                            <i class="fa-solid fa-piggy-bank is-size-3 nv-text-color"></i>
+                        </span>
+                    </span>
+                </div>
+                <p class="card-content">Брокеры продадут Вашу старую квартиру по выгодной цене в короткие сроки</p>
+            </div>
+        </div>
+        <div class="column is-one-third-tablet">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title">4. Определиться с дофинансированием покупки</p>
+                    <span class="card-header-icon">
+                        <span class="icon">
+                            <i class="fa-solid fa-landmark is-size-3 nv-text-color"></i>
+                        </span>
+                    </span>
+                </div>
+                <p class="card-content">Если Вам не хватает средств, мы подберем подходящую ипотечную программу и поможем её оформить</p>
+            </div>
+        </div>
+        <div class="column is-one-third-tablet">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title">5. Оформить квартиру и переехать жить!</p>
+                    <span class="card-header-icon">
+                        <span class="icon">
+                            <i class="fa-solid fa-key is-size-3 nv-text-color"></i>
+                        </span>
+                    </span>
+                </div>
+                <p class="card-content">Подписывайте договор купли-продажи или ДДУ и готовьтесь к переезду</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="fixed-grid has-4-cols has-1-cols-mobile">
+        <div class="grid is-gap-0">
+            <div class="cell is-row-span-3-tablet is-flex is-align-items-center">
+                <h3 class="has-text-weight-semibold is-size-2 has-text-weight-semibold">Обмен поможет тем, кто хочет:</h3>
+            </div>
+            <div class="cell p-5">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">01.</div>
+                    <div class="column">Купить квартиру в новом доме</div>
+                </div>
+            </div>
+            <div class="cell p-5">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">02.</div>
+                    <div class="column">Инвестировать в недвижимость</div>
+                </div>
+            </div>
+            <div class="cell p-5">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">03.</div>
+                    <div class="column">Разменять квартиру</div>
+                </div>
+            </div>
+            <div class="cell p-5">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">04.</div>
+                    <div class="column">Начать жить вместе в большей площади</div>
+                </div>
+            </div>
+            <div class="cell p-5">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">05.</div>
+                    <div class="column">Поменять район или город</div>
+                </div>
+            </div>
+            <div class="cell p-5">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">06.</div>
+                    <div class="column">Часть квартиры поменять на офис</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+{% endblock %}

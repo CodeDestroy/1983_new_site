@@ -1,0 +1,207 @@
+{% extends 'base_view.html' %}
+
+{% load humanize %}
+
+{% block hero_class %} hero-build{% endblock %}
+{% block hero_styles %}{% if object.images %} style="background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url('{{ object.images.0 }}');"{% endif %}{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+    <p class="is-size-4">от {{ object.prices.min|floatformat:0 }} до {{ object.prices.max|floatformat:0 }} <i class="fa-solid fa-ruble-sign"></i></p>
+    <p class="is-size-4">от {{ object.prices.min_by_metre|floatformat:0 }} до {{ object.prices.max_by_metre|floatformat:0 }} <i class="fa-solid fa-ruble-sign"></i>/м<sup>2</sup></p>
+{% endblock %}
+
+{% block container %}
+<section class="section build-about">
+    <div class="card">
+        <div class="card-content content">
+            <div class="columns">
+                <div class="column">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{% if object.ready_year or object.ready_quarter %}{% if object.ready_quarter %}{{ object.ready_quarter }} квартал{% endif %} {{ object.ready_year|default:""|stringformat:"i" }}{% else %}-{% endif %}</p>
+                        <p>сдача комплекса</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{{ object.flat_set.count }}</p>
+                        <p>доступно квартир</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{{ object.promo_set.count }}</p>
+                        <p>акции от застройщика</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <a class="button is-success is-large is-responsive is-fullwidth is-fullheight" href="#infrastructure">
+                        <span class="icon is-medium">
+                            <i class="fa-regular fa-map fa-2x"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            {% if object.developer %}
+            <p><span class="icon-text"><span class="icon"><i class="fa-regular fa-building"></i></span><span>{{ object.developer.name }}</span></span></p>
+            {% endif %}
+            <p><span class="icon-text"><span class="icon"><i class="fa-solid fa-location-dot"></i></span><span>{{ object.address }}</span></span></p>
+            <a href="{% url 'main:search-list' %}?name={{ title }}" class="button is-warning is-medium is-rounded">Подобрать квартиру</a>
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+<section class="section" id="about">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3">Подробнее о ЖК</p>
+            <span class="card-header-icon">
+                <a class="button is-warning is-rounded" href="{% url 'main:search-list' %}?name={{ object.name }}">
+                    Подобрать квартиру
+                </a>
+            </span>
+        </div>
+        <div class="card-content content">
+            {% if object.complex.description %}{{ object.complex.description|safe }}{% endif %}
+            <div class="fixed-grid has-1-cols-mobile">
+                <div class="grid is-column-gap-8 is-align-items-center">
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-calendar is-size-5"></i></span>
+                                    <span>Срок сдачи</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">
+                                {% if object.ready_year or object.ready_quarter %}{% if object.ready_quarter %}{{ object.ready_quarter }} квартал{% endif %} {{ object.ready_year|default:""|stringformat:"i" }}{% else %}-{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-building is-size-5"></i></span>
+                                    <span>Этажность</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">от {{ object.complex.floor_range.min }} до {{ object.complex.floor_range.max }}</div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-paint-roller is-size-5"></i></span>
+                                    <span>Варианты отделки</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">
+                                чистовая/черновая
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-city is-size-5"></i></span>
+                                    <span>Количество корпусов</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">{{ object.complex.build_set.count }}</div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-house is-size-5"></i></span>
+                                    <span>Тип дома</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">{{ object.type|default:"-" }}</div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-building-shield is-size-5"></i></span>
+                                    <span>Охрана</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">{{ object.security|yesno:"да,нет" }}</div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="columns is-align-items-center">
+                            <div class="column">
+                                <span class="icon-text">
+                                    <span class="icon"><i class="fa-solid fa-star is-size-5"></i></span>
+                                    <span>Класс жилья</span>
+                                </span>
+                            </div>
+                            <div class="column is-size-4 has-text-weight-semibold has-text-right-tablet">{{ object.house_class }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/infrastructure.html' with lat=object.lat lon=object.lon yandex_map_key=yandex_map_key coord_for_map=object.coord_for_map city=object.complex.get_city_from_address %}
+<section class="section search-in-build">
+    <div class="card is-background-info-light">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-4">Квартиры в этом комплексе</p>
+        </div>
+        <div class="card-content">
+            <form action="{% url 'main:search-list' %}" method="get">
+                <input type="hidden" name="name" value="{{ title }}">
+                <div class="columns is-align-items-center">
+                    <div class="column">
+                        <div class="select is-fullwidth is-medium is-rounded">
+                            <select name="price_sort">
+                                <option value="" selected>Сортировать по цене</option>
+                                <option value="asc">По возрастанию &uarr;</option>
+                                <option value="desc">По убыванию &darr;</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="select is-fullwidth is-medium is-rounded">
+                            <select name="rooms">
+                                <option value="" selected>Количество комнат</option>
+                                {% for t in flat_types %}
+                                    {% if t.type %}<option value="{{ t.type }}">{{ t.type }}</option>{% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="select is-fullwidth is-medium is-rounded">
+                            <select name="price">
+                                <option value="" selected>Цена</option>
+                                <option value="1">1.000.000 - 2.000.000</option>
+                                <option value="2">2.000.000 - 3.000.000</option>
+                                <option value="3">3.000.000 - 4.000.000</option>
+                                <option value="4">4.000.000 - 5.000.000</option>
+                                <option value="5">5.000.000 - 6.000.000</option>
+                                <option value="6">6.000.000 - 7.000.000</option>
+                                <option value="7">7.000.000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <button type="submit" class="button is-medium is-warning is-rounded is-fullwidth">Поиск</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% include 'blocks/new_flats.html' with flats=new_flats block_title='Вам понравится' %}
+{% include 'blocks/calculator.html' %}
+{% include 'blocks/build_developer.html' with complex_name=object.complex.name developer=object.developer %}
+{% endblock %}

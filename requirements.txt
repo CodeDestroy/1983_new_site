@@ -1,0 +1,11 @@
+Django
+gevent
+gunicorn
+psycopg
+requests
+Wand
+django-cors-headers
+python-telegram-bot
+Faker
+django-registration
+OSMPythonTools

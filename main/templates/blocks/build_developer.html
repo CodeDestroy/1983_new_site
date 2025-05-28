@@ -1,0 +1,39 @@
+{% if developer %}
+<section class="section advantages">
+    <div class="card">
+        <div class="fixed-grid has-4-cols has-1-cols-mobile">
+            <div class="grid is-gap-0">
+                <div class="cell is-col-span-3-tablet pt-5.5 px-5.5">
+                    <p class="has-text-weight-bold is-size-3">{{ developer.name }}</p>
+                </div>
+                <div class="cell is-row-span-3-tablet is-hidden-mobile is-flex is-align-items-end p-5.5">
+                    <div class="card is-fullheight about has-text-white-bis is-flex is-flex-direction-column is-justify-content-center mx-auto">
+                        <div class="card-content content">
+                            <p>ЖК</p>
+                            <p class="is-size-5 mb-5 has-text-weight-semibold">{{ complex_name }}</p>
+                            <p>Застройщик</p>
+                            <p class="is-size-5 mb-5 has-text-weight-semibold">{{ developer.name }}</p>
+                            <a href="{% url 'main:search-list' %}?name={{ developer.name }}" class="button is-light is-rounded is-medium is-fullwidth">Подобрать квартиру</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{{ developer.build_set.count }}</p>
+                        <p>объектов</p>
+                    </div>
+                </div>
+                <div class="cell p-5.5 is-col-from-start-2">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{{ developer.flat_count }}</p>
+                        <p>доступно квартир</p>
+                    </div>
+                </div>
+                <div class="cell is-col-span-3-tablet pb-5.5 px-5.5">
+                    {% if developer.description %}{{ developer.description|safe }}{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

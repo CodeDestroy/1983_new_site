@@ -1,0 +1,12 @@
+{% load humanize %}
+<a class="vertical-flat" href="{% url 'main:flat-page' flat_id=flat.pk %}">
+    <div class="image is-square mb-3" style="background-image: url('{{ flat.flatphoto_set.first.photo.url }}')"></div>
+    <p class="is-size-3 mb-3">{{ flat.price|floatformat:0 }} руб</p>
+    <p class="has-text-weight-medium mb-3">{{ flat }} {{ flat.square|intcomma }} м<sup>2</sup> {{ flat.floor }}{% if flat.obj.floors %} /{{ flat.obj.floors }}{% endif %} эт</p>
+    <p class="has-text-grey	mb-2">
+        <i class="fa-regular fa-building"></i> {{ flat.obj }}
+    </p>
+    <p class="has-text-grey">
+        <i class="fa-solid fa-location-dot"></i> {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
+    </p>
+</a>

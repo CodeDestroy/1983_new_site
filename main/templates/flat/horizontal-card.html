@@ -1,0 +1,35 @@
+{% load humanize %}
+<section class="section horizontal-flat">
+    <div class="card is-overflow-hidden">
+        <div class="fixed-grid has-6-cols has-1-cols-mobile">
+            <div class="grid is-gap-0">
+                <div class="cell is-row-span-3-tablet is-col-span-2-tablet p-5.5 photo" style="background-image: url('{{ flat.flatphoto_set.first.photo.url }}')"></div>
+                <div class="cell is-col-span-4-tablet pt-5.5 px-5.5">
+                    <p class="has-text-grey mb-3">
+                        <i class="fa-regular fa-building"></i> {{ flat.obj }}
+                    </p>
+                    <p class="has-text-grey mb-3">
+                        <i class="fa-solid fa-location-dot"></i> {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
+                    </p>
+                    <p class="is-size-3 type">{{ flat }}</p>
+                    <p class="is-size-3 price">{{ flat.price|floatformat:0 }} руб</p>
+                </div>
+                <div class="cell p-5.5">
+                    <p class="has-text-grey">Площадь</p>
+                    <p>{{ flat.square|intcomma }} м<sup>2</sup></p>
+                </div>
+                <div class="cell p-5.5">
+                    <p class="has-text-grey">Отделка</p>
+                    <p>{{ flat.decoration }}</p>
+                </div>
+                <div class="cell p-5.5">
+                    <p class="has-text-grey">Этаж</p>
+                    <p>{{ flat.floor|default:"-" }}</p>
+                </div>
+                <div class="cell is-col-span-4-tablet pb-5.5 px-5.5">
+                    <a href="{% url 'main:flat-page' flat_id=flat.pk %}" class="button is-warning is-medium is-rounded is-fullwidth">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

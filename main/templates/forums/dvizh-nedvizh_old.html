@@ -1,0 +1,377 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Движ по недвижке</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/mini-logo.png' %}">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&amp;lang=ru">
+    <link href="{% static 'libs/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'libs/fontawesome/css/all.min.css' %}" rel="stylesheet">
+    <style>
+        header {
+            background-image: url("{% static 'images/forums/dvizh-nedvizh/bg.jpg' %}");
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        header p.text-white { font-size: 30pt !important; }
+        header h1 { font-size: 48pt; }
+        header p { font-size: 18pt; }
+        #where .col-3 {
+            background-image: url("{% static 'images/forums/dvizh-nedvizh/forum.jpg' %}");
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #speakers .avatar div, #offers .icon div {
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+        ul { --icon-size: .8em; --gutter: .5em; padding: 0 0 0 var(--icon-size); }
+        ul li { padding-left: var(--gutter); }
+        li::marker { content: var(--icon); /* FontAwesome Unicode */ font-family: FontAwesome; }
+        #partners .card-body { background-size: cover; }
+    </style>
+</head>
+<body>
+    <header class="py-5">
+        <div class="container-fluid">
+            <div class="row mt-3 mb-5 justify-content-end">
+                <div class="col-12 col-lg-3 bg-white">
+                    <img src="{% static 'images/logos/logo-horizontal.png' %}" alt="Логотип" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="fs-2 text-white fw-bolder">форум</p>
+                    <h1 class="text-uppercase text-white fw-bolder mb-5">&laquo;Движ по недвижке&raquo;</h1>
+                    <p class="bg-white fs-2 d-inline-block px-3 fw-bolder">главное событие на рынке новостроек</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <a href="#register" class="btn btn-danger btn-lg d-inline-block">Зарегистрироваться<br>на форум</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="where" class="my-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col ps-lg-5">
+                    <ul class="fs-2 my-5 ms-lg-5">
+                        <li class="mb-3 mb-lg-4" style="--icon: '\f073';"><span class="fw-bolder">Дата:</span> 28 марта 2024г.</li>
+                        <li class="mb-3 mb-lg-4" style="--icon: '\f017';"><span class="fw-bolder">Время:</span> 13:00 - 18:00</li>
+                        <li class="mb-3 mb-lg-4" style="--icon: '\f3c5';"><span class="fw-bolder">Место проведения:</span><br><span class="fs-3">Площадка 1900,</span><br><span class="fs-4">ул. Кольцовская д.24ж</span></li>
+                        <li style="--icon: '\e533';"><span class="fw-bolder">Количество участников:</span><br>120 человек</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="speakers" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-uppercase fw-bolder text-center mb-5">Спикеры форума</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-4 text-center">
+                    <div class="avatar ratio ratio-1x1 w-50 mx-auto mb-4">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/gonchar.jpg' %}'); background-position: 0 20%;"></div>
+                    </div>
+                    <p class="fw-bolder fs-4">Арина Гончар</p>
+                    <p class="mb-3 fs-5">Клинический психолог, блогер, автор программы по тренировке мозга «Нейрохакинг»</p>
+                    <p class="fs-5">&laquo;Как &laquo;новые мозги&raquo; влияют на новую жизнь&raquo;</p>
+                </div>
+                <div class="col-12 col-lg-4 text-center">
+                    <div class="avatar ratio ratio-1x1 w-50 mx-auto mb-4">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/korotova.jpg' %}'); background-size: 222%; background-position: 49% 30%;"></div>
+                    </div>
+                    <p class="fw-bolder fs-4">Марина Коротова</p>
+                    <p class="mb-3 fs-5">собственник<br>агентства недвижимости</p>
+                    <p class="fs-5">&laquo;Недвижимость. Цена или Ценность&raquo;</p>
+                </div>
+                <div class="col-12 col-lg-4 text-center">
+                    <div class="avatar ratio ratio-1x1 w-50 mx-auto mb-4">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/afanaseva.jpg' %}'); background-position: 70% 28%;"></div>
+                    </div>
+                    <p class="fw-bolder fs-4">Екатерина Афанасьева</p>
+                    <p class="mb-3 fs-5">дизайнер</p>
+                    <p class="fs-5">&laquo;Как не развестись во время ремонта&raquo;</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="program" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-uppercase fw-bolder text-center mb-5">Программа форума</h2>
+                    <p class="fs-5"><span class="fw-bolder">13:00 - 13:30</span> - сбор гостей. Консультации по недвижимости (новостройки Воронежа, Москвы, Турции, Северного Кипра) и ипотеке.</p>
+                    <p class="fs-5"><span class="fw-bolder">13:30 - 14:00</span> - Открытие Форума</p>
+                    <p class="fs-5"><span class="fw-bolder">14:00 - 14:40</span> - Выступление спикеров (начало)</p>
+                    <p class="fs-5"><span class="fw-bolder">14:40 - 15:40</span> - Трансформационная бизнес-игра</p>
+                    <p class="fs-5"><span class="fw-bolder">15:40 - 16:00</span> - Выступление спикеров (продолжение)</p>
+                    <p class="fs-5"><span class="fw-bolder">16:20 - 16:50</span> - Кофе-брейк и нетворкинг</p>
+                    <p class="fs-5"><span class="fw-bolder">16:50 - 17:20</span> - Консультации по недвижимости и ипотеке</p>
+                    <p class="fs-5"><span class="fw-bolder">17:20 - 18:00</span> - Розыгрыш подарков от спонсоров. Завершение форума</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="offers" class="my-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-uppercase fw-bolder mb-5">А также мегавыгодные предложения от застройщиков и банков:</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg">
+                    <div class="icon ratio ratio-1x1 w-50 mx-auto">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/sale.jpg' %}');"></div>
+                    </div>
+                    <p class="text-uppercase fw-bolder fs-5">Спеццены на ряд квартир</p>
+                </div>
+                <div class="col-12 col-lg">
+                    <div class="icon ratio ratio-1x1 w-50 mx-auto">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/discount.jpg' %}');"></div>
+                    </div>
+                    <p class="text-uppercase fw-bolder fs-5">Скидки при покупке квартиры до 750 тыс. руб.</p>
+                </div>
+                <div class="col-12 col-lg">
+                    <div class="icon ratio ratio-1x1 w-50 mx-auto">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/gift.jpg' %}');"></div>
+                    </div>
+                    <p class="text-uppercase fw-bolder fs-5">Подарки при покупке квартиры</p>
+                </div>
+                <div class="col-12 col-lg">
+                    <div class="icon ratio ratio-1x1 w-50 mx-auto">
+                        <div style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/mortgage.jpg' %}');"></div>
+                    </div>
+                    <p class="text-uppercase fw-bolder fs-5">Выгодные ипотечные предложения</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="register" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="fs-1 text-uppercase text-center">Регистрация окончена</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# <section id="register" class="my-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <h2 class="text-uppercase fw-bolder text-center mb-5">Регистрация</h2>
+                    <form action="{% url 'main:send-forum-form' %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="forum-name" value="Движ по недвижке">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fs-5">ФИО</label>
+                            <input type="text" class="form-control form-control-lg" name="name" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fs-5">Почта</label>
+                            <input type="email" class="form-control form-control-lg" name="email" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fs-5">Телефон</label>
+                            <input type="text" name="phone" class="form-control form-control-lg phone-mask" id="phone" placeholder="+7 (999) 999-99-99" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="check" required>
+                            <label class="form-check-label fs-5" for="check">Я ознакомлен с <a href="{% url 'main:policy-page' %}">политикой конфиденциальности</a> и <a href="{% url 'main:privacy-page' %}">соглашением на обработку персональных данных</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-lg mx-auto">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> #}
+    <section id="partners" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-uppercase fw-bolder text-center mb-5">Наши партнеры</h2>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-5 g-4 justify-content-center">
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://artlab-shkola.ru/vrn/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/1.jpg' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://voronezh.pinskdrev.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/2.jpeg' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://difene.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/3.jpeg' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://arkaim-vrn.ru/" rel="nofollow" target="_blank" class="card-body rounded-5 bg-warning" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/4.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://vk.com/arh.sreda" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/5.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <div class="card-body rounded-5 bg-danger-subtle" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/6.png' %}')"></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://vk.com/galina_saliy" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/7.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://nebolnica.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/8.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://hotel-taiga.com/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/9.jpg' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://gemma-coffee.ru" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/10.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://brusketta.pro/voronezh" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/11.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://peskartut.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/12.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://vrn.decorcity.pro" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/13.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://cvetov.ru/vrn/bukety/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/14.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://armyanskiy-shashlik.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/15.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://stolplus.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/16.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://taplink.cc/psv" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/17.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="http://pulseparty.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/18.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <div class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/19.png' %}')"></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://www.union-mebel.ru" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/20.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://vinlam.ru/" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/21.png' %}')"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 shadow ratio ratio-1x1 rounded-5">
+                        <a href="https://www.gsrniturdeti.ru" rel="nofollow" target="_blank" class="card-body rounded-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/22.png' %}')"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row align-items-center my-5">
+                <div class="col">
+                    <img src="{% static 'images/logos/logo-horizontal.png' %}" alt="Логотип" class="img-fluid d-block w-75 mx-auto">
+                </div>
+                <div class="col text-end">
+                    <a href="tel:+74732023233" class="fs-1 fw-bolder text-body">+7 (473) 202-32-33</a>
+                    <p class="fs-1 fw-bolder">г. Воронеж, ул. Беговая, 63</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-warning py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-3">
+                        <a class="card border-0 w-75 mx-auto" href="https://t.me/novstroy36">
+                            <div class="card-body">
+                                <img src="{% static 'images/forums/dvizh-nedvizh/footer/qr-tg.jpg' %}" alt="QR Telegram" class="img-fluid">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/footer/house.png' %}" alt="QR Telegram" class="img-fluid d-block mx-auto">
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <a class="card border-0 w-75 mx-auto" href="https://vk.com/novstroy36">
+                            <div class="card-body">
+                                <img src="{% static 'images/forums/dvizh-nedvizh/footer/qr-vk.jpg' %}" alt="QR VK" class="img-fluid">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/phone.mask.js' %}"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(68282848, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/68282848" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- VK counter -->
+    <script type="text/javascript">
+        !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1850141-bBUCr"),VK.Retargeting.Hit()},document.head.appendChild(t)}();
+    </script>
+    <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1850141-bBUCr" style="position:fixed; left:-999px;" alt=""/></noscript>
+</body>
+</html>

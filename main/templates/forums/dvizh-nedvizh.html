@@ -1,0 +1,574 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Движ по недвижке</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/mini-logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="{% static 'libs/bulma/css/bulma.min.css' %}" rel="stylesheet">
+    <link href="{% static 'libs/fontawesome/css/all.min.css' %}" rel="stylesheet">
+    <style>
+        @font-face {
+
+        }
+        .original-background {
+            background-color: #bc602d!important;
+            color: white;
+        }
+        .hero {
+            background-image: url("{% static 'images/forums/dvizh-nedvizh/bg_24042025.jpg' %}");
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .hero p.has-text-white-bis { font-size: 35pt !important; font-family: "Montserrat", sans-serif!important }
+        .hero h1 { font-size: 35pt; text-align: end; font-style: italic;}
+        .hero p { font-size: 18pt; }
+        #where .is-one-quarter-tablet {
+            background-image: url("{% static 'images/forums/dvizh-nedvizh/event_13022025.jpg' %}");
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #speakers .avatar, #offers .image {
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+        #where ul { --icon-size: .8em; --gutter: .5em; padding: 0 0 0 var(--icon-size); }
+        #where ul li, #speakers ul li { padding-left: var(--gutter); }
+        #where li::marker { content: var(--icon); /* FontAwesome Unicode */ font-family: FontAwesome; }
+        #general-partner .box, #official-partner .box, #partners .box, #info-partners .box, #speakers .avatar { background-size: cover; }
+        .carousel-item:not(.active) { display: none; }
+        footer .box { max-width: 50%; margin: 0 auto; }
+        @media screen and (max-width: 420px){
+            .adaprive-h2 {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<section class="hero is-info">
+    <div class="container is-fluid">
+        <div class="columns is-justify-content-end">
+            <div class="column is-one-fifth-tablet has-background-white-bis">
+                <img src="{% static 'images/logos/logo_1983_obrez.jpg' %}" alt="Логотип" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <p class="has-text-white-bis has-text-weight-semibold" style="margin-top: 5rem; width: fit-content; background-color: #00000066">Форум &laquo;ДВИЖ по НЕДВИЖКЕ&raquo;</p>
+            <h1 class="is-uppercase has-text-white-bis has-text-weight-semibold mb-5" style="line-height: 1rem">&laquo;ДУМАЙ И БОГАТЕЙ&raquo;</h1>
+            <div class="is-display-inline-block has-text-weight-semibold p-4 content is-size-5 mb-0" style="color: white; width: 100%;">
+                <!-- <p style="text-align: end;">Для тех, кто ищет не просто дом, а место для сердца</p> -->
+                <!-- <ul style="list-style: outside '&#10004';">
+                    <li>изменить свое денежное мышление</li>
+                    <li>развить сильный личный бренд</li>
+                    <li>вырасти в доходе в х10 раз</li>
+                </ul> -->
+            </div>
+            <div class="columns justify-content-center mt-6">
+                <div class="column has-text-centered p-0">
+                    <a href="#register" class="button is-danger is-large is-display-inline-block is-rounded original-background">Зарегистрироваться<br>на форум</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="where" class="section">
+    <div class="container">
+        <div class="columns is-gap-6">
+            <div class="column is-one-quarter-tablet"></div>
+            <div class="column">
+                <ul class="is-size-4 my-6">
+                    <li class="mb-3" style="--icon: '\f073';"><span class="has-text-weight-semibold">Дата:</span> 29 мая 2025г.</li>
+                    <li class="mb-3" style="--icon: '\f017';"><span class="has-text-weight-semibold">Время:</span> 13:00 - 18:00</li>
+                    <li class="mb-3" style="--icon: '\f3c5';"><span class="has-text-weight-semibold">Место проведения:</span><br><span class="fs-3">Площадка 1900,</span><br><span class="is-size-4">ул. Кольцовская д.24ж</span></li>
+                    <li style="--icon: '\e533';"><span class="has-text-weight-semibold">Количество участников:</span><br>120 человек</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="speakers" class="section">
+    <div class="container">
+        <h2 class="is-uppercase has-text-weight-semibold has-text-centered is-size-2 mb-6">Спикеры форума</h2>
+        <div class="columns">
+            
+            <div class="column is-display-flex is-flex-direction-column content">
+                <figure class="avatar image is-1by1 mx-auto mb-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/speakers/korotova13022025.jpg' %}'); background-size: contain;"></figure>
+                <p class="has-text-weight-semibold has-text-centered is-size-4 mb-5">Марина Коротова</p>
+                <ul class="mb-3">
+                    <li>Собственник АН «1983»</li>
+                    <li>Практикующий Топ-менеджер с 2010 года</li>
+                    <li>Сертифицированный бизнес-коуч, бизнес-тренер по международным стандартам ICU</li>
+                    <li>Основатель кадрового агентства и корпоративного университета для малого и среднего бизнеса «Level UP»</li>
+                    <li>Эксперт по развитию потенциала бизнеса и личности</li>
+                    <li>Победитель в номинации «Человек мира. Профессионал, эксперт, наставник, международное признание в области уникальных авторских программ с доказанной эффективностью» в церемонии вручения премии BEAUTYVISION Award by The ICONIC в Дубае в 2024 году</li>
+                </ul>
+                <p class="is-size-5 has-text-weight-semibold has-text-centered mt-auto mb-5">Тема: &laquo;Бизнес, который можно оставить детям. Антихрупкость&raquo;</p>
+            </div>
+            <div class="column is-display-flex is-flex-direction-column content">
+                <figure class="avatar image is-1by1 mx-auto mb-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/speakers/golikova_24042025.jpg' %}'); background-position: center; "></figure>
+                <p class="has-text-weight-semibold has-text-centered is-size-4 mb-5">Валерия Голикова</p>
+                <ul class="mb-3">
+                    <li>Федеральный финансовый эксперт </li>
+					<li>Квалифицированный инвестор</li>
+					<li>Владелица онлайн школы и бренда «Роман с финансами»</li>
+                    <li>Инвестор в реальный бизнес (производство,ферма)</li>
+                    <li>Член ОПОРы России</li>
+                    <!--<li>Руководитель воронежского филиала школы ABADA-Capoeira</li>
+                    <li>Практикующий кроссфит-атлет</li>
+                    <li>Наставник Молодежного Бизнеса России</li>-->
+                </ul>
+                <p class="is-size-5 has-text-weight-semibold has-text-centered mt-auto mb-5">ТЕМА: &laquo;Профит во время шторма. Инструкция по выживанию в токсичной экономике&raquo;</p>
+            </div>
+            <div class="column is-display-flex is-flex-direction-column content">
+                <figure class="avatar image is-1by1 mx-auto mb-5" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/speakers/tolokonnikov_24042025.jpg' %}'); background-position: center; "></figure>
+                <p class="has-text-weight-semibold has-text-centered is-size-4 mb-5">Эдуард Толоконников</p>
+                <ul class="mb-3">
+                    <li>Предприниматель</li>
+                    <li>Концессионер общественных пространств</li>
+                </ul>
+                <p class="is-size-5 has-text-weight-semibold has-text-centered mt-auto">Тема: &laquo;Социальная архитектура&raquo;</p>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+<section id="program" class="section">
+    <div class="container content">
+        <h2 class="is-uppercase has-text-weight-semibold has-text-centered is-size-2 mb-6">Программа форума</h2>
+        <p class="is-size-5"><span class="has-text-weight-semibold">13:00 - 13:30</span> - Сбор и регистрация гостей, фотосессия на фотозонах</p>
+        <p class="is-size-5"><span class="has-text-weight-semibold">13:30 - 14:00</span> - Праздничное открытие Форума</p>
+        <p class="is-size-5"><span class="has-text-weight-semibold">14:00 - 15:30</span> - Выступление спикеров</p>
+        <p class="is-size-5"><span class="has-text-weight-semibold">15:30 - 16:00</span> - Кофе-брейк</p>
+        <p class="is-size-5"><span class="has-text-weight-semibold">16:00 - 17:00</span> - Выступление спикеров</p>
+        <p class="is-size-5"><span class="has-text-weight-semibold">17:00 - 17:30</span> - Розыгрыш призов от Партнеров форума</p>
+        <p class="is-size-5"><span class="has-text-weight-semibold">17:30 - 18:00</span> - Торжественное закрытие форума</p>
+        <p class="is-size-5">В течение всего форума:</p>
+        <ul class="is-size-5">
+            <li>Консультации по недвижимости: новостройки (Воронеж, Москва, Калининград, Турция, Северный Кипр), вторичка, ИЖС;</li>
+            <li>Нетворкинг.</li>
+        </ul>
+    </div>
+</section>
+<!-- <section id="offers" class="section">
+    <div class="container has-text-centered">
+        <h2 class="is-uppercase has-text-weight-semibold is-size-2 mb-6 adaprive-h2">Также Вас ждет презентация нового эксклюзивного объекта, специальные условия при бронировании для участников форума:</h2>
+        <div class="columns">
+            <div class="column">
+                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/sale.jpg' %}');"></figure>
+                <p class="is-uppercase has-text-weight-semibold is-size-5">Спеццены на ряд квартир</p>
+            </div>
+            <div class="column">
+                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/gift.jpg' %}');"></figure>
+                <p class="is-uppercase has-text-weight-semibold is-size-5">Подарки при покупке квартиры</p>
+            </div>
+            <div class="column">
+                <figure class="image is-1by1 mx-auto mb-4" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/icons/mortgage.jpg' %}');"></figure>
+                <p class="is-uppercase has-text-weight-semibold is-size-5">Выгодные ипотечные предложения</p>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section id="register" class="section">
+    <div class="container">
+        <!-- <p class="is-size-1 is-uppercase has-text-centered has-text-danger is-display-none">Регистрация окончена</p> -->
+        <div class="columns is-justify-content-center">
+            <div class="column is-half-tablet">
+                <h2 class="is-size-2 is-uppercase has-text-weight-semibold has-text-centered mb-6">Регистрация</h2>
+                <form action="{% url 'main:send-event-form' %}" method="post">{% csrf_token %}
+                    <input type="hidden" name="forum-name" value="Движ по недвижке">
+                    <input type="hidden" name="type" value="client">
+                    <div class="field">
+                        <label class="label is-large" for="name">ФИО</label>
+                        <div class="control">
+                            <input type="text" class="input is-medium" name="name" id="name" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label is-large" for="activity">Сфера деятельности</label>
+                        <div class="control">
+                            <input type="text" class="input is-medium" name="activity" id="activity" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label is-large" for="phone">Телефон</label>
+                        <div class="control">
+                            <input type="text" name="phone" class="input is-medium phone-mask" id="phone" placeholder="+7 (999) 999-99-99" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <label class="checkbox is-large">
+                                <input type="checkbox" id="check" required>
+                                Я ознакомлен с <a href="{% url 'main:policy-page' %}">политикой конфиденциальности</a> и <a href="{% url 'main:privacy-page' %}">соглашением на обработку персональных данных</a>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- <div class="field is-grouped is-justify-content-center">
+                        <div class="control">
+                            <button type="submit" class="button is-danger is-medium">Зарегистрироваться</button>
+                        </div>
+                        <div class="control">
+                            <button type="submit" onclick="document.querySelector(`input[name='type']`).value = 'partner'; return true;" class="button is-link is-light is-medium">Стать партнером</button>
+                        </div>
+                    </div> -->
+                    <div class="grid">
+                        <div class="cell is-col-span-2" style="text-align: end;">
+                            <button type="submit" class="button is-danger is-medium original-background">Зарегистрироваться</button>
+                        </div>
+                        <div class="cell is-col-span-2">
+                            <button type="submit" onclick="document.querySelector(`input[name='type']`).value = 'partner'; return true;" class="button is-link is-light is-medium">Стать партнером</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="video" class="section">
+    <div class="container">
+        <div class="card">
+            <header class="card-header is-shadowless">
+                <h2 class="is-uppercase has-text-weight-semibold card-header-title">Третий форум &laquo;Движ по недвижке&raquo; 5 сентября</h2>
+            </header>
+            <div class="card-image is-overflow-hidden">
+                <iframe src="https://vk.com/video_ext.php?oid=-221435203&id=456239334&hd=3" class="image is-16by9 is-fullwidth" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="official-partner" class="section">
+    <div class="container">
+        <h2 class="is-size-2 is-uppercase has-text-weight-semibold has-text-centered mb-6">Генеральные партнеры</h2>
+        <div class="fixed-grid has-2-cols">
+            <div class="grid is-gap-6">
+                <div class="cell">
+                    <h3 class="is-size-3 is-uppercase has-text-weight-normal has-text-centered mb-3">В категории «ИЖC»</h3>
+                    <a href="https://vk.com/otlichnyidom" rel="nofollow" target="_blank" class="box image is-2by1" style="margin: 0 auto; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/84.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <h3 class="is-size-3 is-uppercase has-text-weight-normal has-text-centered mb-3">В категории «Новостройка»</h3>
+                    <a href="https://vsk36.ru/" rel="nofollow" target="_blank" class="box image is-2by1" style="margin: 0 auto; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/94.jpg' %}')"></a>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+    </div>
+</section>
+
+<section id="partners" class="section">
+    <div class="container">
+        <h2 class="is-size-2 is-uppercase has-text-weight-semibold has-text-centered mb-6">Наши партнеры</h2>
+        <div class="fixed-grid has-5-cols-tablet is-justify-content-center">
+            <div class="grid is-gap-6">
+
+                <div class="cell">
+                    <a href="https://cleanupvrn.ru" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/85.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/petrenkott_youtube" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/86.png' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/chudesnayaovastu" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/chudesnayaovastu.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/kuhni_cucina_vrn" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/kuhni_cucina_vrn.png' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/yani_flowers" rel="nofollow" target="_blank" class="box image is-1by1" style="background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/yani_flowers.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://nebolnica.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/nebolnica.png' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://nartova-design.ru" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/87.jfif' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://family-mattress.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/88.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/tea_gorizont" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/89.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/novaya_koleya36" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/91.jfif' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://chillesta.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/92.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/syr_merkulovih" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/93.jfif' %}')"></a>
+                </div>
+                <!--<div class="cell">
+                    <a href="https://barokko36.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/60.png' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://don-teplo.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: cover; background-repeat: no-repeat; background-position: -70px; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/64.jfif' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/club212366964" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: cover; background-repeat: no-repeat; background-position: 0 -53px; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/68.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/club226638338" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/69.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://home-style36.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/50.jfif' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/steelline_vrn" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/70.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vip-potolki-vrn.ru/?ysclid=m7dkig3ihs556412551" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/72.jpg' %}')"></a>
+                </div>
+
+                <div class="cell">
+                    <a href="https://mebel-tefs-vrn.ru" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/73.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/croissant_co" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/74.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/catering_sv" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/75.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/gametrt_vrn" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/76.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://peskartut.ru" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/80.jpg' %}'); background-size: contain;"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://www.enzahomerussia.ru/ru-RU" rel="nofollow" target="_blank" class="box image is-1by1" style="background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/79.jfif' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://vk.com/novaya_koleya36" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/81.jpg' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://rusanainterior.ru/" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/82.jfif' %}')"></a>
+                </div>
+                <div class="cell">
+                    <a href="https://t.me/reach_and_health" rel="nofollow" target="_blank" class="box image is-1by1" style="background-repeat: no-repeat; background-position: center; background-image: url('{% static 'images/forums/dvizh-nedvizh/partners/83.jfif' %}')"></a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+<section id="photos" class="container">
+    <div class="container">
+        <div class="card carousel">
+            <div class="card-header is-shadowless">
+                <span class="card-header-icon">
+                    <button class="button is-rounded prev mr-3" type="button">
+                        <span class="icon"><i class="fa-solid fa-chevron-left"></i></span>
+                    </button>
+                    <button class="button is-rounded next" type="button">
+                        <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+                    </button>
+                </span>
+            </div>
+            <div class="card-content">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/1.jpg' %}" class="d-block w-100" alt="Фото 1" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/2.jpg' %}" class="d-block w-100" alt="Фото 2" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/3.jpg' %}" class="d-block w-100" alt="Фото 3" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/4.jpg' %}" class="d-block w-100" alt="Фото 4" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/5.jpg' %}" class="d-block w-100" alt="Фото 5" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/6.jpg' %}" class="d-block w-100" alt="Фото 6" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/7.jpg' %}" class="d-block w-100" alt="Фото 7" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/8.jpg' %}" class="d-block w-100" alt="Фото 8" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/9.jpg' %}" class="d-block w-100" alt="Фото 9" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/10.jpg' %}" class="d-block w-100" alt="Фото 10" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/11.jpg' %}" class="d-block w-100" alt="Фото 11" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/12.jpg' %}" class="d-block w-100" alt="Фото 12" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/13.jpg' %}" class="d-block w-100" alt="Фото 13" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/14.jpg' %}" class="d-block w-100" alt="Фото 14" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/15.jpg' %}" class="d-block w-100" alt="Фото 15" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/16.jpg' %}" class="d-block w-100" alt="Фото 16" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/17.jpg' %}" class="d-block w-100" alt="Фото 17" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/18.jpg' %}" class="d-block w-100" alt="Фото 18" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/19.jpg' %}" class="d-block w-100" alt="Фото 19" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/20.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/21.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/22.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <!-- <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/23.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/24.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div> -->
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/25.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/26.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/27.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/28.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/photos/29.jpg' %}" class="d-block w-100" alt="Фото 20" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="reviews" class="section">
+    <div class="container">
+        <h2 class="is-uppercase has-text-weight-semibold has-text-centered is-size-2 mb-6">Отзывы</h2>
+        <div class="columns">
+            <div class="column">
+                <iframe class="image is-9by16 is-fullwidth" src="https://vk.com/video_ext.php?oid=-221435203&id=456239372&hd=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="column">
+                <iframe class="image is-9by16 is-fullwidth" src="https://vk.com/video_ext.php?oid=-221435203&id=456239373&hd=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="column">
+                <iframe class="image is-9by16 is-fullwidth" src="https://vk.com/video_ext.php?oid=-221435203&id=456239258&hd=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="column">
+                <iframe class="image is-9by16 is-fullwidth" src="https://vk.com/video_ext.php?oid=-221435203&id=456239259&hd=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="column">
+                <iframe class="image is-9by16 is-fullwidth" src="https://vk.com/video_ext.php?oid=-221435203&id=456239336&hd=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="column">
+                <iframe class="image is-9by16 is-fullwidth" src="https://vk.com/video_ext.php?oid=-221435203&id=456239337&hd=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="columns is-align-items-center my-6">
+            <div class="column">
+                <img src="{% static 'images/logos/logo_1983.jpg' %}" alt="Логотип">
+            </div>
+            <div class="column has-text-right">
+                <a href="tel:+74732023233" class="is-size-1 has-text-weight-semibold is-color-text">+7 (473) 202-32-33</a>
+                <p class="is-size-1 has-text-weight-semibold">г. Воронеж, ул. Беговая, 63</p>
+            </div>
+        </div>
+    </div>
+    <div class="has-background-warning py-6 original-background">
+        <div class="container">
+            <div class="columns is-align-items-center is-justify-content-center">
+                <div class="column is-one-quarter-tablet">
+                    <a class="box" href="https://t.me/novstroy36">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/footer/qr-tg.jpg' %}" alt="QR Telegram" class="img-fluid">
+                    </a>
+                </div>
+                <div class="column has-text-centered">
+                    <img src="{% static 'images/forums/dvizh-nedvizh/footer/house.png' %}" alt="QR Telegram" class="img-fluid d-block mx-auto">
+                </div>
+                <div class="column is-one-quarter-tablet">
+                    <a class="box" href="https://vk.com/novstroy36">
+                        <img src="{% static 'images/forums/dvizh-nedvizh/footer/qr-vk.jpg' %}" alt="QR VK" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'libs/jquery/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'libs/jquery.mask/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/phone.mask.js' %}"></script>
+<script>
+    $(function () {
+        // управление слайдером
+        $(".carousel .next").click(function() {
+            let carousel = $(this).closest('.carousel'), activeSlide = carousel.find('.carousel-item.active');
+            if (carousel.find('.carousel-item').length > 1) {
+                activeSlide.toggleClass('active');
+                if (activeSlide.next().length > 0) activeSlide.next().toggleClass('active');
+                else activeSlide.siblings('.carousel-item').first().toggleClass('active');
+            }
+        });
+        $(".carousel .prev").click(function() {
+            let carousel = $(this).closest('.carousel'), activeSlide = carousel.find('.carousel-item.active');
+            if (carousel.find('.carousel-item').length > 1) {
+                activeSlide.toggleClass('active');
+                if (activeSlide.prev().length > 0) activeSlide.prev().toggleClass('active');
+                else activeSlide.siblings('.carousel-item').first().toggleClass('active');
+            }
+        });
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(68282848, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/68282848" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- VK counter -->
+<script type="text/javascript">
+    !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1850141-bBUCr"),VK.Retargeting.Hit()},document.head.appendChild(t)}();
+</script>
+<noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1850141-bBUCr" style="position:fixed; left:-999px;" alt=""/></noscript>
+</body>
+</html>

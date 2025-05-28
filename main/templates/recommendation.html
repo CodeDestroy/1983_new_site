@@ -1,0 +1,140 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-recommendation is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">Зарабатывайте вместе с нами!</h1>
+    <p class="is-size-4">До 75 000 руб. за каждую проданную по Вашей рекомендации квартиру!</p>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Вы купили недвижимость в нашем агентстве? Ваши друзья или знакомые планируют покупку и/или продажу недвижимости?</p>
+        </div>
+        <p class="card-content">Рекомендуйте Агентство Недвижимости «Новостройки Воронеж» и зарабатывайте деньги за Ваши рекомендации!</p>
+    </div>
+</section>
+<section class="section">
+    <div class="fixed-grid has-3-cols has-1-cols-mobile">
+        <div class="grid is-gap-0 is-align-items-center">
+            <div class="cell is-row-span-3-tablet is-flex is-align-items-center">
+                <h3 class="has-text-weight-semibold is-size-3 has-text-weight-semibold">Как это работает?</h3>
+            </div>
+            <div class="cell p-3">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">01.</div>
+                    <div class="column">Порекомендуйте нас знакомому и предупредите о том, что мы будем звонить</div>
+                </div>
+            </div>
+            <div class="cell p-3">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">02.</div>
+                    <div class="column">Оставьте номер телефона Вашего друга на нашем сайте или позвоните нам по телефону <a href="tel:74732023233">+7 (473) 202-32-33</a></div>
+                </div>
+            </div>
+            <div class="cell p-3">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">03.</div>
+                    <div class="column">Подождите пока Ваш друг подпишет договор долевого участия или договор купли-продажи</div>
+                </div>
+            </div>
+            <div class="cell p-3">
+                <div class="columns is-align-items-center">
+                    <div class="column is-narrow is-size-2 nv-text-color">04.</div>
+                    <div class="column">С Вами свяжется менеджер, расскажет, когда и где забрать Ваше вознаграждение</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Сколько можно заработать на продаже недвижимости по Вашей рекомендации?</p>
+        </div>
+        <div class="card-content content pt-0">
+            <ul>
+                <li>Мы Платим Вам 10% от нашей комиссии.</li>
+                <li>Разные застройщики платят разную комиссию агентствам недвижимости за продажу квартир. Как правило, от 1% до 5%.</li>
+                <li>Пример расчета. Если приведенный Вами клиент купит квартиру, за 6,5. млн. руб,  Вы можете заработать от 6 500 руб. (если комиссия на объект 1%) до 32 500 руб. (если комиссия – 5%).</li>
+                <li>Важно! Ваши клиенты покупают квартиры в новостройке без наценок и переплат, по цене застройщика. Наша компания не берет с клиентов деньги за услугу подбора квартиры в новостройке.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card">
+        <p class="card-content has-text-centered has-text-weight-semibold is-size-3">Следите за самыми горячими новостями рынка недвижимости вместе с нами!</p>
+        <div class="card-footer">
+            <a href="https://t.me/novstroy36" class="card-footer-item has-text-info">
+                <span class="icon is-large"><i class="fa-2x fa-brands fa-telegram"></i></span>
+            </a>
+            <a href="https://vk.com/novstroy36" class="card-footer-item">
+                <span class="icon is-large"><i class="fa-2x fa-brands fa-vk"></i></span>
+            </a>
+        </div>
+    </div>
+</section>
+<section class="section" id="consultation">
+    <form method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;" class="card has-text-light">{% csrf_token %}
+        <input type="hidden" name="url" value="{{ url }}">
+        <div class="card-content">
+            <div class="columns">
+                <div class="column">
+                    <p class="has-text-weight-bold is-size-3 mb-6">Представьтесь, пожалуйста</p>
+                    <div class="field">
+                        <label class="label has-text-light is-medium">Ваше имя</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-medium" type="text" name="name" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label has-text-light is-medium">Номер телефона</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-medium phone-mask" type="text" name="phone" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <p class="has-text-weight-bold is-size-3 mb-6">Кого Вы хотите порекомендовать?</p>
+                    <div class="field">
+                        <label class="label has-text-light is-medium">Имя</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-medium" type="text" name="client_name" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label has-text-light is-medium">Номер телефона</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-medium phone-mask" type="text" name="client_phone" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-align-items-center">
+                <div class="column">
+                    <p class="mb-0">Нажимая кнопку вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+                </div>
+                <div class="column">
+                    <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

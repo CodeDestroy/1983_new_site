@@ -1,0 +1,335 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-moscow is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">Актуальный каталог жилой недвижимости премиум-класса Москвы, Московской области, Турции И Северного Кипра</h1>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="columns is-gap-5">
+        <div class="column">
+            <div class="box has-background-info-light is-fullheight">
+                <span class="icon is-large has-radius-rounded has-background-info-95 mb-4">
+                    <i class="fa-regular fa-xl fa-building"></i>
+                </span><br><span class="subtitle">ЖК с продуманной концепцией и авторской архитектурой</span>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box has-background-info-light is-fullheight">
+                <span class="icon is-large has-radius-rounded has-background-info-95 mb-4">
+                    <i class="fa-solid fa-xl fa-bed"></i>
+                </span><br><span class="subtitle">Квартиры по ценам застройщиков</span>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box has-background-info-light is-fullheight">
+                <span class="icon is-large has-radius-rounded has-background-info-95 mb-4">
+                    <i class="fa-solid fa-xl fa-location-dot"></i>
+                </span><br><span class="subtitle">Каталог недвижимости Воронежа, Москвы, Турции, Северного Кипра</span>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box has-background-info-light is-fullheight">
+                <span class="icon is-large has-radius-rounded has-background-info-95 mb-4">
+                    <i class="fa-solid fa-xl fa-hotel"></i>
+                </span><br><span class="subtitle">Большой выбор объектов: квартиры, дома, таунхаусы</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="questions" class="section">
+    <form class="card tab-panels" method="post" action="{% url 'main:feedback-page' %}">{% csrf_token %}
+        <input type="hidden" name="url" value="{{ url }}">
+        <div class="tab show">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №1. Какое жилье Вы ищете:</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="type" value="studio" /> Студию
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="type" value="1-flat" /> 1-комнатную квартиру</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="type" value="2-flat" /> 2-комнатную квартиру</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="type" value="3-flat" /> 3-комнатную квартиру</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="type" value="4-flat" /> Квартиру более 4 комнат</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="type" value="exclusive" /> Эксклюзивную планировку</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="type" value="home" /> Коттедж или таунхаус</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №2. Какой срок сдачи Вы рассматриваете:</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="year" value="Готовое жилье" /> Готовое жилье</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="year" value="2024" /> 2024</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="year" value="2025" /> 2025</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="year" value="2026 и позже" /> 2026 и позже</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №3. Укажите предполагаемый бюджет на покупку жилья:</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="До 10 млн. руб" /> До 10 млн. руб</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="10-20 млн. руб." /> 10-20 млн. руб.</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="20-30 млн. руб." /> 20-30 млн. руб.</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="30-50 млн. руб." /> 30-50 млн. руб.</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="budget" value="Свыше 50 млн. руб." /> Свыше 50 млн. руб.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №4. Что для вас наиболее важно при выборе квартиры:</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="opinion" value="Удобное расположение и инфраструктура" /> Удобное расположение и инфраструктура</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="opinion" value="Достойные соседи" /> Достойные соседи</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="opinion" value="Уникальная концепция объекта" /> Уникальная концепция объекта</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="opinion" value="Эксклюзивные планировочные решения" /> Эксклюзивные планировочные решения</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox"><input type="checkbox" name="opinion" value="Зеленые зоны рядом с домом" /> Зеленые зоны рядом с домом</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-content">
+                <div class="field">
+                    <label class="label is-size-4">Ваше имя</label>
+                    <div class="control">
+                        <input class="input is-medium" type="text" name="name" placeholder="Ваше имя">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label is-size-4">Оставьте номер телефона</label>
+                    <div class="control">
+                        <input class="input is-medium phone-mask" type="text" name="phone">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="submit" class="button is-success is-rounded">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<section id="advantages" class="section">
+    <h2 class="is-size-2 mb-6">Почему покупать квартиры лучше с нами?</h2>
+    <div class="fixed-grid has-3-cols-tablet">
+        <div class="grid is-gap-5">
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <div class="card-header-title">
+                            <span class="icon is-large has-radius-rounded has-background-info-95">
+                                <i class="fa-solid fa-user-check"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content content pt-3">
+                        <p class="has-text-weight-semibold">Работаем в интересах клиента</p>
+                        <p>Отстаиваем Вашу позицию. Даем объективную информацию о рынке</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <div class="card-header-title">
+                            <span class="icon is-large has-radius-rounded has-background-info-95">
+                                <i class="fa-solid fa-flask-vial"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content content pt-3">
+                        <p class="has-text-weight-semibold">Уверенная экспертиза и профессионализм</p>
+                        <p>Помогаем подобрать квартиру для жизни или инвестиций. Быстро проводим даже сложные сделки</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <div class="card-header-title">
+                            <span class="icon is-large has-radius-rounded has-background-info-95">
+                                <i class="fa-solid fa-sack-xmark"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content content pt-3">
+                        <p class="has-text-weight-semibold">Работа без комиссии</p>
+                        <p>Получаем вознаграждение от застройщика</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <div class="card-header-title">
+                            <span class="icon is-large has-radius-rounded has-background-info-95">
+                                <i class="fa-regular fa-building"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content content pt-3">
+                        <p class="has-text-weight-semibold">Широкий ассортимент</p>
+                        <p>От небольших студий до уникальных лотов в комплексах бизнес и премиум-класса столицы</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <div class="card-header-title">
+                            <span class="icon is-large has-radius-rounded has-background-info-95">
+                                <i class="fa-solid fa-life-ring"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content content pt-3">
+                        <p class="has-text-weight-semibold">Помощь в оформление ипотеки</p>
+                        <p>Мы найдем самую выгодную процентную ставку и поможем с одобрением кредита</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <div class="card-header-title">
+                            <span class="icon is-large has-radius-rounded has-background-info-95">
+                                <i class="fa-regular fa-handshake"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content content pt-3">
+                        <p class="has-text-weight-semibold">Полное сопровождение и брокерская тайна</p>
+                        <p>Наши специалисты помогут на всех этапах сделки от выбора квартиры до получения ключей. Сохранят в тайне все детали договора</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/tabs.js' %}"></script>{% endblock %}

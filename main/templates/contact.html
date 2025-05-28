@@ -1,0 +1,10 @@
+{% extends 'base_view.html' %}
+
+{% block hero_class %}is-medium{% endblock %}
+{% block hero_body %}<h1 class="title is-size-2 is-uppercase">{{ title }}</h1>{% endblock %}
+
+{% block container %}
+{% include 'blocks/consultation.html' with yandex_map_key=yandex_map_key %}
+{% include 'blocks/about.html' with yandex_map_key=yandex_map_key %}
+{% include 'blocks/new_flats.html' with flats=flats block_title='Вам понравится' %}
+{% endblock %}

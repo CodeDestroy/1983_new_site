@@ -1,0 +1,49 @@
+{% load static %}
+<section class=" pt-12"> 
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-5 lg:px-8">
+        <h1 class="mx-2 text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>{{ block_title|default:"Отвечаем на ваши вопросы" }}</span>
+        </h1>
+    </div>
+  
+    <div class="grid w-full max-w-7xl py-10 px-8  mx-auto">
+        <div class="space-y-2">
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" onclick="toggleAccordion('faq1')">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Сколько времени занимает продажа недвижимости?</span>
+                    <span id="faq1-icon" class="text-orange-500 text-2xl">+</span>
+                </div>
+                <div id="faq1" class="hidden mt-2 text-gray-300">
+                    Сроки продажи зависят от множества факторов: расположение, состояние объекта, рыночная конъюнктура и цена. В среднем, при грамотном подходе и профессиональной подготовке объекта к продаже, мы стремимся закрыть сделку в течение 3-6 недель.
+                </div>
+            </div>
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" onclick="toggleAccordion('faq2')">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Сколько времени занимает продажа недвижимости?</span>
+                    <span id="faq2-icon" class="text-orange-500 text-2xl">+</span>
+                </div>
+                <div id="faq2" class="hidden mt-2 text-gray-300">
+                    Сроки зависят от множества факторов, включая рыночные условия и состояние недвижимости.
+                </div>
+            </div>
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" onclick="toggleAccordion('faq3')">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Сколько времени занимает продажа недвижимости?</span>
+                    <span id="faq3-icon" class="text-orange-500 text-2xl">+</span>
+                </div>
+                <div id="faq3" class="hidden mt-2 text-gray-300">
+                    Продажа может занять от нескольких недель до нескольких месяцев в зависимости от региона и других факторов.
+                </div>
+            </div>
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" onclick="toggleAccordion('faq4')">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Сколько времени занимает продажа недвижимости?</span>
+                    <span id="faq4-icon" class="text-orange-500 text-2xl">+</span>
+                </div>
+                <div id="faq4" class="hidden mt-2 text-gray-300">
+                    В среднем продажа недвижимости занимает 3-6 недель при правильном подходе.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

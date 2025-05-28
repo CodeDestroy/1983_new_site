@@ -1,0 +1,201 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block head_scripts %}<script src="https://res.smartwidgets.ru/app.js" defer></script>{% endblock %}
+
+{% block hero_class %}hero-about is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">О компании</h1>
+    <p class="is-size-4">Помогаем купить жилье от 2 до 100 млн. руб. в Воронеже, а также в Москве, Сочи, Калининграде, Турции, ОАЭ и на Кипре.</p>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card is-background-info-light">
+        <div class="columns is-align-items-end">
+            <div class="column py-0">
+                <div class="card-content">
+                    <div class="content">
+                        <p class="title mb-3">Коротова Марина Валериевна</p>
+                        <p class="subtitle">Директор, СЕО АН «Новостройки Воронеж»</p>
+                        <ul>
+                            <li>Практикующий Топ-менеджер с 2010 года</li>
+                            <li>Сертифицированный бизнес-коуч, бизнес - тренер по международным стандартам ICU</li>
+                            <li>Основатель кадрового агентства и корпоративного университета для малого и среднего бизнеса Level UP</li>
+                            <li>Эксперт по развитию потенциала бизнеса и личности</li>
+                            <li>Международный спикер и победитель в номинации «Человек мира. Профессионал, эксперт, наставник, международное признание в области уникальных авторских программ с доказанной эффективностью» в церемонии вручения премии BEAUTYVISION Award by The Iconic в Дубае в 2024 году</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third-tablet pb-0">
+                <figure class="image">
+                    <img src="{% static 'images/about/korotova.png' %}" alt="Коротова Марина Валериевна">
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Компания «Новостройки Воронеж» - настоящий мультисервис недвижимости!</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <ul class="mt-0">
+                    <li>Неограниченный ассортимент квартир в новостройках (работаем со всеми застройщиками);</li>
+                    <li>Цена от Застройщика (без комиссий и переплат, можно проверить);</li>
+                    <li>Скидка 50% на подбор жилья на вторичном рынке;</li>
+                    <li>Ремонт и переезд - наша задача. Качественно и в согласованные сроки;</li>
+                    <li>Выберем лучшее место для жизни семьи или самый ликвидный объект для инвестиций.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div id="directions" class="box">
+        <div class="tabs is-toggle is-toggle-rounded is-fullwidth">
+            <ul>
+                <li class="is-active"><a data-columns=".new, .old, .suburban, .com, .repair, .design, .cleaning">Воронеж</a></li>
+                <li><a data-columns=".new">Москва</a></li>
+                <li><a data-columns=".new">Калининград</a></li>
+                <li><a data-columns=".new">Турция</a></li>
+                <li><a data-columns=".new">Северный Кипр</a></li>
+                <li><a data-columns=".new">ОАЭ</a></li>
+            </ul>
+        </div>
+        <div class="columns is-multiline is-justify-content-center">
+            <div class="new column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold">Новостройки</p>
+                    <div class="content">
+                        <ul>
+                            <li>Воронеж</li>
+                            <li>Москва</li>
+                            <li>Калининград</li>
+                            <li>Турция</li>
+                            <li>Северный Кипр</li>
+                            <li>ОАЭ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="old column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold">Вторичка</p>
+                    <div class="content">
+                        <ul>
+                            <li>Подбор</li>
+                            <li>Продажа</li>
+                            <li>Оформление документов</li>
+                            <li>Безопасная сделка</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="suburban column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold">Загородная</p>
+                    <div class="content">
+                        <ul>
+                            <li>Дома и коттеджи</li>
+                            <li>Дачи</li>
+                            <li>Земельные участки</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="com column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold">Коммерческая</p>
+                    <div class="content">
+                        <ul>
+                            <li>Торговые</li>
+                            <li>Офисные</li>
+                            <li>Производственные</li>
+                            <li>Гостиничные</li>
+                            <li>Ресторанные помещения</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="repair column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold mb-3">Ремонт</p>
+                    <p>Под ключ любого уровня сложности</p>
+                </div>
+            </div>
+            <div class="design column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold mb-3">Дизайн</p>
+                    <p>В любом стиле</p>
+                </div>
+            </div>
+            <div class="cleaning column is-one-quarter-tablet">
+                <div class="box is-shadowless is-radiusless is-fullheight">
+                    <p class="has-text-weight-semibold">Переезд и клининг</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/exclusive.html' with extended_class='mb-5' %}
+<section class="section">
+    <div class="card">
+        <div class="fixed-grid has-3-cols has-1-cols-mobile">
+            <div class="grid is-gap-0">
+                <div class="cell is-col-span-3-tablet pt-5.5 px-5.5">
+                    <p class="has-text-weight-bold is-size-3">Почему лучше покупать квартиру с нами?</p>
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">&gt;500 тыс м<sup>2</sup></p>
+                        <p>продано за 2022 год</p>
+                    </div>
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">&gt;14 000 семей</p>
+                        <p>приобрели свое жилье</p>
+                    </div>
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">&gt;210 тыс м<sup>2</sup></p>
+                        <p>коммерческой недвижимости продано за 2022 год</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+{% include 'blocks/about.html' %}
+{% include 'blocks/new_flats.html' with flats=flats block_title='Вам понравится' %}
+<section class="section">
+    <div class="sw-app" data-app="b17b4683bd9bad3469bc258965fde0d6"></div>
+</section>
+<section class="section has-text-centered">
+    <a href="https://yandex.ru/maps/193/voronezh/?ll=39.184269%2C51.697948&mode=poi&poi%5Bpoint%5D=39.184127%2C51.697789&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D28974348316&z=19.3" target="_blank" class="button is-warning is-rounded is-medium">Больше отзывов о нас на Яндекс.Картах</a>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        $('#directions .tabs a').click(function () {
+            $('#directions .tabs .is-active').removeClass('is-active');
+            $(this).closest('li').addClass('is-active');
+            let columns = $(this).data('columns');
+            columns = $('#directions').find(columns);
+            console.log(columns);
+            $('#directions .column').removeClass('is-one-quarter-tablet').addClass('is-display-none');
+            if (columns.length > 1) columns.addClass('is-one-quarter-tablet').removeClass('is-display-none');
+            else columns.removeClass('is-display-none');
+        });
+    });
+</script>
+{% endblock %}

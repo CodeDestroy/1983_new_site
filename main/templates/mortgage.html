@@ -1,0 +1,146 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-mortgage is-large{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+    <p class="is-size-4 mb-6">Бесплатно поможем подобрать ипотечную программу от 4,5%</p>
+    <a href="#calculator" class="button is-large is-rounded">Рассчитать ипотеку</a>
+{% endblock %}
+
+{% block container %}
+<!-- Верхний баннер ипотека -->
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Ипотека</h2>
+                <p class="mt-2 text-gray-300">Бесплатно поможем подобрать ипотечную программу от 4,5%</p>
+                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Подобрать ипотеку
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6"> 
+                <img src="{% static 'pic/mortgage.png'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Три простых шага 3 кнопки -->
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Три простых шага к недвижимости мечты</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="flex">
+                <svg width="45" height="48" viewBox="0 0 45 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.725 31.4627V8.96269V3.9377C38.725 2.7377 37.75 1.7627 36.55 1.7627H3.175C1.975 1.7627 1 2.7377 1 3.9377V8.96269V31.9127C1 33.1127 1.975 34.0877 3.175 34.0877H26.575" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 8.96289H38.8" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.375 18.9375V29.8125H17.575H22.225H25.225" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.4248 27.4875V18.9375" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.1996 21.4873L19.8996 12.8623L10.5996 21.4873" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.3002 23.2129H17.5752V29.8129H22.3002V23.2129Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28.4502 5.5127H30.4002" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.5498 5.5127H35.4248" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M34.825 40.0875L40.45 45.7125L43.15 43.0125L37.525 37.3125L43.75 33.1125L24.25 26.8125L30.55 46.2375L34.825 40.0875Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">1</h1>
+            </div>
+              
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Заявка</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Оставьте заявку через сайт. Менеджер перезвонит и уточнит детали</p>
+      
+            </div>
+            
+        </div>
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.0372 37.8379C18.0372 37.8379 31.2372 27.2629 31.3872 15.0379C31.4622 7.83793 25.6872 1.91293 18.4872 1.76293C11.2122 1.68793 5.28723 7.46293 5.21223 14.7379C5.06223 26.9629 18.0372 37.8379 18.0372 37.8379Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.9122 33.0378L28.7622 33.1128C29.6622 33.1128 30.4872 33.6378 30.8622 34.4628L34.6122 43.0128C35.2872 44.5128 34.1622 46.2378 32.5122 46.2378L3.26217 45.8628C1.61217 45.8628 0.487169 44.0628 1.23717 42.5628L5.21217 34.0878C5.58717 33.2628 6.41217 32.7378 7.31217 32.7378L13.1622 32.8128" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.4125 13.313V23.513H12.1875V13.313" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.9617 15.713L18.3367 7.68799L9.63672 15.713" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.9619 22.0376V16.0376" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.9619 22.0376V16.0376" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.9619 16.0376H15.9619" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">2</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Выбор квартиры</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Выберете квартиру вместе с личным менеджером</p>
+            </div>
+        </div>
+        <div class="col-span-1 sm:col-span-2 md:col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.0372 37.8379C18.0372 37.8379 31.2372 27.2629 31.3872 15.0379C31.4622 7.83793 25.6872 1.91293 18.4872 1.76293C11.2122 1.68793 5.28723 7.46293 5.21223 14.7379C5.06223 26.9629 18.0372 37.8379 18.0372 37.8379Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.9122 33.0378L28.7622 33.1128C29.6622 33.1128 30.4872 33.6378 30.8622 34.4628L34.6122 43.0128C35.2872 44.5128 34.1622 46.2378 32.5122 46.2378L3.26217 45.8628C1.61217 45.8628 0.487169 44.0628 1.23717 42.5628L5.21217 34.0878C5.58717 33.2628 6.41217 32.7378 7.31217 32.7378L13.1622 32.8128" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.4125 13.313V23.513H12.1875V13.313" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.9617 15.713L18.3367 7.68799L9.63672 15.713" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.9619 22.0376V16.0376" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.9619 22.0376V16.0376" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.9619 16.0376H15.9619" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">3</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Документы</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Заполните документы. Менеджер подаст их сразу в несколько банков</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Калькулятор ипотеки -->
+{% include 'blocks/calculator.html' %}
+
+<!-- Наши партнёры -->
+<section class="pt-12">
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-4 px-6 sm:py-5 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Наши партнёры</span>
+        </h1>
+    </div>
+    <div class="flex items-center justify-center pt-12">
+        <div class="max-w-7xl lg:mx-0 w-full mx-6">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:mx-8">
+                {% for partner in partners %} 
+                    <div class="bg-[#2C2C2E] text-white p-6 flex items-center justify-center"><img src="{{ partner.partnerphoto_set.first.photo.url }}"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Вам может понравится квартиры -->
+{% include 'blocks/you-may-like.html' with flats=flats %}
+
+<!-- Отзывы клиентов -->
+{% include 'blocks/reviews.html' with block_title='Отзывы наших клиентов' %}
+
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
+{% endblock %}

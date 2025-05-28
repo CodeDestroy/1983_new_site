@@ -1,0 +1,52 @@
+{% extends 'base_client_form_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-recommendation is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">Скидка 5% на услуги агентства специально для клиентов "ВТБ"! </h1>
+    <p class="is-size-4">Оставьте свой номер телефона и совершайте любые операции с недвижимостью с максимальной выгодой!</p>
+{% endblock %}
+
+{% block container %}
+<section class="section" id="consultation">
+    <form method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;" class="card has-text-light">{% csrf_token %}
+        <input type="hidden" name="url" value="{{ url }}">
+        <div class="card-content">
+            <div class="columns">
+                <input type="hidden" name="name" value="эксперт инвест втб" required>
+                <input type="hidden" name="phone" value="79688617915" required>
+                <div class="column">
+                    <p class="has-text-weight-bold is-size-3 mb-6">Представьтесь</p>
+                    <div class="field">
+                        <label class="label has-text-light is-medium">Имя</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-medium" type="text" name="client_name" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label has-text-light is-medium">Номер телефона</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-medium phone-mask" type="text" name="client_phone" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-align-items-center">
+                <div class="column">
+                    <p class="mb-0">Нажимая кнопку вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+                </div>
+                <div class="column">
+                    <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

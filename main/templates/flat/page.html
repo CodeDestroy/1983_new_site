@@ -1,0 +1,185 @@
+{% extends 'base_view.html' %}
+
+{% load static humanize %}
+
+{% block hero_class %} hero-flat{% endblock %}
+{% block hero_body %}<h1 class="title is-size-2 is-uppercase">{{ object }} за {{ object.price|floatformat:0 }} руб</h1>{% endblock %}
+
+{% block container %}
+<section class="section object-info">
+    <div class="card carousel">
+        <div class="carousel-inner">
+            {% for image in object.flatphoto_set.all %}
+                <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                    <div class="card-image">
+                        <figure class="image is-16by9">
+                            <img src="{{ image.photo.url }}" alt="Фото {{ forloop.counter }}" />
+                        </figure>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3">{{ object }} {{ object.price|floatformat:0 }} руб</p>
+            <span class="card-header-icon">
+                <button class="button is-rounded prev mr-3" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-left"></i></span>
+                </button>
+                <button class="button is-rounded next" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+                </button>
+            </span>
+        </div>
+        <div class="card-content content">
+            <div class="columns is-align-items-center">
+                <div class="column">
+                    <p class="is-size-5">{{ object }}</p>
+                </div>
+                <div class="column">
+                    <p class="is-size-5">{{ object.square }} м<sup>2</sup></p>
+                    <p class="has-text-grey">Площадь</p>
+                </div>
+                {% if object.living_space %}
+                <div class="column">
+                    <p class="is-size-5">{{ object.living_space }} м<sup>2</sup></p>
+                    <p class="has-text-grey">Жилая</p>
+                </div>
+                {% endif %}
+                {% if object.kitchen_space %}
+                <div class="column">
+                    <p class="is-size-5">{{ object.kitchen_space }} м<sup>2</sup></p>
+                    <p class="has-text-grey">Кухня</p>
+                </div>
+                {% endif %}
+                <div class="column">
+                    <p class="is-size-5">{{ object.floor }}{% if object.obj.floors %} из {{ object.obj.floors }}{% endif %}</p>
+                    <p class="has-text-grey">Этаж</p>
+                </div>
+                <div class="column">
+                    <p class="is-size-5">{{ object.decoration }}</p>
+                </div>
+                <div class="column">
+                    <p class="is-size-5">{{ object.price|floatformat:"0" }} руб</p>
+                    <p class="has-text-grey">Стоимость</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <p class="is-size-4">{{ object.obj }}</p>
+                    <p class="has-text-grey">{% if object.obj.address %}{{ object.obj.address }}{% else %}{{ object.obj.parent.address }}{% endif %}</p>
+                </div>
+                <div class="column is-one-quarter-tablet">
+                    <a class="button is-success is-large is-responsive is-fullwidth is-fullheight" href="#infrastructure">
+                        <span class="icon is-medium">
+                            <i class="fa-regular fa-map fa-2x"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title is-size-4 fw-bold">О планировке</p>
+                </div>
+                <div class="card-content content">
+                    <p class="has-text-grey">Общая площадь</p>
+                    <p class="is-size-5">{{ object.square }} м<sup>2</sup></p>
+                    {% if object.living_space %}
+                        <p class="has-text-grey">Жилая</p>
+                        <p class="is-size-5">{{ object.living_space }} м<sup>2</sup></p>
+                    {% endif %}
+                    {% if object.kitchen_space %}
+                        <p class="has-text-grey">Кухня</p>
+                        <p class="is-size-5 card-text">{{ object.kitchen_space }} м<sup>2</sup></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title is-size-4 fw-bold">О доме</p>
+                </div>
+                <div class="card-content content">
+                    {% if object.obj.floors %}
+                        <p class="has-text-grey">Этажность дома</p>
+                        <p class="is-size-5">{{ object.obj.floors }}</p>
+                    {% endif %}
+                    <p class="has-text-grey">Этаж</p>
+                    <p class="is-size-5">{{ object.floor }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-fullheight">
+                <div class="card-header is-shadowless">
+                    <p class="card-header-title is-size-4">Особенности</p>
+                </div>
+                <div class="card-content content">
+                    <p class="is-size-5">{{ object.decoration }}</p>
+                </div>
+            </div>
+        </div>
+        {% if object.obj.developer %}
+        <div class="column">
+            <div class="card is-fullheight about has-text-white-bis is-flex is-flex-direction-column is-justify-content-center">
+                <div class="card-content content">
+                    <p>ЖК</p>
+                    <p class="is-size-5 mb-5 has-text-weight-semibold">{{ object.obj }}</p>
+                    {% if object.obj.developer %}
+                        <p>Застройщик</p>
+                        <p class="is-size-5 mb-5 has-text-weight-semibold">{{ object.obj.developer.name }}</p>
+                    {% endif %}
+                    <a href="{% url 'main:build-page' build_id=object.obj.pk %}" class="button is-light is-rounded is-medium is-fullwidth">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+{% include 'blocks/new_flats.html' with flats=flats block_title='Вам понравится' %}
+{% include 'blocks/calculator.html' with price=object.price %}
+<section class="section" id="aboutBuild">
+    <div class="card carousel">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-4">Подробнее о ЖК</p>
+        </div>
+        <div class="card-content content">
+            <p class="is-size-4 has-text-weight-bold">{{ object.obj }}</p>
+            {% if object.obj.description %}{{ object.obj.description|safe }}{% else %}{{ object.obj.parent.description|safe }}{% endif %}
+            <div class="columns is-centered is-justify-content-center">
+                <div class="column">
+                    <p class="is-size-4">Аккредитован</p>
+                    <p class="has-text-grey card-text">Аккредитация</p>
+                </div>
+                <div class="column">
+                    <p class="is-size-4">{{ object.obj.flat_set.count }}</p>
+                    <p class="has-text-grey card-text">Всего квартир в продаже</p>
+                </div>
+                {% if object.obj.floors %}
+                <div class="column">
+                    <p class="is-size-4">{{ object.obj.floors }}</p>
+                    <p class="has-text-grey card-text">Этажность</p>
+                </div>
+                {% endif %}
+                {% if object.obj.material %}
+                <div class="column">
+                    <p class="is-size-4 is-capitalized">{{ object.obj.material }}</p>
+                    <p class="has-text-grey card-text">Материал стен</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/infrastructure.html' with lat=object.build.lat lon=object.build.lon yandex_map_key=yandex_map_key coord_for_map=object.build.coord_for_map city=flat.build.complex.get_city_from_address %}
+{% include 'blocks/build_developer.html' with complex_name=object.obj developer=object.obj.developer %}
+{% endblock %}
+
+{% block scripts %}<script src="{% static 'js/carousel.js' %}"></script>{% endblock %}

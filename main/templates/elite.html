@@ -1,0 +1,137 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-elite is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+    <p class="is-size-4">Актуальный каталог недвижимости комфорт и премиум-класса. Трейд-ин. Льготная ипотека.</p>
+{% endblock %}
+
+{% block container %}
+<section class="section elite">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <h2 class="card-header-title is-size-2">Ищете что-то особенное?</h2>
+        </div>
+        <p class="card-content">Мы поможем Вам в подборе и покупке элитной недвижимости!</p>
+    </div>
+</section>
+<section class="section">
+    <h3 class="has-text-weight-semibold is-size-2 mb-5">В нашей базе</h3>
+    <div class="columns is-justify-content-center">
+        <div class="column">
+            <div class="card">
+                <p class="card-content has-text-weight-semibold">Воронеж &gt;7000 объектов</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <p class="card-content has-text-weight-semibold">Москва &gt;8000 объектов</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <p class="card-content has-text-weight-semibold">Турция &gt;1000 объектов</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <p class="card-content has-text-weight-semibold">Северный Кипр &gt;1000 объектов</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card has-background-warning-light">
+        <p class="card-content">Подберем для Вас квартиру в новостройке премиум-класса или частный дом в модном коттеджном поселке.</p>
+    </div>
+</section>
+<section class="section elite">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <div class="card-header-title">В нашей базе Вы найдете классические варианты планировок, а также эксклюзивные варианты квартир:</div>
+        </div>
+        <div class="card-content content pt-0">
+            <ul>
+                <li>Двухуровневые</li>
+                <li>С террасами</li>
+                <li>С высокими потолками</li>
+                <li>С мастер-спальней</li>
+                <li>С панорамным остеклением</li>
+                <li>С окном-фартуком</li>
+                <li>Со свободной планировкой</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <h3 class="is-size-3 has-text-weight-semibold mb-5">Мы можем предложить варианты жилых комплексов с нужными Вам преимуществами</h3>
+    <div class="fixed-grid has-3-cols-tablet">
+        <div class="grid is-gap-6">
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-image">
+                        <div class="image is-4by3"><img src="{% static 'images/elite/cards/architecture.jpg' %}"></div>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Архитектура мирового уровня</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-image">
+                        <div class="image is-4by3"><img src="{% static 'images/elite/cards/closed.jpg' %}"></div>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Закрытая территория</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-image">
+                        <div class="image is-4by3"><img src="{% static 'images/elite/cards/improvement.jpg' %}"></div>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Продуманное благоустройство</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-image">
+                        <div class="image is-4by3"><img src="{% static 'images/elite/cards/parking.jpg' %}"></div>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Подземный паркинг</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-image">
+                        <div class="image is-4by3"><img src="{% static 'images/elite/cards/hall.jpg' %}"></div>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Дизайнерские холлы</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-image">
+                        <div class="image is-4by3"><img src="{% static 'images/elite/cards/views.jpg' %}"></div>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title" style="--bulma-card-header-padding: 2rem;">Красивые виды</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/new_flats.html' %}
+{% include 'blocks/consultation.html' %}
+{% endblock %}

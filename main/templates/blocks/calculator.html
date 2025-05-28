@@ -1,0 +1,62 @@
+{% load static humanize %}
+<section class="pt-12">
+    <div class="max-w-7xl mx-auto lg:px-8 px-6">
+        <h1 class="font-semibold mb-6 text-left text-white md:text-5xl sm:text-4xl text-4xl pb-8">Калькулятор ипотеки</h1>
+
+        <div class="grid md:grid-cols-4 gap-4 mb-6">
+            <div>
+                <label class="block text-sm text-white">Программа</label>
+                <select id="program" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded">
+                    <option value="16.7" data-init="20.1">Базовая программа</option>
+                    <option value="8" data-init="30.1">Господдержка</option>
+                    <option value="6" data-init="20.1">Семейная</option>
+                    <option value="5" data-init="20.1">IT</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm text-white">Вид недвижимости</label>
+                <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded">
+                    <option>Новостройка</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm text-white text-white">Ставка (%)</label>
+                <input id="percentage" type="number" value="16.7" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded" >
+            </div>
+            <div>
+                <label class="block text-sm text-white text-white">Срок (лет)</label>
+                <input id="term" type="number" value="20" min="1" max="30" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded">
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="field-body">
+                <label class="block mb-1 text-white">Стоимость недвижимости</label>
+                <input id="price_output" type="number" value="8000000" class="w-full p-2 mb-1 bg-[#2C2C2E] border border-gray-700 text-right rounded text-white">
+                <input id="price" type="range" min="1000000" max="10000000" step="100000" value="8000000" class="w-full accent-orange-500">
+            </div>
+            <div class="field-body">
+                <label class="block mb-1 text-white">Первоначальный взнос</label>
+                <input id="initial_fee_output" type="number" value="1600000" class="w-full p-2 mb-1 bg-[#2C2C2E] border border-gray-700 text-right rounded text-white">
+                <input id="initial_fee" type="range" min="1000000" max="7600000" step="100000" value="1600000" class="w-full accent-orange-500">
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-center">
+            <div class="p-4 bg-[#2C2C2E] border border-gray-700 text-white rounded">
+                <p class="text-sm mb-1">Сумма переплаты</p>
+                <p id="overpay" class="text-lg font-bold">—</p>
+            </div>
+            <div class="p-4 bg-[#2C2C2E] border border-gray-700 text-white rounded">
+                <p class="text-sm mb-1">Полная сумма ипотеки</p>
+                <p id="total" class="text-lg font-bold">—</p>
+            </div>
+            <div class="p-4 bg-[#2C2C2E] border border-gray-700 text-white rounded">
+                <p class="text-sm mb-1">Платёж</p>
+                <p id="payment" class="text-lg font-bold">—</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{% static 'js/mortgage_new.js' %}"></script>

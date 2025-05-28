@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} | Новостройки Voronezh</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ seo_description|default:"АН «Новостройки Воронеж» занимается оказанием услуг в сфере недвижимости. Продажа квартир от застройщика по выгодным ценам. Каталог жилых комплексов с актуальными ценами и предложениями от застройщиков." }}">
+    <!--<meta name="keywords" content="{{ seo_keywords|default:"Воронеж, новостройки, новостройки воронеж, цена, актуальная цена, однокомнатные, двухкомнатные, трехкомнатные, купить квартиру, планировка, планировка квартир, комплексы, жилой, жилой комплекс, жк, жилой комплекс Воронеж, свежие объявления квартиры, последние объявления квартир, рынок недвижимости, рынок недвижимости Воронеж" }}">-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/mini-logo.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/mini-logo.png' %}">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#fff">
+
+    <meta property="og:title" content="{{ title }} | Новостройки Voronezh" />
+    <meta property="og:url" content="{{ url }}" />
+    <meta property="og:image" content="{% static 'images/logos/og-logo.png' %}" />
+    <meta property="og:description" content="{{ seo_description|default:"АН «Новостройки Воронеж» занимается оказанием услуг в сфере недвижимости. Продажа квартир от застройщика по выгодным ценам. Каталог жилых комплексов с актуальными ценами и предложениями от застройщиков." }}"/>
+
+    <link href="{% static 'libs/bulma/css/bulma.min.css' %}" rel="stylesheet">
+    <link href="{% static 'libs/fontawesome/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% block head_scripts %}{% endblock %}
+</head>
+<body>
+<section class="hero is-dark {% block hero_class %}is-large{% endblock %}"{% block hero_styles %}{% endblock %}>
+    <div class="hero-head">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="{% static 'images/mini-logo.png' %}" alt="Новостройки Voronezh">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="{% url 'main:search-list' %}">Новостройки</a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Услуги</a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a class="navbar-item" href="{% url 'main:mortgage' %}">Ипотека</a>
+                            <a class="navbar-item" href="{% url 'main:trade-in-page' %}">Меняем старое на новое</a>
+                            <a class="navbar-item" href="{% url 'main:elite-page' %}">Элитная недвижимость</a>
+                            <a class="navbar-item" href="{% url 'main:international-page' %}">Международная недвижимость</a>
+                            <a class="navbar-item" href="{% url 'main:moscow-page' %}">Новостройки Москвы</a>
+                            <a class="navbar-item" href="{% url 'main:commerce-page' %}">Коммерческая недвижимость</a>
+                            <a class="navbar-item" href="{% url 'main:design-page' %}">Отделка и дизайн</a>
+                            <a class="navbar-item" href="{% url 'main:flip-page' %}">Инвестиции в недвижимость</a>
+                            <a class="navbar-item" href="{% url 'main:purchase-page' %}">Срочный выкуп квартир</a>
+                            <a class="navbar-item" href="{% url 'main:home-page' %}">Дома и таунхаусы</a>
+                            <a class="navbar-item" href="{% url 'main:legal-page' %}">Юридические услуги</a>
+                        </div>
+                    </div>
+                    <a class="navbar-item" href="{% url 'main:promo-list' %}">Акции</a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Бонусы</a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a class="navbar-item" href="{% url 'main:recommendation-page' %}">Зарабатывайте вместе с нами</a>
+                            <a class="navbar-item" href="{% url 'main:bonus-page' %}">Программа лояльности</a>
+                        </div>
+                    </div>
+                    <a class="navbar-item" href="{% url 'main:article-list' %}">Новости</a>
+                    <a class="navbar-item" href="{% url 'main:about' %}">О компании</a>
+                    <a class="navbar-item" href="{% url 'main:contacts' %}">Контакты</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        </a>
+                        <div class="navbar-dropdown is-boxed is-right">
+                            {% if not request.user.is_authenticated %}
+                                <a class="navbar-item" href="{% url 'main:django_registration_register' %}">
+                                    <strong>Регистрация</strong>
+                                </a>
+                                <a class="navbar-item" href="{% url 'main:login' %}">Авторизация</a>
+                            {% else %}
+                                <a class="navbar-item" href="{% url 'main:profile-index' %}">Профиль</a>
+                                <form action="{% url 'main:logout' %}" method="post">{% csrf_token %}
+                                    <button type="submit" class="navbar-item is-selected">Выйти</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="navbar-item">
+                        <button type="button" class="button is-warning js-modal-trigger" data-target="modal">
+                            Подобрать квартиру
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <section class="section">{% block hero_body %}<p class="title">Title</p><p class="subtitle">Subtitle</p>{% endblock %}</section>
+        </div>
+    </div>
+</section>
+<div class="container">
+{% if messages %}
+<section class="section">
+    {% for message in messages %}
+        <div class="block">
+            <div class="message is-{% if message.tags %}{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}">
+                <div class="message-body">{{ message|safe }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+{% endif %}{% block container %}{% endblock %}
+</div>
+<footer class="footer">
+    <div class="container">
+        <section class="section">
+            <div class="fixed-grid has-1-cols-mobile has-4-cols">
+                <div class="grid is-gap-3">
+                    <div class="cell">
+                        <img src="{% static 'images/logo.png' %}" alt="Новостройки Voronezh" class="logo">
+                        <p>Экспертный сервис по подбору и покупке квартир от застройщика в Воронеже с учётом всех ваших пожеланий и требований в кратчайшие сроки</p>
+                    </div>
+
+                    <ul class="cell">
+                        <li><a href="{% url 'main:search-list' %}">Новостройки</a></li>
+                        <li><a href="{% url 'main:about' %}">О компании</a></li>
+                        <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
+                    </ul>
+                    <ul class="cell">
+                        <li><a href="{% url 'main:article-list' %}">Новости</a></li>
+                        <li><a href="{% url 'main:promo-list' %}">Акции</a></li>
+                        <li><a href="{% url 'main:mortgage' %}">Ипотека</a></li>
+                    </ul>
+
+                    <!-- <form class="cell is-row-span-2 is-row-start-1-mobile" method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;">{% csrf_token %}
+                        <input type="hidden" name="url" value="{{ url }}">
+                        <p class="mb-5 is-size-3">Бесплатная консультация по подбору жилья</p>
+                        <input type="text" name="name" class="input is-medium mb-5" placeholder="Ваше имя" required>
+                        <input type="text" name="phone" class="input is-medium phone-mask mb-5" placeholder="+7 (999) 999-99-99" required>
+                        <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded mb-4">Оставить заявку</button>
+                        <p>Нажимая кнопку вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+                    </form> -->
+                    <div class="cell">
+                        <p class="copyright panel p-3">ООО «НВ»<br>Все права защищены © 2023</p>
+                        <div class="mt-4">
+                            <a href="{% url 'main:policy-page' %}" class="policy">Политика конфиденциальности</a>
+                        </div>
+                        <div class="mt-4">
+                            <a href="{% url 'main:privacy-page' %}" class="personal">Соглашение на обработку персональных данных</a>
+                        </div>
+                    </div>
+                    <div class="cell">
+                    </div>
+                    <div class="cell address">
+                        <p class="block">ул. Беговая, 63</p>
+                        <p class="block">Московский пр-кт, 132</p>
+                        <p class="block">Пн-пт: 9:00 - 20:00</p>
+                        <p class="block">Сб: 10:00 - 17:00</p>
+                        <p>Вс: 10:00 - 16:00</p>
+                    </div>
+                    <div class="cell">
+                        <ul>
+                            <li class="panel"><a href="tel:74732023233" class="fw-bolder p-3">+7 (473) 202-32-33</a></li>
+                            <li><a href="mailto:info@квартиры36.рф">info@квартиры36.рф</a></li>
+                        </ul>
+                        <div class="social-networks mt-4">
+                            <a href="https://vk.com/novstroy36" target="_blank" class="is-size-4 mr-2">
+                                <i class="fa-brands fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/novstroy36" target="_blank" class="is-size-4">
+                                <i class="fa-brands fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>Представленная на сайте информация, опубликованные материалы, в том числе цены, не являются публичной офертой, определяемой положениями статьи 437 Гражданского кодекса Российской Федерации. Запрещено использование материалов сайта без согласия его авторов и ссылки на сайт. Показатели и характеристики проекта, указанные на данном сайте, являются проектными (плановыми) и могут быть изменены.</p>
+        </section>
+    </div>
+</footer>
+<div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <form class="modal-card" method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;">{% csrf_token %}
+        <header class="modal-card-head">
+            <p class="modal-card-title">Бесплатная консультация</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <input type="hidden" name="url" value="{{ url }}">
+            <div class="field">
+                <label class="label is-medium" for="modal-name">Ваше имя</label>
+                <div class="control has-icons-left">
+                    <input id="modal-name" class="input is-medium" type="text" name="name">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label is-medium" for="modal-phone">Номер телефона</label>
+                <div class="control has-icons-left">
+                    <input id="modal-phone" type="text" name="phone" class="input is-medium phone-mask" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-phone"></i>
+                    </span>
+                </div>
+            </div>
+            <p class="mb-0">Отправляя форму Вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+        </section>
+        <footer class="modal-card-foot">
+            <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button>
+        </footer>
+    </form>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+<script src="{% static 'libs/jquery/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'libs/jquery.mask/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/phone.mask.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+{% block scripts %}{% endblock %}
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(68282848, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/68282848" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Top.Mail.Ru counter -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3527358", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+</script>
+<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3527358;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+<!-- /Top.Mail.Ru counter -->
+</body>
+</html>

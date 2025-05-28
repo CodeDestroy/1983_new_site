@@ -1,0 +1,49 @@
+{% if errors and not fields %}<div class="help is-danger">{% for field in hidden_fields %}{{ field }}{% endfor %}</div>
+{% else %}<div class="help is-danger">{{ errors }}</div>{% endif %}
+{% for field, errors in fields %}
+{% if field.use_fieldset %}
+    <fieldset class="box">
+    {% if field.legend_tag %}{{ field.legend_tag }}{% endif %}
+{% endif %}
+    <div class="field is-horizontal">
+        {% if field.widget_type == 'checkbox' or field.widget_type == 'radio' %}
+            <div class="field-label"></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <label class="{{ field.widget_type }}">{{ field }} {{ field.label|default_if_none:'' }}</label>
+                    </div>
+                    {% if field.help_text %}<div class="help">{{ field.help_text|safe }}</div>{% endif %}
+                    {% if errors %}<div class="help is-danger">{{ errors }}</div>{% endif %}
+                    {% if loop.last %}{% for field in hidden_fields %}{{ field }}{% endfor %}{% endif %}
+                </div>
+            </div>
+        {% elif field.widget_type == 'select' %}
+            {% if field.label %}
+                <div class="field-label"><label class="label" for="{{ field.auto_id }}">{{ field.label }}</label></div>
+            {% endif %}
+            <div class="field-body">
+                <div class="field">
+                    <div class="control"><div class="select is-fullwidth">{{ field }}</div></div>
+                    {% if field.help_text %}<div class="help">{{ field.help_text|safe }}</div>{% endif %}
+                    {% if errors %}<div class="help is-danger">{{ errors }}</div>{% endif %}
+                    {% if loop.last %}{% for field in hidden_fields %}{{ field }}{% endfor %}{% endif %}
+                </div>
+            </div>
+        {% else %}
+            {% if field.label %}
+                <div class="field-label"><label class="label" for="{{ field.auto_id }}">{{ field.label }}</label></div>
+            {% endif %}
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">{{ field }}</div>
+                    {% if field.help_text %}<div class="help">{{ field.help_text|safe }}</div>{% endif %}
+                    {% if errors %}<div class="help is-danger">{{ errors }}</div>{% endif %}
+                    {% if loop.last %}{% for field in hidden_fields %}{{ field }}{% endfor %}{% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% if field.use_fieldset %}</fieldset>{% endif %}
+{% endfor %}
+{% if not fields and not errors %}{% for field in hidden_fields %}{{ field }}{% endfor %}{% endif %}

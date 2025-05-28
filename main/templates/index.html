@@ -1,0 +1,946 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_body %}
+    <h1 class="title is-size-1-tablet mb-6 is-uppercase">Новостройки<br><span class="has-text-weight-medium">Voronezh</span></h1>
+    <p class="subtitle is-size-3-tablet">Самая большая база новостроек<br>напрямую от всех застройщиков города</p>
+{% endblock %}
+
+{% block container %}
+
+<!-- <section class="section what-next">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3 fw-bold is-centered">С чего начнем?</p>
+        </div>
+        <div class="card-content">
+            <div class="fixed-grid has-4-cols has-1-cols-mobile">
+                <div class="grid is-gap-5 has-text-centered">
+                    <a class="cell is-aspect-ratio-1by1 has-background-warning has-background-warning-light has-radius-large" href="{% url 'main:search-list' %}">
+                        <img src="{% static '/images/index/start/1.png' %}" class="mb-3 mt-6" alt="Выбрать квартиру">
+                        <p class="is-size-5">Выбрать<br>квартиру</p>
+                    </a>
+                    <a class="cell is-aspect-ratio-1by1 has-background-success has-background-success-light has-radius-large" href="{% url 'main:map-list' %}">
+                        <img src="{% static '/images/index/start/2.png' %}" class="mb-3 mt-6" alt="Выбрать жилой комплекс">
+                        <p class="is-size-5">Выбрать<br>жилой комплекс</p>
+                    </a>
+                    <a class="cell is-aspect-ratio-1by1 has-background-light has-radius-large" href="{% url 'main:commerce-page' %}">
+                        <img src="{% static '/images/index/start/3.png' %}" class="mb-3 mt-6" alt="Выбрать коммерческую недвижимость">
+                        <p class="is-size-5">Выбрать<br>коммерческую недвижимость</p>
+                    </a>
+                    <a class="cell is-aspect-ratio-1by1 has-background-info has-background-info-light has-radius-large" href="{% url 'main:mortgage' %}">
+                        <img src="{% static '/images/index/start/4.png' %}" class="mb-3 mt-6" alt="Рассчитать ипотеку">
+                        <p class="is-size-5">Рассчитать<br>ипотеку</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section search">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3 fw-bold">Индивидуальный поиск</p>
+        </div>
+        <form action="{% url 'main:search-list' %}" method="get" class="card-content">
+            <div class="fixed-grid has-1-cols-mobile has-4-cols">
+                <div class="grid is-align-items-center is-gap-3">
+                    <div class="cell is-size-5">Я ищу новостройку</div>
+                    <div class="cell">
+                        <div class="select is-fullwidth is-medium">
+                            <select name="rooms">
+                                <option value="" selected>Количество комнат</option>
+                                {% for t in flat_types %}
+                                    {% if t.type %}<option value="{{ t.type }}">{{ t.type }}</option>{% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="select is-fullwidth is-medium">
+                            <select name="district">
+                                <option value="" selected>Район</option>
+                                {% for d in districts %}
+                                    {% if d.district %}<option value="{{ d.district }}">{{ d.district }}</option>{% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="select is-fullwidth is-medium">
+                            <select name="price">
+                                <option value="" selected>Цена</option>
+                                <option value="1">1.000.000 - 2.000.000</option>
+                                <option value="2">2.000.000 - 3.000.000</option>
+                                <option value="3">3.000.000 - 4.000.000</option>
+                                <option value="4">4.000.000 - 5.000.000</option>
+                                <option value="5">5.000.000 - 6.000.000</option>
+                                <option value="6">6.000.000 - 7.000.000</option>
+                                <option value="7">7.000.000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cell is-col-start-3-tablet">
+                        <button type="submit" class="button is-warning is-outlined is-fullwidth is-rounded is-medium" onclick="this.closest('form').setAttribute('action', '{% url 'main:map-list' %}'); return true;">Показать на карте</button>
+                    </div>
+                    <div class="cell">
+                        <button type="submit" class="button is-warning is-fullwidth is-rounded is-medium">Поиск</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="section advantages">
+    <div class="card">
+        <div class="fixed-grid has-4-cols has-1-cols-mobile">
+            <div class="grid is-gap-0">
+                <div class="cell is-col-span-3-tablet pt-5.5 px-5.5">
+                    <p class="has-text-weight-bold is-size-3">Почему лучше покупать квартиру с нами?</p>
+                </div>
+                <div class="cell is-row-span-3-tablet is-hidden-mobile is-flex is-align-items-end">
+                    <img src="{% static 'images/index/girl.png' %}" alt="О нашей базе">
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">57 000</p>
+                        <p>квартир в базе</p>
+                    </div>
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">от 77</p>
+                        <p>застройщиков<br>наших партнеров</p>
+                    </div>
+                </div>
+                <div class="cell p-5.5">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">3 года</p>
+                        <p>безупречной работы</p>
+                    </div>
+                </div>
+                <div class="cell is-col-span-3-tablet pb-5.5 px-5.5">
+                    <p>«Новостройки Voronezh» – это экспертный сервис, позволяющий найти и купить квартиру от застройщика в Воронеже с учётом всех ваших пожеланий и требований в кратчайшие сроки.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section aria-labelledby="social-impact-heading  " class="mx-auto"><!-- баннер вверх -->
+    <div class="relative overflow-hidden ">
+        <div class="absolute inset-0 mx-auto md:max-w-7xl    md:pb-10 sm:max-w-1xl sm:px-0 sm:py-0 ">
+            <img src="{% static 'pic/banner.png'%}" alt="" class="h-full w-full object-cover object-center">
+        </div>
+        <div class="relative  bg-opacity-75  my-20 sm:mx-15  lg:mx-40">
+            <div class="relative mx-auto flex  flex-col items-start text-left mx-auto max-w-7xl px-6  sm:pb-30  lg:justify-between lg:px-8">
+                <h2 id="social-impact-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <span class="block sm:inline text-left">Экспертное бюро<br>
+                    недвижимости и<br>инвестиций</span>
+                </h2>
+                <p class="mt-3 text-xl text-white text-left">Помогаем людям купить квартиру в<br>Москве, Воронеже, Калининграде и<br>главных городах ОАЭ, Турции и Северного Кипра</p>
+                <a href="#" class="mt-8 block w-full rounded-md border border-transparent bg-amber-600 px-8 py-3 text-white font-medium text-white hover:bg-amber-600 sm:w-auto text-center">Выбрать квартиру</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class=""> <!-- Секция два  -->
+	<div class=""> <!-- Баннер 3 -->
+        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-15 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Услуги</button>
+                <span class="text-sm font-semibold leading-6 text-white">Выберем лучшее место для жизни<br>семьи или самый ликвидный обьект<br>для инвестиций</span>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Оказываем <span class="text-amber-600">полный спектр<br>услуг </span><span>в сфере недвижимости!</span></h1>
+            </div>
+        </div>
+    </div>   
+
+    <div class=" text-white">
+        <div class="grid lg:grid-cols-3  md:grid-cols-2 sm: md:grid-cols-1 grid-rows-2  gap-4 mx-auto max-w-7xl px-6 py-2 sm:py-2 lg:items-start lg:px-8 text-white ">
+            <!-- Карточка 1 (увеличенная по высоте) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg lg:col-span-1 lg:row-span-2 md:row-span-1 flex flex-col justify-between lg:h-full ">
+                <h2 class="text-xl font-bold mb-4 z-1">Вторичная недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Подбор</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Безопасная сделка</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Продажа</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Документы</button>
+                </div>
+                <img src="{% static 'pic/pic-3.svg' %}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+            </div>
+            
+            <!-- Карточка 2 (справа сверху, широкая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg lg:col-span-2 flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Новостройки</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Воронеж</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Москва</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Сочи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Калининград</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Турция</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Северный Кипр</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">ОАЭ</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Таиланд</button>
+                </div>
+                <img src="{% static 'pic/pic-2.svg'%}" class="absolute right-0 bottom-0 w-1/3 lg:w-1/4 " alt="Background">
+            </div>
+            
+            <!-- Карточка 3 (справа снизу, левая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Коммерческая недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Торговля</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Офисы</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Производство</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Рестораны</button>
+                </div>
+                <img src="{% static 'pic/pic-3.svg'%}" class="absolute bottom-0 right-0  w-1/3 lg:w-1/4 " alt="Background">
+            </div>
+
+            <!-- Карточка 4 (справа снизу, правая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Загородная недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дома и коттеджи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дачи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Земельные участки</button>
+                </div>
+                <img src="{% static 'pic/pic-4.svg'%}" class="absolute bottom-0 right-0   w-1/3 lg:w-1.5/4  " alt="Background">
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto max-w-7xl px-6  sm:py-5 lg:items-start lg:px-8">
+            <!-- Карточка 1 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Оформление документов</h2>
+                <img src="{% static 'pic/pic-5.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Полный спектр</button>
+            </div>
+            
+            <!-- Карточка 2 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Ремонт и отделка</h2>
+                <img src="{% static 'pic/pic-6.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Под ключ</button>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Дизайн интерьера</h2>
+                <img src="{% static 'pic/pic-7.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">В любом стиле</button>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Переезд и клининг</h2>
+                <img src="{% static 'pic/pic-8.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Берем на себя</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class=""> <!-- Секция три -->
+    <div class=""> <!-- Баннер 3 --> <!-- Он вообще откуда тут? -->
+        <div class="mx-auto max-w-7xl px-6 py-14 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Преимушества</button>
+                <span class="text-sm font-semibold leading-6 text-white">С нами ваш путь к идеальной<br> недвижимости будет быстрым,<br>комфортным и надежным</span>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><span class="text-amber-600">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-24 sm:py-15  lg:items-center lg:px-8">
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            <img src="{% static 'pic/main-1.svg'%}" class="py-1">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            <img src="{% static 'pic/main-2.svg'%}" class="py-1">
+           <!--  </svg> -->
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+        
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            <img src="{% static 'pic/main-3.svg'%}" class="py-1">
+            <!-- </svg> -->
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+        
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            <img src="{% static 'pic/main-4.svg'%}" class="py-1">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+        </div>
+
+    </div>
+</section>
+
+<section class=""> <!-- Секция 4 с фильтром -->
+    <div class=""> <!-- Баннер 4 -->
+        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-15 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <div class="mt-10 inline-grid  items-center gap-x-4 lg:mt-0 lg:flex-shrink-0">
+                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Каталог</button>
+                <span class="text-sm font-semibold leading-6 text-white">Узнайте, какие предложения<br>подходят именно вам</span>
+            </div>
+            <div class="m-auto">
+                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mx-5">Авторский каталог<br>недвижимости</h1>
+            </div>
+        </div>
+    </div>
+    <div class=" text-white flex justify-center items-center p-4">
+        <div class="w-full max-w-7xl p-4 bg-[#2C2C2E]">
+            <h2 class="text-lg font-semibold mb-4">Подобрать недвижимость в <span class="text-orange-500">Воронеже</span></h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 items-center">
+                <select class="bg-[#2C2C2E] p-3 text-white w-full">
+                    <option>Купить</option>
+                </select>
+                <select class="bg-[#2C2C2E] p-3 text-white w-full">
+                    <option>Вид недвижимости</option>
+                </select>
+                <select class="bg-[#2C2C2E] p-3 text-white w-full">
+                    <option>Комнатность</option>
+                </select>
+                <select class="bg-[#2C2C2E] p-3 text-white w-full">
+                    <option>Цена</option>
+                </select>
+                <select class="bg-[#2C2C2E] p-3 text-white w-full">
+                    <option>Площадь</option>
+                </select>
+                <select class="bg-[#2C2C2E] p-3 text-white w-full">
+                    <option>Этаж</option>
+                </select>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-2 items-center">
+                <button class="bg-[#2C2C2E] p-3 text-white flex items-center justify-center gap-2 w-full md:col-span-2 lg:col-span-1">
+                    Дополнительно <span class="text-lg">⚙️</span>
+                </button>
+                <input type="text" class="bg-gray-600 p-3 text-white w-full md:col-span-2 lg:col-span-1" placeholder="ЖК, район, адрес, застройщик">
+                <div class="flex gap-2 w-full md:col-span-2 lg:col-span-1 justify-end">
+                    <button class="bg-white text-black p-3 flex items-center gap-2 w-full md:w-auto">На карте 🗺️</button>
+                    <button class="bg-orange-500 text-white p-3 w-full md:w-auto">Показать объявления</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid  gap-6  mx-auto max-w-7xl px-6  sm:py-15  lg:items-center lg:px-8 sm:grid-cols-1 md:grid-cols-3">
+        {% for flat in new_flats %}
+            {% load humanize %}
+            <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+                <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
+                    <img class="rounded-t-lg" src="{{ flat.flatphoto_set.first.photo.url }}" alt="" />
+                </a>
+                <div class="p-5  ">
+                    <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ flat.price|floatformat:0 }} Р</h5>
+                    </a>
+                    <p class="mb-3 text-white font-medium text-sm">{{ flat }}</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">{{ flat.square|intcomma }}м<sup>2</sup></li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">{{ flat.floor }}{% if flat.obj.floors %} /{{ flat.obj.floors }}{% endif %} эт</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">{{ flat.decoration }}</li>
+                    </ul>
+                </div>
+                </div>
+                <div class="p-3">
+                    <ul>
+                        <li class="mb-3">
+                            <div class="flex">
+                                <img src="{% static 'pic/geo.svg'%}" class="px-2">
+                                <span class="text-gray-500 font-medium text-sm">
+                                    {% if flat.obj.parent.city %}{{ flat.obj.parent.city }}{% endif %}
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mb-3">
+                            <div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2">
+                                <span class="text-gray-500 font-medium text-sm">
+                                {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+            <div class="flex">
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                    <li class="text-white font-medium text-sm">52,56м</li>
+                </ul>
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                    <li class="text-white font-medium text-sm">11</li>
+                </ul>
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                    <li class="text-white font-medium text-sm">Под ключ</li>
+                </ul>
+            </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+            <div class="flex">
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                    <li class="text-white font-medium text-sm">52,56м</li>
+                </ul>
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                    <li class="text-white font-medium text-sm">11</li>
+                </ul>
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                    <li class="text-white font-medium text-sm">Под ключ</li>
+                </ul>
+            </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+                <div class="flex">
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">11</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">Под ключ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+                <div class="flex">
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">11</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">Под ключ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+                <div class="flex">
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">11</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">Под ключ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+            <div class="flex">
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                    <li class="text-white font-medium text-sm">52,56м</li>
+                </ul>
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                    <li class="text-white font-medium text-sm">11</li>
+                </ul>
+                <ul class="m-auto">
+                    <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                    <li class="text-white font-medium text-sm">Под ключ</li>
+                </ul>
+            </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+                <div class="flex">
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">11</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">Под ключ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+                <div class="flex">
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">11</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">Под ключ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">3-комнатная квартира</p>
+                <div class="flex">
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                        <li class="text-white font-medium text-sm">11</li>
+                    </ul>
+                    <ul class="m-auto">
+                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                        <li class="text-white font-medium text-sm">Под ключ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Озерки</span></div></li>
+                    <li class="mb-3"><div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div> -->
+    </div>
+    <!-- Кнопка на 320 уехала -->
+    <div class="m-auto text-center pb-6">
+        <button type="button" class="rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+            Показать еще результаты
+        </button>
+    </div>
+</section>
+
+<section class=""> <!-- Секция 6 -->
+	<div class=""> <!-- Баннер 8 -->
+ 		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Преимушества</button>
+                <span class="text-sm font-semibold leading-6 text-white">С нами ваш путь к идеальной<br> недвижимости будет быстрым,<br>комфортным и надежным</span>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><span class="text-amber-600">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!</h1>
+            </div>
+        </div>
+    </div>
+  
+  <!-- Калькулятор ипотеки -->
+    <div class="text-white flex justify-center items-center py-5  lg:px-8">
+        <div class="w-full max-w-7xl p-10  shadow-lg">
+            <h1 class="text-3xl font-semibold mb-6 text-left text-white">Калькулятор ипотеки</h1>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div>
+                    <label class="block text-sm text-white">Программа</label>
+                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white">
+                        <option>Базовая программа</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-white">Вид недвижимости</label>
+                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white">
+                        <option>Новостройка</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-white">Ставка</label>
+                    <input type="text" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-center text-white" value="13%">
+                </div>
+                <div>
+                    <label class="block text-sm text-white">Срок</label>
+                    <input type="text" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-center text-white" value="27 лет">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div>
+
+                    <label class="block text-sm text-white">Стоимость недвижимости</label>
+                    <input type="number" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-right text-white" value="1000000">
+                    <input type="range" min="1000000" max="10000000" step="100000" class="w-full mt-2 accent-[#BF6128]">
+                </div>
+                <div>
+                    <label class="block text-sm text-white">Первоначальный взнос</label>
+                    <input type="number" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-right text-white" value="1000000">
+                    <input type="range" min="1000000" max="5000000" step="100000" class="w-full mt-2 accent-[#BF6128]">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6">
+                <div class="p-3 bg-[#2C2C2E] text-center text-white border border-gray-600">
+                    <span class="text-sm">Сумма переплаты</span>
+                    <p class="text-lg font-bold">250 000 ₽</p>
+                </div>
+                <div class="p-3 bg-[#2C2C2E] text-center text-white border border-gray-600">
+                    <span class="text-sm">Полная сумма ипотеки</span>
+                    <p class="text-lg font-bold">4 500 000 ₽</p>
+                </div>
+                <div class="p-3 bg-[#2C2C2E] text-center text-white border border-gray-600">
+                    <span class="text-sm">Платёж</span>
+                    <p class="text-lg font-bold">12 152 ₽/мес.</p>
+                </div>
+            </div>
+            <div class="flex justify-center mt-6">
+                <button class=" p-3 bg-orange-500 hover:bg-orange-600 text-white border border-gray-600">Оставить заявку</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="grid  gap-4  mx-auto max-w-7xl px-6 sm:py-15  lg:items-center lg:px-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  ">
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/f01.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Семейная ипотека<br>от 3.5% </h5>
+                </a>
+                <div class="">
+                    <ul>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-auto text-center pb-4">
+                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                    Подобрать варианты
+                </button>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/f01.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Семейная ипотека<br>от 3.5% </h5>
+                </a>
+                <div class="">
+                    <ul>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-auto text-center pb-4">
+                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                    Подобрать варианты
+                </button>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/f01.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Семейная ипотека<br>от 3.5% </h5>
+                </a>
+                <div class="">
+                    <ul>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-auto text-center pb-4">
+                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                    Подобрать варианты
+                </button>
+            </div>
+        </div>
+        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{% static 'pic/f01.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Семейная ипотека<br>от 3.5% </h5>
+                </a>
+                <div class="">
+                    <ul>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                        <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции</span><span class="text-white font-medium text-sm">116</span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-auto text-center pb-4">
+                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                    Подобрать варианты
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class=""> <!-- Секция 6 -->
+    <div class=""> <!-- Баннер 6 -->
+        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                <button type="button" class="border-white		 text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Преимушества		</button>
+                <span class="text-sm font-semibold leading-6 text-white">С нами ваш путь к идеальной<br> недвижимости будет быстрым,<br>комфортным и надежным</span>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <span class="text-amber-600">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!
+                </h1>
+            </div>
+        </div>
+    </div>
+----------------------------------------------------
+видео
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-24 sm:py-15  lg:items-center lg:px-8">
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <img src="{% static 'pic/main-1.svg'%}" class="py-1">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <img src="{% static 'pic/main-2.svg'%}" class="py-1">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+        
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            <img src="{% static 'pic/main-3.svg'%}" class="py-1">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <img src="{% static 'pic/main-4.svg'%}" class="py-1">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+            </a>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+        </div>
+    </div>
+</section>
+
+{% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
+<!-- Отзывы клиентов -->
+{% include 'blocks/reviews.html' with block_title='Отзывы наших клиентов' %}
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- {% include 'blocks/exclusive.html' with extended_class='mb-6' %}
+
+{% include 'blocks/new_flats.html' with flats=new_flats %} -->
+<!-- <section class="section" id="special-offers">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3 fw-bold">Специальные ипотечные предложения</p>
+        </div>
+        <div class="card-content">
+            <div class="fixed-grid has-5-cols has-1-cols-mobile">
+                <div class="grid is-gap-5">
+                    <div class="cell box has-background-info has-background-info-light has-radius-large is-aspect-ratio-4by3 army">
+                        <p>Военная ипотека</p>
+                    </div>
+                    <div class="cell box has-background-info has-background-info-light has-radius-large is-aspect-ratio-4by3 agro">
+                        <p>Сельская ипотека</p>
+                    </div>
+                    <div class="cell box has-background-info has-background-info-light has-radius-large is-aspect-ratio-4by3 family">
+                        <p>Семейная ипотека</p>
+                    </div>
+                    <div class="cell box has-background-info has-background-info-light has-radius-large is-aspect-ratio-4by3 gov">
+                        <p>Господдержка</p>
+                    </div>
+                    <div class="cell box has-background-info has-background-info-light has-radius-large is-aspect-ratio-4by3 matcap">
+                        <p>Материнский капитал</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- {% include 'blocks/new_flats.html' with flats=new_flats %} -->
+<section class="section">
+    <div class="columns is-multiline">
+        {% for promo in promos %}{% include 'promo/card.html' with promo=promo %}{% endfor %}
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/carousel.js' %}"></script>{% endblock %}

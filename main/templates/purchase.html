@@ -1,0 +1,346 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block head_scripts %}<script src="https://res.smartwidgets.ru/app.js" defer></script>{% endblock %}
+
+{% block hero_class %}hero-purchase is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">Срочный выкуп старой квартиры взамен на новую</h1>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Мечтаете о современной квартире в новом доме, но не хотите ждать, пока Ваша старая квартира продастся на сайте объявлений?</p>
+        </div>
+        <p class="card-content">У нас есть решение! <span class="has-text-weight-semibold">Застройщик выкупит Ваше жилье в максимально короткие сроки</span>, деньги от продажи старой квартиры пойдут в зачет стоимости жилья в новом жилом комплексе</p>
+    </div>
+</section>
+<section class="section">
+    <div class="card has-background-info-light">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-4">Чем эта программа отличается от других похожих?</p>
+        </div>
+        <p class="card-content is-size-5">Застройщик максимально быстро выкупает Вашу квартиру, не нужно ждать 3-4 месяца.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Как работает программа?</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <ol>
+                    <li>Вы обращаетесь в АН «Новостройки Воронеж»;</li>
+                    <li>Мы подбираем и бронируем новую квартиру в новостройке;</li>
+                    <li>Наш специалист выезжает к Вам для оценки стоимости квартиры;</li>
+                    <li>Обсуждаем стоимость продажи квартиры;</li>
+                    <li>Застройщик быстро выкупает Вашу квартиру (Если достигнута договоренность о стоимости старого жилья);</li>
+                    <li>Вы покупаете новую квартиру (деньги от продажи старой квартиры идут в зачет стоимости нового жилья).</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="questions" class="section">
+    <h3 class="is-size-3 mb-6">Пройдите короткий опрос, оставьте Ваши контакты и получите оценку стоимости Вашей квартиры:</h3>
+    <form class="card tab-panels" method="post" action="{% url 'main:feedback-page' %}">{% csrf_token %}
+        <input type="hidden" name="url" value="{{ url }}">
+        <div class="tab show">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №1. Какую квартиру хотите продать?</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="sell_type" value="Студию"> Студию
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="sell_type" value="1-комнатную квартиру"> 1-комнатную квартиру
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="sell_type" value="2-комнатную квартиру"> 2-комнатную квартиру
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="sell_type" value="3-комнатную квартиру"> 3-комнатную квартиру
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="sell_type" value="Другой вариант"> Другой вариант
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №2. Как быстро хотите продать квартиру?</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="speed" value="За несколько дней"> За несколько дней
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="speed" value="За неделю"> За неделю
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="speed" value="За месяц"> За месяц
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="speed" value="За 3-4 месяца"> За 3-4 месяца
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-header is-shadowless">
+                <p class="card-header-title">Вопрос №3. Нужны ли Вам дополнительные услуги?</p>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="help" value="Да, нужен подбор квартиры в новостройке"> Да, нужен подбор квартиры в новостройке
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="help" value="Да, нужен подбор квартиры во вторичке"> Да, нужен подбор квартиры во вторичке
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="help" value="Нет"> Нет
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="button" class="button is-warning is-rounded next">Следующий</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <div class="card-content">
+                <div class="field">
+                    <label class="label is-size-4">Ваше имя</label>
+                    <div class="control">
+                        <input class="input is-medium" type="text" name="name" placeholder="Ваше имя">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label is-size-4">Оставьте номер телефона</label>
+                    <div class="control">
+                        <input class="input is-medium phone-mask" type="text" name="phone">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-item">
+                    <button type="button" class="button is-rounded prev">Предыдущий</button>
+                </div>
+                <div class="card-footer-item">
+                    <button type="submit" class="button is-success is-rounded">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<section class="section">
+    <div class="fixed-grid has-3-cols-tablet">
+        <div class="grid is-gap-5">
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">1. Уверенная экспертиза и профессионализм</p>
+                    </div>
+                    <p class="card-content">Возьмем на себя заботы по продаже квартиры — от анализа рынка до оформления сделки.</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">2. Полное сопровождение</p>
+                    </div>
+                    <p class="card-content">Агент возьмет на себя заботы о продаже: от показов до сделки.</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">3. Гарантия безопасности сделки</p>
+                    </div>
+                    <p class="card-content">Проверяем всю документацию на недвижимость и стороны сделки, чтобы снизить вероятность каких-либо рисков при оформлении</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">4. Работаем в интересах клиента</p>
+                    </div>
+                    <p class="card-content">Отстаиваем Вашу позицию. Даем объективную информацию о рынке</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">5. Без рисков и предоплаты</p>
+                    </div>
+                    <p class="card-content">Комиссия по факту продажи - ее можно включить в цену жилья</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight has-background-info-light">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">6. Полное сопровождение и брокерская тайна</p>
+                    </div>
+                    <p class="card-content">Наши специалисты помогут на всех этапах сделки. Сохранят в тайне все детали договора</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Почему это выгодно?</p>
+        </div>
+        <div class="card-content pt-0 content">
+            <ul>
+                <li>Вы максимально быстро продаете старое жилье</li>
+                <li>Сделка с Застройщиком максимально безопасна и юридически чиста</li>
+                <li>Вы не тратите деньги на рекламу для продажи Вашей старой квартиры</li>
+                <li>Покупаете квартиру в новостройке по цене, действующей на текущий момент времени. Застройщик повышает стоимость жилья каждый месяц.</li>
+                <li>Ваша квартира на вторичке через 3-4 месяца может подешеветь, так как из-за высокой ипотечной ставки цикл сделки на вторичке увеличился. Люди, желающие продать свое жилье быстрее, делают хорошие скидки покупателям.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card carousel">
+        <div class="card-header is-shadowless">
+            <span class="card-header-icon">
+                <button class="button is-rounded prev mr-3" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-left"></i></span>
+                </button>
+                <button class="button is-rounded next" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+                </button>
+            </span>
+        </div>
+        <div class="card-content">
+            <div class="carousel-inner">
+                <div class="carousel-item image is-5by4 active">
+                    <img src="{% static 'images/purchase/slider/1.jpg' %}" alt="Фото 1">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/purchase/slider/2.jpg' %}" alt="Фото 2" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/purchase/slider/3.jpg' %}" alt="Фото 3" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/purchase/slider/4.jpg' %}" alt="Фото 4" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/purchase/slider/5.jpg' %}" alt="Фото 5" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/purchase/slider/6.jpg' %}" alt="Фото 6" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/purchase/slider/7.jpg' %}" alt="Фото 7" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Для тех, кто хочет продать квартиру по рыночной цене и готов ждать 4 месяца, мы предлагаем другой алгоритм действий:</p>
+        </div>
+        <div class="card-content content pt-0">
+            <ol>
+                <li>Выбрать квартиру в новом жилом комплексе в каталоге нашей компании, зафиксировать стоимость квартиры у застройщика на срок до 4 месяцев</li>
+                <li>Реально оценить стоимость Вашей квартиры</li>
+                <li>Продать старую квартиру через наш отдел вторичной недвижимости</li>
+                <li>Определиться с дофинансированием покупки</li>
+                <li>Оформить квартиру и переехать жить!</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card is-overflow-hidden">
+        <div class="card-image">
+            <iframe class="image is-16by9 is-fullwidth" src="https://www.youtube.com/embed/9D8DqQYnbBw?si=J1xOB8Bfa5cUm-re" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="sw-app" data-app="b17b4683bd9bad3469bc258965fde0d6"></div>
+</section>
+<section class="section has-text-centered">
+    <a href="https://yandex.ru/maps/193/voronezh/?ll=39.184269%2C51.697948&mode=poi&poi%5Bpoint%5D=39.184127%2C51.697789&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D28974348316&z=19.3" target="_blank" class="button is-warning is-rounded is-medium">Больше отзывов о нас на Яндекс.Картах</a>
+</section>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/tabs.js' %}"></script>
+    <script src="{% static 'js/carousel.js' %}"></script>
+{% endblock %}

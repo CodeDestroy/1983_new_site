@@ -1,0 +1,47 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-promo is-medium{% endblock %}
+{% block hero_styles %}{% if promo.photo %} style="background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url('{{ promo.photo.url }}')"{% endif %}{% endblock %}
+{% block hero_body %}<h1 class="title is-size-2 is-uppercase">Акция</h1>{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3">{{ promo }}</p>
+        </div>
+        {% if promo.description %}<div class="card-content">{{ promo.description|safe }}</div>{% endif %}
+    </div>
+</section>
+{% if promo.complex %}
+<section class="section build-about">
+    <div class="card">
+        <div class="card-content content">
+            <div class="columns">
+                <div class="column">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{{ flats.count }}</p>
+                        <p>доступно квартир</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="advantage box is-background-info-light is-fullheight">
+                        <p class="count">{{ promo.complex.promo_set.count }}</p>
+                        <p>акции от застройщика</p>
+                    </div>
+                </div>
+            </div>
+            {% if promo.complex.developer %}
+            <p><span class="icon-text"><span class="icon"><i class="fa-regular fa-building"></i></span><span>{{ promo.complex.developer.name }}</span></span></p>
+            {% endif %}
+            <p><span class="icon-text"><span class="icon"><i class="fa-solid fa-location-dot"></i></span><span>{{ promo.complex.address }}</span></span></p>
+            <a href="{% url 'main:search-list' %}?name={{ title }}" class="button is-warning is-medium is-rounded">Подобрать квартиру</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% include 'blocks/consultation.html' %}
+{% if flats %}{% include 'blocks/new_flats.html' with flats=flats block_title='Участвуют в акции' %}{% endif %}
+{% endblock %}

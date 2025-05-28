@@ -1,0 +1,12 @@
+{% extends "profile/registration/base_page.html" %}
+
+{% block page_name %}Вы успешно вышли{% endblock %}
+
+{% block container %}
+<div class="card border-0 shadow">
+    <div class="card-body text-center">
+        <p class="fs-5 fw-bolder text-uppercase">Вы успешно вышли!</p>
+        <a href="{% url 'main:login'%}" class="">Нажмите, чтобы ещё раз авторизоваться.</a>
+    </div>
+</div>
+{% endblock %}

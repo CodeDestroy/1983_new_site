@@ -1,0 +1,75 @@
+{% extends 'base_view.html' %}
+
+{% load static tools %}
+
+{% block hero_class %}hero-bonus is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">Программа лояльности</h1>
+    <p class="is-size-4">Экономьте на товарах и услугах с компанией «Новостройки Voronezh»!</p>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="columns is-multiline">
+        {% for bonus in bonuses %}
+        <div class="column is-one-third-tablet">
+            <div class="card bonus-card is-clickable js-modal-trigger" data-target="bonus{{ bonus.pk }}">
+                {% if bonus.photo %}
+                    <div class="card-image">
+                        <div class="image"><img src="{{ bonus.photo.url }}" alt="{{ bonus.name }}"></div>
+                    </div>
+                {% endif %}
+                <div class="card-content">
+                    <div class="columns is-align-items-center">
+                        <div class="column">
+                            <p class="has-text-weight-semibold">{{ bonus.name }}</p>
+                        </div>
+                        <div class="column is-narrow-tablet">
+                            <div class="tag is-success icon-text">
+                                <span>{{ bonus.size }}</span><span class="icon">{{ bonus.get_icon|safe }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% include 'base_pagination.html' %}
+<section class="section">
+    <div class="card">
+        <div class="card-content content">
+            <p class="has-text-weight-semibold">Что такое единая карта скидок от АН «Новостройки Voronezh»?</p>
+            <p>Это карта скидок, с которой Вы будете экономить до 30% на ремонте жилья. Мы договорились за Вас с сотнями магазинов о предоставлении скидок.</p>
+            <p class="has-text-weight-semibold">Как ее активировать?</p>
+            <p>Зарегистрируйтесь и получите карту с индивидуальным номером!</p>
+            <p class="has-text-weight-semibold">Как использовать карту?</p>
+            <p>Покажите карту (скриншот экрана или откройте карту в личном кабинете) на кассе в магазине.</p>
+            <p class="has-text-weight-semibold">На каких партнеров не распространяется данная карта?</p>
+            <p class="has-text-grey">Внимание! Магазины Hoff, Орматек, Барокко не работают по такой системе!!!! Для получения скидки необходимо взять фирменную карту партнера в офисе продаж АН «Новостройки Voronezh»</p>
+        </div>
+    </div>
+</section>
+{% for bonus in bonuses %}
+<div id="bonus{{ bonus.pk }}" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{ bonus.name }}</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            {{ bonus.description|safe }}
+            {% if bonus.address %}<br><p>Адрес: {{ bonus.address }}</p>{% endif %}
+            {% if bonus.phone %}<br><p>Номер телефона: {{ bonus.phone }}</p>{% endif %}
+        </section>
+        <footer class="modal-card-foot"><button class="button">Закрыть</button></footer>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/modals.js' %}"></script>
+{% endblock %}

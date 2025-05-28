@@ -1,0 +1,60 @@
+<Ads formatVersion="3" target="Avito.ru">{% for flat in flats %}{% if flat.objectphoto.all %}
+{% if flat.avito_id %}<AvitoId>{{ flat.avito_id }}</AvitoId>{% endif %}
+<Id>{{ flat.pk }}</Id>
+<Address>{{ flat.address }}</Address>
+<Category>{{ flat.category }}</Category>
+<Description><![CDATA[{{ flat.description|safe }}]]></Description>
+<OperationType>{{ flat.operation_type }}</OperationType>
+<Price>{{ flat.price|stringformat:'i' }}</Price>
+{% if flat.floors %}<Floors>{{ flat.floors }}</Floors>{% endif %}
+{% if flat.category == 'Квартиры' %}<Floor>{{ flat.floor }}</Floor>{% endif %}
+{% if flat.category == 'Квартиры' or flat.category == 'Дом, дачи, коттеджи' %}<Rooms>{{ flat.rooms }}</Rooms>{% endif %}
+<Square>{{ flat.square }}</Square>
+<PropertyRights>{{ flat.property_rights }}</PropertyRights>
+<ObjectType>{{ flat.object_type }}</ObjectType>
+{% if flat.video_url %}<VideoURL>{{ flat.video_url }}</VideoURL>{% endif %}
+{% if flat.objectcommerce %}
+<CeilingHeight>{{ flat.objectcommerce.ceiling_height }}</CeilingHeight>
+<Decoration>{{ flat.objectcommerce.decoration }}</Decoration>
+<BuildingType>{{ flat.objectcommerce.building_type }}</BuildingType>
+<ParkingType>{{ flat.objectcommerce.parking_type }}</ParkingType>
+<RentalType>{{ flat.objectcommerce.rental_type }}</RentalType>
+<Entrance>{{ flat.objectcommerce.entrance }}</Entrance>
+<Layout>{{ flat.objectcommerce.layout }}</Layout>
+{% endif %}
+{% if flat.objectflat %}
+<MarketType>Вторичка</MarketType>
+<Renovation>{{ flat.objectflat.renovation }}</Renovation>
+{% if flat.objectflat.deal_type %}<DealType>{{ flat.objectflat.deal_type }}</DealType>{% endif %}
+<Status>{{ flat.objectflat.status }}</Status>
+<KitchenSpace>{{ flat.objectflat.kitchen_space }}</KitchenSpace>
+{% if flat.objectflat.room_type %}
+<RoomType>{% for t in flat.objectflat.room_type %}{{ t }}{% if not forloop.last %} | {% endif %}{% endfor %}</RoomType>
+{% endif %}
+<HouseType>{{ flat.objectflat.house_type }}</HouseType>
+{% endif %}
+{% if flat.objecthouse %}
+<Renovation>{{ flat.objecthouse.renovation }}</Renovation>
+<WallsType>{{ flat.objecthouse.walls_type }}</WallsType>
+<LandArea>{{ flat.objecthouse.land_area }}</LandArea>
+<LandStatus>{{ flat.objecthouse.land_status }}</LandStatus>
+{% endif %}
+{% if flat.objectlease %}
+<LeaseType>{{ flat.objectlease.l_type }}</LeaseType>
+{% if flat.objectlease.appliance %}
+<LeaseAppliances>{% for a in flat.objectlease.appliance %}{{ a }}{% if not forloop.last %} | {% endif %}{% endfor %}</LeaseAppliances>
+{% endif %}
+{% if flat.objectlease.furniture %}
+<Furniture>{% for a in flat.objectlease.furniture %}{{ a }}{% if not forloop.last %} | {% endif %}{% endfor %}</Furniture>
+{% endif %}
+<LeaseDeposit>{{ flat.objectlease.deposit }}</LeaseDeposit>
+<LeaseCommissionSize>{{ flat.objectlease.commission_size }}</LeaseCommissionSize>
+<UtilityMeters>{{ flat.objectlease.utility_meters }}</UtilityMeters>
+<OtherUtilities>{{ flat.objectlease.other_utilities }}</OtherUtilities>
+<OtherUtilitiesPayment>{{ flat.objectlease.other_utility_payment }}</OtherUtilitiesPayment>
+<SmokingAllowed>{{ flat.objectlease.smoking|yesno:'Да,Нет' }}</SmokingAllowed>
+<ChildrenAllowed>{{ flat.objectlease.children|yesno:'Да,Нет' }}</ChildrenAllowed>
+<PetsAllowed>{{ flat.objectlease.pets|yesno:'Да,Нет' }}</PetsAllowed>
+{% endif %}
+{% endif %}{% endfor %}
+</Ads>

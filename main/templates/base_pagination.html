@@ -1,0 +1,38 @@
+{% load tools %}
+{% if is_paginated %}
+<section class="section">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        {% if page_obj.has_previous %}
+            <a class="pagination-previous has-background-white" href="?{% fix_page_request request.GET %}page=1"><span class="icon"><i class="fa-solid fa-angles-left"></i></span></a>
+            {% if page_obj.previous_page_number != 1 %}
+                <a class="pagination-previous has-background-white" href="?{% fix_page_request request.GET %}page={{ page_obj.previous_page_number }}"><span class="icon"><i class="fa-solid fa-chevron-left"></i></span></a>
+            {% else %}
+                <a class="pagination-previous has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-left"></i></span></a>
+            {% endif %}
+        {% else %}
+            <a class="pagination-previous has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-angles-left"></i></span></a>
+            <a class="pagination-previous has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-left"></i></span></a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            {% if page_obj.next_page_number != page_obj.paginator.num_pages %}
+                <a class="pagination-next has-background-white" href="?{% fix_page_request request.GET %}page={{ page_obj.next_page_number }}"><span class="icon"><i class="fa-solid fa-chevron-right"></i></span></a>
+            {% else %}
+                <a class="pagination-next has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-right"></i></span></a>
+            {% endif %}
+            <a class="pagination-next has-background-white" href="?{% fix_page_request request.GET %}page={{ page_obj.paginator.num_pages }}"><span class="icon"><i class="fa-solid fa-angles-right"></i></span></a>
+        {% else %}
+            <a class="pagination-next has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-right"></i></span></a>
+            <a class="pagination-next has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-angles-right"></i></span></a>
+        {% endif %}
+        <ul class="pagination-list">
+            {% for p in page_obj.paginator.page_range %}
+                {% if page_obj.number == p %}
+                    <li><a class="pagination-link is-current">{{ p }}</a></li>
+                {% elif p >= page_obj.number|add:-4 and p <= page_obj.number|add:4 %}
+                    <li><a href="?{% fix_page_request request.GET %}page={{ p }}" class="pagination-link has-background-white">{{ p }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+</section>
+{% endif %}

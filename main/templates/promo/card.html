@@ -1,0 +1,10 @@
+{% load static %}
+<div class="column is-one-third-tablet">
+    <div class="card has-text-white-bis promo is-fullheight" style="background-image: linear-gradient(90deg, rgba(20, 25, 59, 0.6) 23.44%, transparent 99.68%), url('{{ promo.photo.url }}')">
+        <div class="card-content content is-display-flex is-flex-direction-column is-fullheight">
+            <p class="is-size-3">Акция</p>
+            <p class="is-size-3 has-text-weight-semibold">{{ promo }}</p>
+            <a href="{% url 'main:promo-page' promo_id=promo.pk %}" class="button is-medium is-warning is-rounded mt-auto">Подробнее</a>
+        </div>
+    </div>
+</div>

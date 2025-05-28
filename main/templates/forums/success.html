@@ -1,0 +1,25 @@
+{% extends 'base_view.html' %}
+
+{% block hero_class %}is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">Заявка на форум &laquo;Движ по недвижке&raquo; успешно отправлена</h1>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title">Поздравляем, Вы успешно зарегистрировались на мероприятие!</p>
+        </div>
+        <p class="card-content">За день до мероприятия мы позвоним и напомним Вам про &laquo;Движ по недвижке&raquo;. Подпишитесь на наш telegram и следите за информацией о мероприятии.</p>
+        <div class="card-footer">
+            <a href="https://t.me/novstroy36" class="card-footer-item has-text-info">
+                <span class="icon is-large"><i class="fa-2x fa-brands fa-telegram"></i></span>
+            </a>
+            <a href="https://vk.com/novstroy36" class="card-footer-item">
+                <span class="icon is-large"><i class="fa-2x fa-brands fa-vk"></i></span>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

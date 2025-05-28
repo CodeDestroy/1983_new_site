@@ -1,0 +1,13 @@
+{% extends "profile/registration/base_page.html" %}
+
+{% block page_name %}Аккаунт успешно активирован!{% endblock %}
+
+{% block container %}
+<div class="card border-0 shadow">
+    <div class="card-body text-center">
+        <p class="fs-5 fw-bolder text-uppercase">Добро пожаловать!</p>
+        <p>Аккаунт успешно активирован!</p>
+        <a href="{% url 'main:index'%}" class="">Вернуться на сайт</a>
+    </div>
+</div>
+{% endblock %}

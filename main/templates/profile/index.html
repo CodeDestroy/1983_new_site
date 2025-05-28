@@ -1,0 +1,46 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}is-small{% endblock %}
+{% block hero_body %}<p class="title">Мой профиль</p>{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="box">
+        <div class="tabs is-toggle is-toggle-rounded is-fullwidth">
+            <ul>
+                <li class="is-active">
+                    <a href="{% url 'main:profile-index' %}">
+                        <span class="icon"><i class="fa-regular fa-credit-card"></i></span>
+                        <span>Карта</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'main:password_change' %}">
+                        <span class="icon"><i class="fa-solid fa-key"></i></span>
+                        <span>Изменить пароль</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="columns is-justify-content-space-between">
+            <div class="column is-5-tablet">
+                <div class="credit-card image box"></div>
+            </div>
+            <div class="column is-7-tablet">
+                <div class="content">
+                    <p class="has-text-weight-semibold">Что такое единая карта скидок от АН «Новостройки Voronezh»?</p>
+                    <p>Это карта скидок, с которой Вы будете экономить до 30% на ремонте жилья. Мы договорились за Вас с сотнями магазинов о предоставлении скидок.</p>
+                    <p class="has-text-weight-semibold">Как использовать карту?</p>
+                    <p>Покажите карту (скриншот экрана или откройте карту в личном кабинете) на кассе в магазине.</p>
+                    <p class="has-text-weight-semibold">На каких партнеров распространяется данная карта?</p>
+                    <p>---</p>
+                    <p class="has-text-weight-semibold">На каких партнеров не распространяется данная карта?</p>
+                    <p>Внимание! Магазины Hoff, Орматек, Барокко не работают по такой системе!!!! Для получения скидки необходимо взять фирменную карту партнера в офисе продаж АН «Новостройки Voronezh»</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

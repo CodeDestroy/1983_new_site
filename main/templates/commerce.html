@@ -1,0 +1,59 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-commerce is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card">
+        <div class="card-content content">
+            <p>Эксперты по недвижимости АН «Новостройки Voronezh» помогут Вам в покупке, продаже или аренде коммерческой недвижимости. Оценим ликвидность объекта, поможем с юридическим сопровождением.</p>
+            <p>Записывайтесь на консультацию, в рамках которой мы обсудим всё, что важно для Вас:</p>
+            <ul>
+                <li>Месторасположение объекта;</li>
+                <li>Общие характеристики;</li>
+                <li>Для каких целей Вы приобретаете коммерческую недвижимость;</li>
+                <li>Под какие виды бизнеса должно подходить помещение;</li>
+                <li>Какие атрибуты коммерции важны для Вас (вход с улицы, дополнительная территория, зона разгрузки и т.д.);</li>
+                <li>Определим бюджет покупки.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% include 'blocks/new_flats.html' with flats=flats block_title='Предложения в наличии' %}
+<section class="section">
+    <div class="card has-text-light commerce">
+        <div class="fixed-grid has-3-cols has-1-cols-mobile">
+            <form method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;" class="grid">{% csrf_token %}
+                <input type="hidden" name="url" value="{{ url }}">
+                <div class="cell is-col-span-3-tablet px-5.5 pt-5.5">
+                    <p class="has-text-weight-bold is-size-3 mb-6">Напишите письмо с Вашими пожеланиями по подбору недвижимости</p>
+                    <p>Наши специалисты свяжутся с Вами</p>
+                </div>
+                <div class="cell px-5.5 py-3">
+                    <input type="text" name="name" class="input is-medium" placeholder="Ваше имя" required>
+                </div>
+                <div class="cell px-5.5 py-3">
+                    <input type="text" name="phone" class="input is-medium phone-mask" placeholder="+7 (999) 999-99-99" required>
+                </div>
+                <div class="cell is-row-span-3-tablet is-hidden-mobile is-flex is-align-items-end is-justify-content-center">
+                    <img src="{% static 'images/index/girl2.png' %}" alt="Консультация">
+                </div>
+                <div class="cell is-col-span-2-tablet px-5.5 py-3">
+                    <textarea name="message" class="textarea"></textarea>
+                </div>
+                <div class="cell px-5.5 pb-5.5">
+                    <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button>
+                </div>
+                <div class="cell px-5.5 pb-5.5">
+                    <p class="mb-0">Нажимая кнопку вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

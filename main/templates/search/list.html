@@ -1,0 +1,72 @@
+{% extends 'base_view.html' %}
+
+{% block hero_body %}<h1 class="title is-size-1 is-uppercase">{{ title }}</h1>{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="fixed-grid has-1-cols-mobile has-4-cols">
+        <form method="get" class="grid">
+            <div class="cell">
+                <div class="select is-fullwidth is-medium">
+                    <select name="price_sort">
+                        <option value="" selected>Сортировать по цене</option>
+                        <option value="asc">По возрастанию &uarr;</option>
+                        <option value="desc">По убыванию &darr;</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="select is-fullwidth is-medium">
+                    <select name="rooms">
+                        <option value="" selected>Количество комнат</option>
+                        {% for t in flat_types %}
+                            {% if t.type %}<option value="{{ t.type }}">{{ t.type }}</option>{% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="select is-fullwidth is-medium">
+                    <select name="district">
+                        <option value="" selected>Район</option>
+                        {% for d in districts %}
+                            {% if d.district %}<option value="{{ d.district }}">{{ d.district }}</option>{% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="select is-fullwidth is-medium">
+                    <select name="price">
+                        <option value="" selected>Цена</option>
+                        <option value="1">1.000.000 - 2.000.000</option>
+                        <option value="2">2.000.000 - 3.000.000</option>
+                        <option value="3">3.000.000 - 4.000.000</option>
+                        <option value="4">4.000.000 - 5.000.000</option>
+                        <option value="5">5.000.000 - 6.000.000</option>
+                        <option value="6">6.000.000 - 7.000.000</option>
+                        <option value="7">7.000.000+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cell is-col-span-2-tablet">
+                <input type="text" name="name" {% if request.GET.name %} value="{{ request.GET.name }}"{% endif %} class="input is-medium" placeholder="ЖК, район, адрес, застройщик">
+            </div>
+            <div class="cell">
+                <button type="submit" class="button is-warning is-outlined is-fullwidth is-rounded is-medium" onclick="this.closest('form').setAttribute('action', '{% url 'main:map-list' %}'); return true;">Показать на карте</button>
+            </div>
+            <div class="cell">
+                <button type="submit" class="button is-warning is-fullwidth is-rounded is-medium">Поиск</button>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="section">
+    <p class="is-size-3 has-text-weight-bold">{{ page_obj.paginator.count }} результата</p>
+</section>
+{% for flat in flats %}
+    {% include 'flat/horizontal-card.html' with flat=flat %}
+{% endfor %}
+{% include 'base_pagination.html' %}
+{% include 'blocks/consultation.html' %}
+{% endblock %}

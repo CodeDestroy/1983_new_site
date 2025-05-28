@@ -1,0 +1,89 @@
+{% load static %}
+<!-- <section class="section" id="consultation">
+    <div class="card has-text-light">
+        <div class="fixed-grid has-3-cols has-1-cols-mobile">
+            <form method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;" class="grid">{% csrf_token %}
+                <input type="hidden" name="url" value="{{ url }}">
+                <div class="cell is-col-span-2-tablet px-5.5 pt-5.5">
+                    <p class="has-text-weight-bold is-size-3 mb-6">{{ block_title|default:"Бесплатная консультация эксперта по недвижимости" }}</p>
+                    <p>{{ block_description|default:"Мы начнем подбор жилья по обозначенным Вами критериям. Поможем с просмотром и оформлением ипотеки на наиболее комфортных условиях" }}</p>
+                </div>
+                <div class="cell is-row-span-3-tablet is-hidden-mobile is-flex is-align-items-end is-justify-content-center">
+                    <img src="{% static 'images/index/girl2.png' %}" alt="Консультация">
+                </div>
+                <div class="cell px-5.5 py-3">
+                    <input type="text" name="name" class="input is-medium" placeholder="Ваше имя" required>
+                </div>
+                <div class="cell px-5.5 py-3">
+                    <input type="text" name="phone" class="input is-medium phone-mask" placeholder="+7 (999) 999-99-99" required>
+                </div>
+                <div class="cell px-5.5 pb-5.5">
+                    <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button>
+                </div>
+                <div class="cell px-5.5 pb-5.5">
+                    <p class="mb-0">Нажимая кнопку вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section> -->
+<!-- Сделать модальное окно!!! -->
+<!-- Лучшие условия персонально для вас -->
+<section class="flex items-center justify-center  pt-20  " id="consultation">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <form method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;">{% csrf_token %}
+        <input type="hidden" name="url" value="{{ url }}">
+
+        <div class="hidden sm:grid md:grid-cols-2 grid-cols-1 sm:grid-cols-2 gap-6 bg-[#E3D8C5] px-8 rounded-xl shadow-lg items-center text-left lg:px-8 lg:mx-8 px-6">
+           
+           
+           <div class="flex flex-col justify-center">
+               <h3 style="line-height: 3.3rem;" class="font-semibold text-[32px] sm:text-[42px] md:text-[56px] text-black">
+                    Лучшие условия персонально для вас
+               </h3>
+               <p class="mt-4 text-lg text-black">
+                    Получите бесплатную консультацию по подбору недвижимости
+               </p>
+
+                
+                <div class="block items-center gap-4 mt-6 ">
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded mb-2 sm:text-1x1  text-5x1">
+                        Получить консультацию
+                    </button>
+                    <div class="flex gap-2 pb-2">
+                        <a href="#"><img src="{% static 'pic/tg.svg'%}" class="w-8 h-8"></a>
+                        <a href="#"><img src="{% static 'pic/vk.svg'%}" class="w-8 h-8"></a>
+                    </div>
+                </div>
+           </div>
+
+           
+           <div class="flex justify-end">
+               <img src="{% static 'pic/banner-social.png'%}" alt="Дизайн интерьера" class="max-w-[26rem] w-full max-w-md rounded-lg">
+           </div>
+       </div>
+
+       
+       <div class="sm:hidden flex flex-col bg-[#E3D8C5] p-4 rounded-xl shadow-lg text-center">
+            <img src="{% static 'pic/banner-social.png'%}" alt="Дизайн интерьера" class="w-full rounded-lg">
+            <h3 class="font-semibold text-xl text-black mt-4">
+                Лучшие условия персонально для вас
+            </h3>
+            <p class="mt-2 text-sm text-black">
+                Получите бесплатную консультацию по подбору недвижимости
+            </p>
+
+            
+            <div class="flex  items-center gap-3 mt-4 mx-auto">
+                <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded text-xs">
+                    Получить консультацию
+                </button>
+                <div class="flex gap-1">
+                    <a href="#"><img src="{% static 'pic/tg.svg'%}" class="w-6 h-6"></a>
+                    <a href="#"><img src="{% static 'pic/vk.svg'%}" class="w-6 h-6"></a>
+                </div>
+            </div>
+       </div>
+       </form>
+    </div>
+</section>

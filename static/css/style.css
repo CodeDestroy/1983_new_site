@@ -1,0 +1,184 @@
+.navbar { --bulma-navbar-item-img-max-height: auto; }
+
+.mb-32px { margin-bottom: 32px; }
+.ps-16px { padding-left: 16px !important; }
+.pe-16px { padding-right: 16px !important; }
+.px-16px { padding-left: 16px !important; padding-right: 16px !important; }
+
+.nv-text-color { color: #ffc107; }
+
+.button.is-outlined.is-warning { color: var(--bulma-text); }
+
+.is-fullheight { height: 100%; }
+
+.p-5\.5 { padding: 2rem !important; }
+.pt-5\.5 { padding-top: 2rem !important; }
+.pr-5\.5 { padding-right: 2rem !important; }
+.pb-5\.5 { padding-bottom: 2rem !important; }
+.pl-5\.5 { padding-left: 2rem !important; }
+.px-5\.5 { padding-left: 2rem !important; padding-right: 2rem !important; }
+.py-5\.5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+
+.carousel .carousel-item:not(.active) { display: none }
+
+footer.footer { --bulma-footer-background-color: #14193B; color: var(--bulma-white); }
+footer.footer a { --bulma-link-text: var(--bulma-white); }
+footer.footer a:hover { opacity: 0.75 }
+
+footer p { font-weight: 300; }
+footer .logo { margin-bottom: 25px; }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer ul li a { text-decoration: none; }
+footer ul li:not(:last-child) { margin-bottom: 30px; }
+footer .address p { font-weight: normal; }
+footer .policy, footer .personal { font-size: 0.75rem; }
+
+.hero { background: linear-gradient(180deg, rgba(20, 25, 59, 0) 0%, rgba(20, 25, 59, 0.6) 100%), url("../images/index/bg-new.jpg"); background-repeat: no-repeat; background-size: cover; background-position: top; }
+.hero .navbar { background: var(--bulma-navbar-background-color); }
+.hero h1, .hero .subtitle { text-shadow: #14193b 6px 6px 50px, #14193b 6px 6px 50px; }
+
+.tab-panels .tab:not(.show) { display: none; }
+
+/* Index page */
+.what-next { margin-top: -160px; }
+.card { --bulma-card-header-padding: 2rem 2rem 0; --bulma-card-content-padding: 2rem; }
+.what-next a { color: var(--bulma-text-strong); }
+
+.advantage { height: 100% }
+.advantage .count { font-size: 28px; font-weight: 700; margin-bottom: 11px; }
+.advantages p { font-size: var(--bs-body-font-size); }
+.advantage p { font-size: var(--bs-body-font-size); font-weight: 600; margin-bottom: 0; }
+
+#consultation .card, .commerce { background: linear-gradient(265deg, #78A0DD 7.38%, #232A55 47.88%); }
+#consultation a, .commerce a { --bulma-link-text: var(--bulma-white); }
+#consultation a:hover, .commerce a:hover { opacity: 0.75 }
+.commerce textarea.form-control { height: 100px; resize: none; }
+
+.vertical-flat { text-decoration: none; color: var(--bs-body-color); display: block; }
+.vertical-flat .image { background-size: cover; background-position: center; border-radius: 20px; }
+
+#special-offers .army, #special-offers .agro, #special-offers .family, #special-offers .gov, #special-offers .matcap {
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 60%;
+}
+#special-offers .army { background-image: url("../images/index/offers/army.png"); }
+#special-offers .agro { background-image: url("../images/index/offers/agro.png"); }
+#special-offers .family { background-image: url("../images/index/offers/family.png"); }
+#special-offers .gov { background-image: url("../images/index/offers/gov.png"); }
+#special-offers .matcap { background-image: url("../images/index/offers/matcap.png"); }
+
+.hero.hero-flat { background-position: center 11%; }
+
+/* About page */
+.hero-about, .hero-build, .hero-promo, .hero-article {
+    background-image: url("../images/about/header.png");
+    background-size: cover; background-position: center;
+}
+.hero-article { background-image: url("../images/news-header.png"); }
+.hero-build, .hero-moscow { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/build/bg.jpg"); background-position: bottom }
+.hero-elite { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/elite/bg.png"); background-position: bottom }
+.hero-international { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/international/bg.png"); background-position: bottom }
+.hero-trade-in { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/trade-in/bg.png"); background-position: bottom }
+.hero-commerce { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/commerce/bg.png"); background-position: bottom }
+.hero-promo { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/promo/bg.jpg"); background-position: bottom }
+.hero-design { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/design/bg.jpg"); background-position: bottom }
+.hero-flip { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/flip/bg.jpg"); background-position: bottom; background-size: cover; }
+.hero-recommendation { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/recommendation/bg.jpg"); background-position: bottom; background-size: cover; }
+.hero-purchase { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/purchase/bg.jpg"); background-position: bottom; background-size: cover; }
+.hero-bonus { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/bonus/bg.jpg"); background-position: bottom; background-size: cover; }
+.hero-home { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/home/bg.jpg"); background-position: center; background-size: cover; }
+.hero-legal { background-image: linear-gradient(90deg, #000 -26.2%, rgba(217, 217, 217, 0.00) 98.63%), url("../images/legal/bg.png"); background-position: center; background-size: cover; }
+.about-header .col, .promo-header .col { padding-bottom: 106px; }
+.about-body .exclusive, .build-about { margin-top: -83px; }
+
+.promo { background-size: cover; }
+
+.bonus-card { --bulma-card-header-padding: 2rem; }
+
+/* Contact */
+.callback { --bs-primary-bg-subtle: #779FDC; }
+.callback a { --bs-link-color-rgb: 255, 255, 255; }
+.callback a:hover { --bs-link-opacity: 0.75; }
+
+/* Mortgage */
+.hero-mortgage {
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) -26.2%, rgba(217, 217, 217, 0.01) 100%), url("../images/mortgage/header.png");
+    background-size: cover; background-position: bottom;
+}
+.mortgage-card { margin-top: -90px; }
+.mortgage-steps .card { background: linear-gradient(316.99deg, #FFC107 1.02%, #FFE8A4 57.24%); }
+.mortgage-steps .row { --bs-gutter-x: 30px; }
+.mortgage-steps .step { --bs-aspect-ratio: 66%; border-radius: 20px; }
+.mortgage-steps .step div { padding: 20px; }
+.mortgage-steps .image { width: 25%; }
+.mortgage-steps .step .icon div { background-position: center; background-repeat: no-repeat; background-size: contain; }
+.mortgage-steps .step p { margin-bottom: 0; font-weight: 500; font-size: var(--bs-body-font-size); }
+
+#calculator .sum .col-lg-3, #calculator .initialFee .col-lg-3, #calculator .term .col-lg-3 { padding-bottom: 8px; }
+#calculator .start, #calculator .end { min-width: 125px; background-color: #fff3cd; }
+#calculator input[type="range"] { right: 0; left: 0; bottom: -0.7rem; width: auto; }
+
+/* Дизайн всем слайдера */
+/* Дизайн кружка перетаскивания */
+#calculator input[type="range"]::-webkit-slider-thumb { background-color: #FFC107; }
+#calculator input[type="range"]::-moz-range-thumb { background-color: #FFC107; }
+#calculator input[type="range"]::-webkit-slider-thumb:active { background-color: #fff3cd; }
+#calculator input[type="range"]::-moz-range-thumb:active { background-color: #fff3cd; }
+#calculator input[type="range"]:focus::-webkit-slider-thumb { box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(255, 193, 1, 0.25); }
+#calculator input[type="range"]:focus::-moz-range-thumb { box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(255, 193, 1, 0.25); }
+/* Заполнение полоски цветом */
+#calculator input[type="range"]::-webkit-slider-runnable-track { background: linear-gradient(to right, #FFC107 0%, #FFC107 var(--cx), var(--bs-secondary-bg) var(--cx), var(--bs-secondary-bg) 100%) !important; opacity: 1; }
+#calculator input[type="range"]::-moz-range-track { background: linear-gradient(to right, #FFC107 0%, #FFC107 var(--cx), var(--bs-secondary-bg) var(--cx), var(--bs-secondary-bg) 100%) !important;  opacity: 1; }
+
+.horizontal-flat .photo { background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 50vh }
+
+#photos .photo { background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; }
+.object-info .card-body { border-radius: 20px; background-color: #fff; margin-top: -20px; z-index: 1; }
+
+#aboutBuild .ratio > div { background-repeat: no-repeat; background-size: cover; background-position: center; border-radius: 20px; }
+
+.about {
+    background: linear-gradient(360deg, rgba(20, 25, 59, 0.1) 0, rgba(20, 25, 59, 0.4) 100%), url('../images/block-bg.png') no-repeat bottom;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.search-in-build { --bs-primary-bg-subtle: #779FDC; }
+
+.article-card .preview div { border-radius: 20px; background-position: center; background-size: cover; background-repeat: no-repeat; }
+
+.elite-advantages .ratio > div { border-radius: 20px; background-position: center }
+
+#profileNav {
+    --bs-nav-link-color: var(--bs-white);
+    --bs-nav-pills-link-active-color: var(--bs-pagination-color);
+    --bs-nav-pills-link-active-bg: var(--bs-white);
+    --bs-nav-link-hover-color: var(--bs-pagination-color);
+    --bs-primary-rgb: 20, 25, 59;
+}
+#profileNav .nav-link:hover { background-color: var(--bs-nav-pills-link-active-bg); }
+
+.credit-card {
+    background-image: url("../images/profile/card.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.credit-card.image { aspect-ratio: 14/9; }
+
+#directions .box {
+    border: 1px solid var(--bulma-border);
+}
+
+@media (max-width: 991px) {
+    footer .menu { display: none; }
+    .advantages > .row > .col-lg-4 { display: none; }
+    #consultation .col-lg-5 { display: none; }
+    .col-12:nth-child(1) .vertical-flat, .col-12:nth-child(2) .vertical-flat { margin-bottom: 32px; }
+    .horizontal-flat .photo { min-height: 250px; border-radius: 20px 20px 0 0; }
+    .mortgage-card .col { display: none }
+}
+@media (min-width: 992px) {
+    .contacts { margin-top: 100px; }
+}

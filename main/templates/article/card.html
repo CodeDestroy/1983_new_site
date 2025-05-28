@@ -1,0 +1,8 @@
+<div class="cell">
+    <div class="article-card card is-fullheight">
+        <div class="card-content content">
+            <p class="is-size-5">{{ article.title }}</p>
+            <a href="{% url 'main:article-page' article_id=article.pk %}" class="button is-warning is-medium is-rounded is-fullwidth">Подробнее</a>
+        </div>
+    </div>
+</div>

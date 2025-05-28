@@ -1,0 +1,28 @@
+<Ads formatVersion="3" target="Avito.ru">{% for flat in flats %}{% if flat.flatphoto_set.all and flat.obj.floors %}<Ad>
+<Id>{{ flat.pk|stringformat:'i' }}</Id>
+<Category>Квартиры</Category>
+<MarketType>Новостройка</MarketType>
+<OperationType>Продам</OperationType>
+<Status>Квартира</Status>
+<DealType>Прямая продажа</DealType>
+<SaleOptions>Можно в ипотеку</SaleOptions>
+<PropertyRights>Застройщик</PropertyRights>
+<ContactMethod>По телефону и в сообщениях</ContactMethod>
+<Price>{{ flat.price|stringformat:'.2f' }}</Price>
+<Images>{% for img in flat.flatphoto_set.all %}<Image url="https://xn--36-6kch5aj8bbq6g.xn--p1ai{{ img.photo.url }}"></Image>{% endfor %}</Images>
+<Rooms>{{ flat.rooms }}</Rooms>
+<Square>{{ flat.square }}</Square>
+{% if flat.living_space %}<LivingSpace>{{ flat.living_space }}</LivingSpace>{% endif %}
+{% if flat.kitchen_space %}<KitchenSpace>{{ flat.kitchen_space }}</KitchenSpace>{% endif %}
+<Floor>{{ flat.floor }}</Floor>
+<Floors>{{ flat.obj.floors }}</Floors>
+{% if type == 'domclick' %}
+<Address>{% if flat.obj.region %}{{ flat.obj.region }}{% elif flat.obj.parent and flat.obj.parent.region %}{{ flat.obj.parent.region }}{% endif %}, {% if flat.obj.city %}{{ flat.obj.city }}{% elif flat.obj.parent and flat.obj.parent.city %}{{ flat.obj.parent.city }}{% endif %}, {% if flat.obj.address %}{{ flat.obj.address }}{% elif flat.obj.parent %}{{ flat.obj.parent.address }}{% endif %}</Address>
+<FlatNumber>{{ flat.apartment_number }}</FlatNumber>
+{% else %}<ApartmentNumber>{{ flat.apartment_number }}</ApartmentNumber>{% endif %}
+<Description><![CDATA[{{ flat.get_alternative_description|safe }}]]></Description>
+{% if flat.kitchen_square %}<KitchenSpace>{{ flat.kitchen_square }}</KitchenSpace>{% endif %}
+<Decoration>{{ flat.decoration }}</Decoration>
+<HouseType>{{ flat.obj.material }}</HouseType>
+<NewDevelopmentId>{{ flat.obj.avito_id|stringformat:'i' }}</NewDevelopmentId>
+</Ad>{% endif %}{% endfor %}</Ads>

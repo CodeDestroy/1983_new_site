@@ -1,0 +1,23 @@
+{% load static %}
+<section class=" pt-6">  <!-- Секция новостей -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-5 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Новости</span>
+        </h1>
+    </div>
+    <div class="grid  gap-6  mx-auto max-w-7xl px-6  sm:py-6  lg:items-center lg:px-8 sm:grid-cols-1 md:grid-cols-3">
+        {% for article in articles %}
+            <div class="mb-3 mx-auto">
+                <figure class="relative max-w-sm transition-all duration-300 cursor-pointer">
+                    <a href="{% url 'main:article-page' article_id=article.pk %}">
+                        <img class="rounded-lg" src="{{ article.articlephoto_set.first.photo.url }}" alt="image description">
+                    </a>
+                    <figcaption class="absolute px-4  bottom-6">
+                        <p class="text-white font-medium text-s mb-1">{{ article.created_at }}</p>
+                        <p class="text-xl text-white mb-3 font-bold">{{ article.title }}</p>
+                    </figcaption>
+                </figure>
+            </div>
+        {% endfor %}
+   </div>
+</section>

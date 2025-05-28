@@ -1,0 +1,173 @@
+{% extends 'base_view.html' %}
+
+{% load static %}
+
+{% block hero_class %}hero-design is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="card">
+        <div class="card-content content">
+            <p>Больше не нужно ходить по магазинам в поисках материалов и тратить время на поиск надежных подрядчиков. Компания «Новостройки Voronezh» - мультисервис недвижимости. Мы поможем на всех этапах сделки от выбора объекта до дизайна, ремонта и переезда.</p>
+            <p>Для наших клиентов мы делаем ремонт:</p>
+            <ul>
+                <li>В новостройках</li>
+                <li>В старом жилом фонде</li>
+                <li>В рамках услуги флиппинг квартир</li>
+            </ul>
+            <p>При необходимости мы можем разработать дизайн-проект интерьера Вашей квартиры, дома, коммерческого помещения любого уровня сложности, стоимости и уникальности.</p>
+        </div>
+    </div>
+</section>
+<section id="steps" class="section">
+    <div class="fixed-grid has-4-cols-tablet">
+        <div class="grid is-gap-3">
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">1. Оставьте заявку</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-regular fa-comment-dots is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Мы уточним пожелания по составу работ и предложим решение</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">2. Расчет сметы</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-solid fa-pen-ruler is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Наши специалисты подготовят для Вас смету работ и материалов</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">3. Договор</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-regular fa-file is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Подписываем договор, в котором зафиксированы стоимость, сроки работ, Ваши гарантии</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">4. Дизайн</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-solid fa-palette is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">В случае необходимости выполним дизайн интерьеров, либо сделаем ремонт по стандартному дизайн-проекту (эконом, комфорт или бизнес)</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">5. Ремонт</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-solid fa-helmet-safety is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Контролировать работы будет прораб</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">6. Поэтапная оплата</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-solid fa-circle-dollar-to-slot is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Оплата проводится по графику, зафиксированному в договоре</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">7. Клининг и переезд</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-solid fa-broom is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Мы можем выполнить услуги клининга и переезда для Вас!</p>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header is-shadowless">
+                        <p class="card-header-title">8. Заселение</p>
+                        <span class="card-header-icon">
+                            <span class="icon"><i class="fa-solid fa-person-walking-luggage is-size-3 nv-text-color"></i></span>
+                        </span>
+                    </div>
+                    <p class="card-content">Вам остается самое приятное - открыть дверь и войти в дом своей мечты!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="card carousel">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3 fw-bold">Фото наших работ</p>
+            <span class="card-header-icon">
+                <button class="button is-rounded prev mr-3" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-left"></i></span>
+                </button>
+                <button class="button is-rounded next" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+                </button>
+            </span>
+        </div>
+        <div class="card-content">
+            <div class="carousel-inner">
+                <div class="carousel-item image is-5by4 active">
+                    <img src="{% static 'images/design/gallery/1.jpg' %}" alt="Фото 1">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/2.jpg' %}" alt="Фото 2" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/3.jpg' %}" alt="Фото 3" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/4.jpg' %}" alt="Фото 4" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/5.jpg' %}" alt="Фото 5" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/6.jpg' %}" alt="Фото 6" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/7.jpg' %}" alt="Фото 7" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/8.jpeg' %}" alt="Фото 8" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/9.jpeg' %}" alt="Фото 9" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/10.jpeg' %}" alt="Фото 10" loading="lazy">
+                </div>
+                <div class="carousel-item image is-5by4">
+                    <img src="{% static 'images/design/gallery/11.jpeg' %}" alt="Фото 11" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' with block_title="Оставьте заявку на ремонт" description="Мы поможем подобрать оптимальное решение!" %}
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/carousel.js' %}"></script>{% endblock %}

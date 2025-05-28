@@ -1,0 +1,17 @@
+{% extends 'base_view.html' %}
+
+{% block hero_class %}hero-article is-medium{% endblock %}
+{% block hero_body %}<h1 class="title is-size-2 is-uppercase">Новости</h1>{% endblock %}
+
+{% block container %}
+<section class="section">
+    <div class="fixed-grid has-3-cols-tablet has-1-cols-mobile">
+        <div class="grid">
+            {% for article in articles %}
+                {% include 'article/card.html' with article=article %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+{% endblock %}

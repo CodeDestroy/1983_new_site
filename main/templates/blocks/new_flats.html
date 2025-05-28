@@ -1,0 +1,27 @@
+<section class="section" id="new-flats">
+    <div class="card carousel">
+        <div class="card-header is-shadowless">
+            <p class="card-header-title is-size-3-tablet fw-bold">{{ block_title|default:"Новые предложения" }}</p>
+            <span class="card-header-icon">
+                <button class="button is-rounded prev mr-3" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-left"></i></span>
+                </button>
+                <button class="button is-rounded next" type="button">
+                    <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+                </button>
+            </span>
+        </div>
+        <div class="card-content">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="columns">
+                        {% for flat in flats %}
+                            <div class="column is-12-mobile is-4">{% include 'flat/vertical-card.html' with flat=flat %}</div>
+                            {% if forloop.counter|divisibleby:3 and not forloop.last %}</div></div><div class="carousel-item"><div class="columns">{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,66 @@
+{% extends 'base_view.html' %}
+
+{% block hero_class %}hero-international is-medium{% endblock %}
+{% block hero_body %}
+    <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
+    <p class="is-size-4">Планируете покупку квартиры за рубежом? Поможем Вам подобрать объекты в Турции и на Северном Кипре. Проведем онлайн показ или экскурсию на месте.</p>
+{% endblock %}
+
+{% block container %}
+<section class="section international">
+    <h2 class="is-size-2 mb-6">Почему сделку проводить лучше именно с нами?</h2>
+    <div class="fixed-grid">
+        <div class="grid is-gap-5">
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header">
+                        <div class="card-header-title is-size-5">Тщательно подбираем базу объектов</div>
+                        <span class="card-header-icon">
+                            <span class="icon is-large">
+                                <i class="fas fa-database fa-2x"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header">
+                        <div class="card-header-title is-size-5">Экономим Ваше время</div>
+                        <span class="card-header-icon">
+                            <span class="icon is-large">
+                                <i class="fas fa-hourglass-start fa-2x"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header">
+                        <div class="card-header-title is-size-5">Полное сопровождение сделки</div>
+                        <span class="card-header-icon">
+                            <span class="icon is-large">
+                                <i class="fa-solid fa-person-walking-luggage fa-2x"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card is-fullheight">
+                    <div class="card-header">
+                        <div class="card-header-title is-size-5">Наши услуги бесплатны</div>
+                        <span class="card-header-icon">
+                            <span class="icon is-large">
+                                <i class="fa-solid fa-ruble-sign fa-2x"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks/consultation.html' %}
+{% endblock %}

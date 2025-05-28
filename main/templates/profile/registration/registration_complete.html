@@ -1,0 +1,15 @@
+{% extends "profile/registration/base_page.html" %}
+
+{% block page_name %}Вы успешно зарегистрировались{% endblock %}
+
+{% block container %}
+<div class="card">
+    <div class="card-header">
+        <p class="card-header-title">Вы успешно зарегистрировались</p>
+    </div>
+    <div class="card-content has-text-centered-text-center">
+        <p class="mb-3">Вы успешно зарегистрировались. Вам на почту отправлено письмо для активации Вашего аккаунта.</p>
+        <a href="{% url 'main:login' %}" class="button is-success">Авторизоваться</a>
+    </div>
+</div>
+{% endblock %}

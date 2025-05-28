@@ -1,0 +1,17 @@
+{% extends "profile/registration/base_page.html" %}
+
+{% block page_name %}Авторизация{% endblock %}
+
+{% block container %}
+<form class="card" method="post">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}"/>
+    <div class="card-header">
+        <p class="card-header-title">Войти</p>
+    </div>
+    <div class="card-content">{{ form.as_div }}</div>
+    <div class="card-footer">
+        <div class="card-footer-item"><a href="{% url 'main:password_reset' %}">Забыли пароль?</a></div>
+        <div class="card-footer-item"><button class="button is-success" type="submit">Войти</button></div>
+    </div>
+</form>
+{% endblock %}
