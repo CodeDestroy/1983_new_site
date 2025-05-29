@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block container %}
-<section class="section">
+<!-- <section class="section">
     <div class="card">
         <div class="card-content content">
             <p>Эксперты по недвижимости АН «Новостройки Voronezh» помогут Вам в покупке, продаже или аренде коммерческой недвижимости. Оценим ликвидность объекта, поможем с юридическим сопровождением.</p>
@@ -23,9 +23,9 @@
             </ul>
         </div>
     </div>
-</section>
-{% include 'blocks/new_flats.html' with flats=flats block_title='Предложения в наличии' %}
-<section class="section">
+</section> -->
+<!-- {% include 'blocks/new_flats.html' with flats=flats block_title='Предложения в наличии' %} -->
+<!-- <section class="section">
     <div class="card has-text-light commerce">
         <div class="fixed-grid has-3-cols has-1-cols-mobile">
             <form method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;" class="grid">{% csrf_token %}
@@ -55,5 +55,636 @@
             </form>
         </div>
     </div>
+</section> -->
+
+<!-- Шапка отделка и дизайн -->
+
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Коммерческая недвижимость</h2>
+                <p class="mt-2 text-gray-300">Эксперты по недвижимости «1983» помогут в покупке, продаже или аренде коммерческой недвижимости</p>
+                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Подобрать недвижимость
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">  
+                <img src="{%static 'pic/cafe_full.png'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg"> 
+            </div>
+        </div>
+    </div>
+    
 </section>
+
+<!-- Оцениваем -->
+<section class=" pt-5"> <!-- Секция 6 -->
+
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-8   lg:items-center lg:px-8">
+        <div class=" p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Оцениваем реальную ликвидность объекта</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/find.svg'%}"/>
+            </div>
+        </div>
+        <div class=" p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Помогаем с юридическим сопровождением</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/list_home.svg'%}"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Каталог (подбор недвижимости) -->
+<section class=""> <!-- Секция 6 -->
+  <!-- Калькулятор ипотеки -->  
+    <div class="text-white flex justify-center items-center py-5 ">
+        <div class="w-full max-w-7xl  px-6 lg:px-8 mx-auto">
+            <h1 class="text-3xl font-semibold mb-6 text-left text-white">Каталог вариантов</h1>
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-3">
+                <div class="col-span-1 ">
+                    <!-- <label class="block text-sm text-white">Направление</label> -->
+                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded-md">
+                        <option>Направление</option>
+                    </select>
+                </div>
+                <div class="col-span-1 ">
+                    <!-- <label class="block text-sm text-white">Цель сделки</label> -->
+                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded-md">
+                        <option>Цель сделки</option>
+                    </select>
+                </div>
+                <div class="col-span-2 ">
+                    <!-- <label class="block text-sm text-white">Цена</label> -->
+                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white rounded-md">
+                        <option>Цена</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid-cols-6 grid gap-x-2">
+                <div class="col-span-6 mt-4 lg:col-span-1">
+                    <button class="w-full p-3 bg-[#2C2C2E] hover:bg-orange-600 text-white border border-gray-600 rounded-md flex items-center justify-center space-x-1">
+                        <span>Дополнительно</span>
+                        <img src="{%static 'pic/filter.svg'%}" class="w-6 h-6"/>
+                    </button>
+                </div>
+                <div class="col-span-6 mt-4 lg:col-span-1 hidden lg:grid">
+                    <a class=" w-full py-3 mx-3 hover:text-white text-gray-500">Сбросить фильтры</a>
+                </div>
+                <div class="col-span-6 mt-4 lg:col-end-7 lg:col-span-1">
+                    <button class="rounded-md w-full p-3 bg-orange-500 hover:bg-orange-600 text-white border border-gray-600">Показать объявления</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="flex justify-between items-center w-full text-white py-5 max-w-7xl  px-6 lg:px-8 mx-auto">
+        <button class="flex items-center space-x-1"> 
+            <span class="text-1xl">Сортировка</span>
+            <img src="{%static 'pic/dropdown.svg'%}" class="w-4 h-4"/>
+        </button>
+        <div class="hidden md:flex">
+            <div class="">
+              <nav class="isolate flex" aria-label="Tabs">
+                <a href="#" class="group relative min-w-0 flex-1 overflow-hidden px-4 py-4 text-center text-md text-white-900 hover:bg-gray-50 focus:z-10" aria-current="page">
+                  <span >Карточками</span>
+                  <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 bg-white"></span>
+                </a>
+                <a href="#" class="group relative min-w-0 flex-1 overflow-hidden px-4 py-4 text-center text-md text-gray-500 hover:bg-[#2C2C2E] hover:text-white focus:z-10">
+                  <span >Списком</span>
+                  <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 bg-gray-500"></span>
+                </a>
+              </nav>
+            </div>
+        </div>
+        <span class="text-1xl">9 700 вариантов</span>
+    </div>
+    <div class="grid gap-6 mx-auto max-w-7xl px-6 pt-5 lg:items-center lg:px-8 sm:grid-cols-2 grid-cols-1 md:grid-cols-3">
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg' %}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg' %}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png' %}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+         <div class="rounded-lg col-span-1 mx-auto w-full bg-[#2C2C2E] mx-auto">
+            <a href="#">
+                <img class="rounded-t-lg" src="{%static 'pic/shop-c.png'%}" alt="" />
+            </a>
+            <div class="p-5  ">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">7 699 167 Р</h5>
+                </a>
+                <p class="mb-3 text-white font-medium text-sm">Свободного назначения</p>
+                <div class="flex">
+                    <ul class="">
+                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                        <li class="text-white font-medium text-sm">52,56м</li>
+                    </ul>
+                    <ul class="pl-20">
+                        <li class="text-gray-500 font-medium text-sm">За м²</li>
+                        <li class="text-white font-medium text-sm">50 000 ₽</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            <div class="p-3">
+                <ul>
+                    
+                    <li class="mb-3"><div class="flex"><img src="{%static 'pic/geo-1.svg'%}" class="px-2"><span class="text-gray-500 font-medium text-sm">Пограничный прд. д 13</span></div></li>
+                </ul>
+            </div>
+        </div>
+
+      
+        <div class="md:col-end-3 md:col-span-1 sm:col-span-2 sm:col-start-1 col-span-1 mx-auto w-full text-center pb-6">
+            <button type="button" class="w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+                Показать все результаты
+            </button>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Вам может понравится квартиры -->
+{% include 'blocks/you-may-like.html' with flats=interested_flats %}
+
+<!-- Лучшие условия -->
+{% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Как проходит консультация? -->
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Как проходит консультация?</span>
+        </h1>
+    </div> 
+    <div class="lg:grid-flow-col grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-2 2xl:grid-cols-5 gap-6  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class="h-full col-span-1 lg:col-span-2 lg:row-span-2 xl:col-span-1 2xl:col-span-3 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="flex">
+                <svg width="40" height="48" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.6689 1H1V37.3649H27.2635" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.293 34.3349V9.70312" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.293 9.7027H21.668V1L30.293 9.7027Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.5796 19.8819V26.7197H21.5154V21.1251H17.5526V15.2197H5.66406V33.2468H25.6337V15.2197H20.1168" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.1641 33.2463V29.5166H21.2046" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.70312 29.5166V33.2463" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38.764 25.8652V47.0004H17.6289L38.764 25.8652Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.0329 34.8779V43.1921H26.7188L35.0329 34.8779Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">1</h1>
+            </div>
+              
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl text-white">Мы обсуждаем всё, что важно для вашего бизнеса:</h5>
+                </a>
+                <ul class="mb-3 text-gray-500  text-md">
+                    <li>
+                        — Месторасположение объекта
+                    </li>
+                    <li>
+                        — Общие характеристики
+                    </li>
+                    <li>
+                        — Цели
+                    </li>
+                    <li>
+                        — Под какие виды бизнеса должно подходить помещение
+                    </li>
+                    <li>
+                        — Какие атрибуты коммерции важны для вас (вход с улицы, дополнительная территория, зона разгрузки и т.д.)
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="h-full col-span-1 lg:col-span-3 xl:col-span-1 2xl:col-span-2 p-6 bg-[#2C2C2E] rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.32422 13.6504V39.5254H23.1242" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.6758 13.6504V21.7504" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="31.6758" cy="37.3496" r="0.75" fill="#BF6128"/>
+                    <path d="M37 18.675L19 1.875L1 18.675" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.7258 46.1254H22.6008C21.4008 46.1254 20.4258 45.1504 20.4258 43.9504C20.4258 42.7504 21.4008 41.7754 22.6008 41.7754H35.7258C36.9258 41.7754 37.9008 42.7504 37.9008 43.9504C37.9008 45.1504 36.9258 46.1254 35.7258 46.1254Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38.425 41.6996H25.3C24.1 41.6996 23.125 40.7246 23.125 39.5246C23.125 38.3246 24.1 37.3496 25.3 37.3496H38.425C39.625 37.3496 40.6 38.3246 40.6 39.5246C40.6 40.7246 39.625 41.6996 38.425 41.6996Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.8996 37.35C36.2074 37.35 39.6996 33.8578 39.6996 29.55C39.6996 25.2422 36.2074 21.75 31.8996 21.75C27.5918 21.75 24.0996 25.2422 24.0996 29.55C24.0996 33.8578 27.5918 37.35 31.8996 37.35Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.8008 25.1035V34.1035" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.8008 32.1035H29.8008" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.799 29.707C37.7991 30.7074 37.2991 24.1029 30.7991 25.1025" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.0004 39.5242H12.0254V29.3992C12.0254 28.7242 12.5504 28.1992 13.2254 28.1992H17.8004C18.4754 28.1992 19.0004 28.7242 19.0004 29.3992V39.5242Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.5992 18.6754H15.3242V17.3254C15.3242 15.3004 16.9742 13.6504 18.9992 13.6504C21.0242 13.6504 22.6742 15.3004 22.6742 17.3254V18.6754H22.5992Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">2</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl text-white">Определяем бюджет покупки</h5>
+                </a>
+                
+            </div>
+        </div>
+        <div class="h-full col-span-1 lg:col-span-3 xl:col-span-1 2xl:col-span-2 p-6 bg-[#2C2C2E] rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="45" height="48" viewBox="0 0 45 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.725 31.4617V8.96172V3.93672C38.725 2.73672 37.75 1.76172 36.55 1.76172H3.175C1.975 1.76172 1 2.73672 1 3.93672V8.96172V31.9117C1 33.1117 1.975 34.0867 3.175 34.0867H26.575" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 8.96094H38.8" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.375 18.9375V29.8125H17.575H22.225H25.225" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.4258 27.4875V18.9375" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.1996 21.4863L19.8996 12.8613L10.5996 21.4863" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.2992 23.2109H17.5742V29.8109H22.2992V23.2109Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28.4492 5.51172H30.3992" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.5508 5.51172H35.4258" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M34.825 40.0875L40.45 45.7125L43.15 43.0125L37.525 37.3125L43.75 33.1125L24.25 26.8125L30.55 46.2375L34.825 40.0875Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">3</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl text-white">Подбираем идеальные варианты по вашим критериям</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Эффективное управление вашей недвижимостью -->
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Эффективное управление вашей жилой и коммерческой недвижимостью</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-6 grid-cols-1 gap-6  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class="sm:col-span-2 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Покупка</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/find.svg'%}"/>
+            </div>
+        </div>
+        <div class="sm:col-span-2 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Продажа</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/list_home.svg'%}"/>
+            </div>
+        </div>
+        <div class="sm:col-span-2 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Сдача в аренду</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/list_home.svg'%}"/>
+            </div>
+        </div>
+
+        <!-- Нижняя строка -->
+
+        <div class="sm:col-span-3 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Контроль своевременной оплаты</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/list_home.svg'%}"/>
+            </div>
+        </div>
+        <div class="sm:col-span-3 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Контроль состояния недвижимости</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/list_home.svg'%}"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Полное сопровождение -->
+<section class=" "> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Полное сопровождение</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-2 grid-cols-1 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class="sm:col-span-2 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="flex">
+                <svg width="40" height="48" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.6689 1H1V37.3649H27.2635" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.293 34.3349V9.70312" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.293 9.7027H21.668V1L30.293 9.7027Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.5796 19.8819V26.7197H21.5154V21.1251H17.5526V15.2197H5.66406V33.2468H25.6337V15.2197H20.1168" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.1641 33.2463V29.5166H21.2046" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.70312 29.5166V33.2463" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38.764 25.8652V47.0004H17.6289L38.764 25.8652Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.0329 34.8779V43.1921H26.7188L35.0329 34.8779Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">1</h1>
+            </div>
+              
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Быстро</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Наши специалисты оперативно подберут оптимальные варианты, организуют встречи с владельцами и помогут завершить сделку в кратчайшие сроки</p>
+      
+            </div>
+            
+        </div>
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.32422 13.6504V39.5254H23.1242" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.6758 13.6504V21.7504" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="31.6758" cy="37.3496" r="0.75" fill="#BF6128"/>
+                    <path d="M37 18.675L19 1.875L1 18.675" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.7258 46.1254H22.6008C21.4008 46.1254 20.4258 45.1504 20.4258 43.9504C20.4258 42.7504 21.4008 41.7754 22.6008 41.7754H35.7258C36.9258 41.7754 37.9008 42.7504 37.9008 43.9504C37.9008 45.1504 36.9258 46.1254 35.7258 46.1254Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38.425 41.6996H25.3C24.1 41.6996 23.125 40.7246 23.125 39.5246C23.125 38.3246 24.1 37.3496 25.3 37.3496H38.425C39.625 37.3496 40.6 38.3246 40.6 39.5246C40.6 40.7246 39.625 41.6996 38.425 41.6996Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.8996 37.35C36.2074 37.35 39.6996 33.8578 39.6996 29.55C39.6996 25.2422 36.2074 21.75 31.8996 21.75C27.5918 21.75 24.0996 25.2422 24.0996 29.55C24.0996 33.8578 27.5918 37.35 31.8996 37.35Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.8008 25.1035V34.1035" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.8008 32.1035H29.8008" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.799 29.707C37.7991 30.7074 37.2991 24.1029 30.7991 25.1025" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.0004 39.5242H12.0254V29.3992C12.0254 28.7242 12.5504 28.1992 13.2254 28.1992H17.8004C18.4754 28.1992 19.0004 28.7242 19.0004 29.3992V39.5242Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.5992 18.6754H15.3242V17.3254C15.3242 15.3004 16.9742 13.6504 18.9992 13.6504C21.0242 13.6504 22.6742 15.3004 22.6742 17.3254V18.6754H22.5992Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">2</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Безопасно</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Мы гарантируем юридическую чистоту каждой сделки, тщательно проверяем все документы</p>
+            </div>
+        </div>
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.32422 13.6504V39.5254H23.1242" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.6758 13.6504V21.7504" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="31.6758" cy="37.3496" r="0.75" fill="#BF6128"/>
+                    <path d="M37 18.675L19 1.875L1 18.675" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.7258 46.1254H22.6008C21.4008 46.1254 20.4258 45.1504 20.4258 43.9504C20.4258 42.7504 21.4008 41.7754 22.6008 41.7754H35.7258C36.9258 41.7754 37.9008 42.7504 37.9008 43.9504C37.9008 45.1504 36.9258 46.1254 35.7258 46.1254Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38.425 41.6996H25.3C24.1 41.6996 23.125 40.7246 23.125 39.5246C23.125 38.3246 24.1 37.3496 25.3 37.3496H38.425C39.625 37.3496 40.6 38.3246 40.6 39.5246C40.6 40.7246 39.625 41.6996 38.425 41.6996Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.8996 37.35C36.2074 37.35 39.6996 33.8578 39.6996 29.55C39.6996 25.2422 36.2074 21.75 31.8996 21.75C27.5918 21.75 24.0996 25.2422 24.0996 29.55C24.0996 33.8578 27.5918 37.35 31.8996 37.35Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.8008 25.1035V34.1035" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.8008 32.1035H29.8008" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.799 29.707C37.7991 30.7074 37.2991 24.1029 30.7991 25.1025" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.0004 39.5242H12.0254V29.3992C12.0254 28.7242 12.5504 28.1992 13.2254 28.1992H17.8004C18.4754 28.1992 19.0004 28.7242 19.0004 29.3992V39.5242Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.5992 18.6754H15.3242V17.3254C15.3242 15.3004 16.9742 13.6504 18.9992 13.6504C21.0242 13.6504 22.6742 15.3004 22.6742 17.3254V18.6754H22.5992Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">3</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">С максимальным доходом</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Проведем анализ рынка, чтобы предложить наиболее выгодную цену покупки недвижимости</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
 {% endblock %}

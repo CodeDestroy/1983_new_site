@@ -1,5 +1,6 @@
 {% extends 'base_view.html' %}
 
+{% load static %}
 {% block hero_class %}hero-trade-in is-medium{% endblock %}
 {% block hero_body %}
     <h1 class="title is-size-2 is-uppercase">{{ title }}</h1>
@@ -7,7 +8,7 @@
 {% endblock %}
 
 {% block container %}
-<section id="steps" class="section">
+<!-- <section id="steps" class="section">
     <h2 class="has-text-weight-semibold is-size-2 mb-6">Как обменять старое жилье на новую квартиру?</h2>
     <div class="columns is-multiline is-justify-content-center">
         <div class="column is-one-third-tablet">
@@ -121,6 +122,313 @@
             </div>
         </div>
     </div>
+</section> -->
+<!-- Шапка Меняем старое на новое -->
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6 mx-6 sm:h-[228px] md:h-[328px] ">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Меняем старое на новое</h2>
+                <p class="mt-2 text-gray-300">Программа «Меняем старое жилье на новое» — отличная возможность продать старую квартиру и купить новую. В нашей базе недвижимости более 6 000 квартир и более 70 жилых комплексов</p>
+                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+                <img src="{% static 'pic/flip_house.png'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+    
 </section>
+
+<!-- Карточки Обмен поможет тем, кто хочет: -->
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Обмен поможет тем, кто хочет:</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class=" p-6 bg-[#2C2C2E] h-56 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="46" viewBox="0 0 42 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.71484 44.3137V9.71522L16.036 1.68604L24.3571 9.71522V44.3137H7.71484Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.3574 44.3139V25.0438L32.6786 17.0146L40.9997 25.0438V44.3139H24.3574Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32.6786 17.0146H24.3574" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.71532 44.3137H1V9.71522L9.32115 1.68604H16.0365" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.71532 9.71533H1" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.7365 33.2188H14.7949V44.3136H18.7365V33.2188Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M37.934 27.8174H27.4961V41.394H37.934V27.8174Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32.6797 27.8174V41.394" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M37.861 34.6055H27.4961" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+            </div>
+            <div class="pt-8">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Стать обладателем квартиры в новом доме</h5>
+                </a>
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E] h-56 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.0372 37.8379C18.0372 37.8379 31.2372 27.2629 31.3872 15.0379C31.4622 7.83793 25.6872 1.91293 18.4872 1.76293C11.2122 1.68793 5.28723 7.46293 5.21223 14.7379C5.06223 26.9629 18.0372 37.8379 18.0372 37.8379Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.9122 33.0378L28.7622 33.1128C29.6622 33.1128 30.4872 33.6378 30.8622 34.4628L34.6122 43.0128C35.2872 44.5128 34.1622 46.2378 32.5122 46.2378L3.26217 45.8628C1.61217 45.8628 0.487169 44.0628 1.23717 42.5628L5.21217 34.0878C5.58717 33.2628 6.41217 32.7378 7.31217 32.7378L13.1622 32.8128" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.4125 13.313V23.513H12.1875V13.313" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.9617 15.713L18.3367 7.68799L9.63672 15.713" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.9629 22.0376V16.0376" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.9629 22.0376V16.0376" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.9629 16.0376H15.9629" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="pt-8">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Переехать в другой город или поменять район</h5>
+                </a>
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E] h-56 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30.069 16.1524V7.54105H31.3895C31.7864 7.54105 31.9727 7.136 31.673 6.91728L29.4128 5.28898V1.93518H26.699V3.33664L23.5558 1.08457C23.3938 0.971158 23.1589 0.971158 22.9968 1.08457L14.7338 6.91728C14.426 7.1279 14.6042 7.54105 15.0093 7.54105H16.5566V16.1524H30.069Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.4909 39.1751V30.5638H17.8113C18.2083 30.5638 18.3946 30.1588 18.0949 29.94L15.8347 28.3036V24.9498H13.1209V26.3513L9.97768 24.0992C9.81566 23.9858 9.58074 23.9858 9.41872 24.0992L1.15572 29.9319C0.847881 30.1426 1.0261 30.5557 1.43115 30.5557H2.97844V39.167H16.4909V39.1751Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M44.7057 39.1751V30.5638H46.0262C46.4231 30.5638 46.6094 30.1588 46.3097 29.94L44.0495 28.3036V24.9498H41.3357V26.3513L38.1925 24.0992C38.0305 23.9858 37.7956 23.9858 37.6336 24.0992L29.3706 29.9319C29.0627 30.1426 29.2409 30.5557 29.646 30.5557H31.1933V39.167H44.7057V39.1751Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.63383 22.6897C3.63383 22.6897 1.7139 16.9786 9.22351 13.1792" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.4802 12.4292L10.2436 12.9692L9.9651 12.4292H10.4802Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.6738 11.0405C33.6738 11.0405 40.4544 11.8749 41.9854 18.2423" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42.5688 19.5838L42.0758 19.2537L42.661 19.0738L42.5688 19.5838Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.8183 43.7935C31.8183 43.7935 28.0757 50.3147 19.4238 44.7575" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.9605 44.4711L18.5255 44.3061L18.2893 44.8655L17.9605 44.4711Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="pt-8">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Поменять квартиру</h5>
+                </a>
+            </div>
+        </div>
+
+        <div class=" p-6 bg-[#2C2C2E] h-56 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="50" height="48" viewBox="0 0 50 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48.4083 31.7754V38.4053L24.9991 46.9996L1.58984 38.4053V31.7754" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1.58984 31.7755L24.9991 40.3698L48.4083 31.7755L24.9991 23.1812L1.58984 31.7755Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M25 40.3696V46.9995" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.377 32.0209L24.9997 36.2771L36.6225 32.0209L24.9997 27.7646L13.377 32.0209Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.97411 16.0615L4.20898 21.6274L10.8389 22.5277L7.97411 16.0615Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.5293 19.4985L24.999 13.9326L40.4688 19.4985" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42.0249 16.0615L45.7901 21.6274L39.1602 22.5277L42.0249 16.0615Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M25 23.1816V20.0713" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M25 17.1248V13.9326" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M25 10.2498V7.05762" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M25 4.11081V1.00049" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="pt-8">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Расширить жилплощаль</h5>
+                </a>
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E] h-56 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="46" viewBox="0 0 42 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.75 16.437V30.537C4.75 32.037 6.025 33.312 7.525 33.312H9.85H17.425H25.525" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.8242 28.887V16.437" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.95 10.9624V12.0124V12.1624C26.95 14.5624 28.9 16.5124 31.3 16.5124C31.45 16.5124 31.675 16.5124 31.825 16.5124C34 16.2124 35.65 14.4124 35.65 12.2374V8.7874C35.65 7.9624 35.425 7.2124 35.05 6.4624L33.175 3.3874C32.35 2.0374 30.925 1.2124 29.35 1.2124H7.3C5.725 1.2124 4.3 2.0374 3.475 3.3874L1.6 6.3874C1.15 7.0624 1 7.8874 1 8.7124V12.1624C1 14.3374 2.65 16.2124 4.825 16.4374C4.975 16.4374 5.2 16.4374 5.35 16.4374C7.75 16.4374 9.7 14.4874 9.7 12.0874V11.9374V10.9624V12.0124C9.7 14.0374 11.05 15.8374 13 16.2874C15.85 16.9624 18.325 14.7874 18.325 12.0874V11.9374V10.9624V12.0124C18.325 14.0374 19.675 15.8374 21.625 16.2874C24.475 16.9624 26.95 14.7874 26.95 12.0874V11.9374V10.9624Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.4246 21.0874H9.84961V33.3124H17.4246V21.0874Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28.2242 21.0874H21.3242V25.9624H28.2242V21.0874Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32.7996 44.7872C37.1903 44.7872 40.7496 41.2279 40.7496 36.8372C40.7496 32.4465 37.1903 28.8872 32.7996 28.8872C28.4089 28.8872 24.8496 32.4465 24.8496 36.8372C24.8496 41.2279 28.4089 44.7872 32.7996 44.7872Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.875 32.0659V41.0659" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.875 39.0659H29.875" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.8752 36.6704C37.8753 37.6708 37.3753 31.0663 30.8752 32.0659" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                    
+            </div>
+            <div class="pt-8">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Поменять квартиру на коммерческую недвижимость</h5>
+                </a>
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E] h-56 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="45" height="46" viewBox="0 0 45 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.8742 8.75V22.475H4.44922V8.75" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.325 11.9746L12.7 1.09961L1 11.9746" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.07422 22V14" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.0742 22V14" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.07422 14H16.0742" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.8746 33.7246H13.2246V44.8996H20.8746V33.7246Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.9742 29H24.3242V44.9H31.9742V29Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M43.0758 19.0996H35.4258V44.8996H43.0758V19.0996Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.22461 31.6996C7.22461 31.6996 28.1496 28.3996 36.7746 10.4746" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32.0508 12.3494L36.7758 10.3994L37.8258 15.2744" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="pt-8">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Инвестировать в рентабельную недвижимость</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Лучшие условия персонально для вас -->
+
+<!-- Лучшие условия -->
+{% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Карточки этапы работы по дизайну и ремонту -->
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Этапы работы по дизайну и ремонту</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class="min-h-[274px] p-6 bg-[#2C2C2E] h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="flex">
+                <svg width="45" height="48" viewBox="0 0 45 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.725 31.4625V8.96245V3.93745C38.725 2.73745 37.75 1.76245 36.55 1.76245H3.175C1.975 1.76245 1 2.73745 1 3.93745V8.96245V31.9125C1 33.1125 1.975 34.0875 3.175 34.0875H26.575" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 8.9624H38.8" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.375 18.9375V29.8125H17.575H22.225H25.225" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.4258 27.4875V18.9375" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.2016 21.4871L19.9016 12.8621L10.6016 21.4871" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.2992 23.2124H17.5742V29.8124H22.2992V23.2124Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28.4492 5.51245H30.3992" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.5508 5.51245H35.4258" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M34.825 40.0875L40.45 45.7125L43.15 43.0125L37.525 37.3125L43.75 33.1125L24.25 26.8125L30.55 46.2375L34.825 40.0875Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">1</h1>
+            </div>
+              
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Выбрать квартиру в нашем агентстве</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Выберите квартиру мечты из базы агентства</p>
+      
+            </div>
+            
+        </div>
+        <div class="min-h-[274px] p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.55 30.4062C23.5857 30.4062 30.1 23.8919 30.1 15.8562C30.1 7.82041 23.5857 1.30615 15.55 1.30615C7.51426 1.30615 1 7.82041 1 15.8562C1 23.8919 7.51426 30.4062 15.55 30.4062Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28.8992 21.6311L31.0742 23.8061C31.8242 24.5561 31.8242 25.8311 31.0742 26.5811L26.2742 31.3811C25.5242 32.1311 24.2492 32.1311 23.4992 31.3811L21.3242 29.2061" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M43.5996 43.9062C42.5496 44.9562 40.8246 44.9562 39.7746 43.9062L26.7246 30.9312L30.5496 27.1062L43.5246 40.0812C44.6496 41.1312 44.6496 42.8562 43.5996 43.9062Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21.5508 12.3315V22.3065H9.55078V12.3315" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.0242 14.6558L15.5492 6.78076L7.07422 14.6558" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.8242 21.1311V16.1311" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.8242 21.1311V16.1311" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.8242 16.1311H13.8242" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">2</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Реально оценить стоимость вашей квартиры</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Наши эксперты оценят имеющиеся у вас квартиры в течение 3-5 дней</p>
+            </div>
+        </div>
+        <div class="min-h-[274px] p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.32422 13.6501V39.5251H23.1242" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.6758 13.6501V21.7501" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="31.6758" cy="37.3494" r="0.75" fill="#BF6128"/>
+                    <path d="M37 18.6748L19 1.87476L1 18.6748" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.7258 46.1251H22.6008C21.4008 46.1251 20.4258 45.1501 20.4258 43.9501C20.4258 42.7501 21.4008 41.7751 22.6008 41.7751H35.7258C36.9258 41.7751 37.9008 42.7501 37.9008 43.9501C37.9008 45.1501 36.9258 46.1251 35.7258 46.1251Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38.425 41.6994H25.3C24.1 41.6994 23.125 40.7244 23.125 39.5244C23.125 38.3244 24.1 37.3494 25.3 37.3494H38.425C39.625 37.3494 40.6 38.3244 40.6 39.5244C40.6 40.7244 39.625 41.6994 38.425 41.6994Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.8996 37.3498C36.2074 37.3498 39.6996 33.8576 39.6996 29.5498C39.6996 25.2419 36.2074 21.7498 31.8996 21.7498C27.5918 21.7498 24.0996 25.2419 24.0996 29.5498C24.0996 33.8576 27.5918 37.3498 31.8996 37.3498Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.8008 25.103V34.103" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.8008 32.103H29.8008" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.799 29.7075C37.7991 30.7079 37.2991 24.1034 30.7991 25.103" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.0004 39.5247H12.0254V29.3997C12.0254 28.7247 12.5504 28.1997 13.2254 28.1997H17.8004C18.4754 28.1997 19.0004 28.7247 19.0004 29.3997V39.5247Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.5992 18.6751H15.3242V17.3251C15.3242 15.3001 16.9742 13.6501 18.9992 13.6501C21.0242 13.6501 22.6742 15.3001 22.6742 17.3251V18.6751H22.5992Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">3</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Продать старую квартиру</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Наши брокеры продадут вашу старую квартиру по выгодной цене в короткие сроки</p>
+            </div>
+        </div>
+        <div class="min-h-[388px] p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="44" height="48" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5664 41.3277L12.6542 40.3953C13.1982 39.9291 13.8975 39.6183 14.5968 39.6183C16.6171 39.6183 21.0461 39.6183 23.9211 39.4629C27.7286 39.3075 30.6036 36.4324 30.6036 36.4324L38.063 29.3615C38.9955 28.3514 38.063 25.0879 35.8874 26.9527L31.0698 30.527C29.438 31.7703 27.4955 32.3919 25.3975 32.3919H18.8705" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.9316 32.4699C26.0194 32.4699 25.5532 29.4394 22.7559 29.3617H15.7627C8.76943 27.2638 6.59375 33.4023 6.59375 33.4023" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 34.4122L4.10811 32.3142C4.80743 31.848 5.66216 32.0811 6.12838 32.7028L12.1892 42.4156C12.5777 43.0372 12.4223 43.8919 11.8007 44.3582L8.22635 47.0001" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.8145 12.2667C21.98 11.3342 22.9901 10.6349 23.4563 10.4018C23.7672 10.3241 24.0003 10.3241 24.3111 10.4018L26.0982 10.9457C26.4868 11.1011 26.5645 11.5673 26.2536 11.8004C25.7097 12.189 24.9327 12.7329 24.3111 13.5099C24.2334 13.5876 24.2334 13.6653 24.1557 13.743C23.2232 14.9086 22.757 16.4626 24.1557 18.0167C24.3888 18.2498 24.855 18.1721 25.0881 17.8613C25.3212 17.5504 25.7874 17.1619 26.3313 16.618C27.1861 15.9187 28.3516 15.1417 29.9057 14.3646C30.4496 14.1315 30.9935 13.743 31.5374 13.4322C34.4901 11.5673 37.3651 8.84774 37.3651 8.84774L42.7266 8.45923" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.7332 17.9392C12.2669 17.5507 12.0338 16.9291 12.3446 16.2297L16.5406 8.84797C16.5406 8.84797 18.7163 5.42905 22.5237 4.34122C26.2534 3.33108 41.2501 1 41.2501 1" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.8754 19.3381C26.8754 23.3009 23.6896 26.4868 19.7268 26.4868C15.7639 26.4868 12.5781 23.2232 12.5781 19.3381C12.5781 18.8719 12.6558 18.4057 12.7335 17.9395C13.3552 14.6759 16.2302 12.1895 19.7268 12.1895C20.1153 12.1895 20.5038 12.1895 20.8146 12.2672C22.0579 12.4226 23.2234 12.9665 24.1558 13.7435C23.2234 14.909 22.7572 16.4631 24.1558 18.0172C24.3889 18.328 24.8552 18.1726 25.0883 17.9395C25.3214 17.6286 25.7876 17.2401 26.3315 16.6962C26.72 17.4732 26.8754 18.4057 26.8754 19.3381Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">4</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Определиться с дофинансированием покупки</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Если понадобится дофинансирование, мы подберем для вас самую выгодную ипотечную программу и поможем ее оформить</p>
+            </div>
+        </div>
+        <div class="min-h-[388px] p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.0254 40.4248L13.1504 39.4498C13.7504 38.9248 14.4254 38.6998 15.2504 38.6998C17.4254 38.6998 22.0754 38.6998 25.0754 38.5498C29.1254 38.3998 32.1254 35.3998 32.1254 35.3998L39.9254 27.9748C40.9004 26.9248 39.9254 23.4748 37.6754 25.4248L32.6504 29.1748C30.9254 30.4498 28.8254 31.1248 26.7254 31.1248H19.8254" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.1246 31.1252C27.3246 31.1252 26.7996 27.9002 23.7996 27.9002H16.4496C9.02461 25.6502 6.84961 32.1752 6.84961 32.1752" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 33.1501L4.3 30.9001C4.975 30.4501 5.95 30.6001 6.4 31.3501L12.775 41.5501C13.225 42.2251 13 43.1251 12.4 43.5751L8.575 46.3501" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.55 9.74951V9.82451V24.4495H16V9.82451" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M37.2242 13.1999L24.7742 1.6499L12.3242 13.1999" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21.6504 23.9998L21.6504 14.9998" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M27.6504 23.9998L27.6504 14.9998" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21.6504 14.9998H27.6504" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg> 
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">5</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold text-white">Оформить документы и переехать жить!</h5>
+                </a>
+                <p class="mb-3 text-gray-500 font-medium text-sm">Оформляйте все документы на квартиру и готовьтесь к переезду!</p>
+            </div>
+        </div>
+        <div class="bg-[#2C2C2E] rotate-x-180 min-h-[388px] rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 flex justify-center items-center overflow-hidden" 
+            style="background-image: url('{% static "pic/design_house_3.jfif" %}'); background-size: cover; background-position: center; background-repeat: no-repeat; ">
+            <!-- <figure class="relative w-full h-full">
+                <a href="#">
+                    <img class="w-full h-full object-cover" src="pic/design_house_3.jfif" alt="В старом жилом фонде">
+                </a>
+            </figure> -->
+        </div>
+        
+    </div>
+    <div class="m-auto text-center pb-6">
+        <button type="button" class="rounded-lg bg-[#BF6128] hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 mb-2">
+            Обменять квартиру
+        </button>
+    </div>
+</section>
+
+<!-- Отзывы клиентов -->
+{% include 'blocks/reviews.html' with block_title='Отзывы наших клиентов' %}
+
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+
 {% include 'blocks/consultation.html' %}
 {% endblock %}

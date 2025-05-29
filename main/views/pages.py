@@ -70,7 +70,8 @@ class CommerceView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {
             'title': 'Коммерческая недвижимость',
-            'flats': Flat.objects.filter(is_deleted=False)[:12],
+            'flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:3],
+            'interested_flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:3],
             'url': reverse_lazy('main:commerce-page')
         })
 

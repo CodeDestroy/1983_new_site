@@ -17,9 +17,9 @@
             <div class="order-2 sm:order-1 flex-1">
                 <h2 class="text-3xl sm:text-2xl font-bold">Ипотека</h2>
                 <p class="mt-2 text-gray-300">Бесплатно поможем подобрать ипотечную программу от 4,5%</p>
-                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                <a href="#calculator" class="btn mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
                     Подобрать ипотеку
-                </button>
+                </a>
             </div>
             <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6"> 
                 <img src="{% static 'pic/mortgage.png'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg">
@@ -128,6 +128,7 @@
     </div>
 </section>
 
+<!-- Лучшие условия -->
 {% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
 
 <!-- Вам может понравится квартиры -->
