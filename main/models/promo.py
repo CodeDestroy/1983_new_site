@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 def promo_directory_path(instance, filename):
     try:
@@ -20,13 +20,28 @@ class Promo(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     is_deleted = models.BooleanField(default=False, verbose_name='Удалена?')
     favorite = models.BooleanField(default=False, verbose_name='Избранное?')
+    end_at = models.DateTimeField(verbose_name='Дата окончания акции', null=True, blank=True)
+    flats_on_promo = models.IntegerField(verbose_name='Количество квартир по акции', null=True, blank=True, default=0)
 
     def __str__(self):
         return self.name
 
+    def time_left(self):
+        if self.end_at:
+            delta = self.end_at - timezone.now()
+            if delta.total_seconds() > 0:
+                days = delta.days
+                hours = delta.seconds // 3600
+                minutes = (delta.seconds % 3600) // 60
+                return f"{days} д. {hours} ч. {minutes} мин."
+            else:
+                return "Акция завершена"
+        return "Акция завершена"
+    
     class Meta(object):
         ordering = ['-created_at']
         app_label = 'main'
         db_table = 'promos'
         verbose_name = 'акция'
         verbose_name_plural = 'акции'
+

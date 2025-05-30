@@ -77,8 +77,9 @@ urlpatterns = [
 
     path('purchase/', TemplateView.as_view(template_name='purchase.html', extra_context={
         'title': 'Срочный выкуп квартир', 'url': reverse_lazy('main:purchase-page')}), name='purchase-page'),
-    path('home-sweet-home/', TemplateView.as_view(template_name='home.html', extra_context={
-        'title': 'Дома и таунхаусы', 'url': reverse_lazy('main:home-page')}), name='home-page'),
+    #path('home-sweet-home/', TemplateView.as_view(template_name='home.html', extra_context={
+    #    'title': 'Дома и таунхаусы', 'url': reverse_lazy('main:home-page')}), name='home-page'),
+    path('home-sweet-home/', views.HomeView.as_view(), name='home-page'),
     path('legal/', TemplateView.as_view(template_name='legal.html', extra_context={
         'title': 'Юридические услуги', 'url': reverse_lazy('main:legal-page')}), name='legal-page'),
     path('images/save/', views.SaveImage.as_view(), name='save-image'),

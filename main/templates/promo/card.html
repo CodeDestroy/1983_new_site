@@ -1,10 +1,22 @@
 {% load static %}
-<div class="column is-one-third-tablet">
-    <div class="card has-text-white-bis promo is-fullheight" style="background-image: linear-gradient(90deg, rgba(20, 25, 59, 0.6) 23.44%, transparent 99.68%), url('{{ promo.photo.url }}')">
-        <div class="card-content content is-display-flex is-flex-direction-column is-fullheight">
-            <p class="is-size-3">Акция</p>
-            <p class="is-size-3 has-text-weight-semibold">{{ promo }}</p>
-            <a href="{% url 'main:promo-page' promo_id=promo.pk %}" class="button is-medium is-warning is-rounded mt-auto">Подробнее</a>
+<div class="max-w-sm bg-[#2C2C2E] mx-auto rounded-lg">
+    <a href="{% url 'main:promo-page' promo_id=promo.pk %}">
+        <img class="rounded-t-lg h-48 w-full object-cover" src="{{promo.photo.url}}" alt="">
+    </a>
+    <div class="p-3 min-h-40">
+        <a href="{% url 'main:promo-page' promo_id=promo.pk %}">
+            <h6 class="mb-2 text-1xl font-bold tracking-tight text-white">{{promo}}</h6>
+        </a>
+        <div class="">
+            <ul>
+                <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm">Квартиры по акции </span><span class="text-white font-medium text-sm ml-1">{{ promo.flats_on_promo }}</span></div></li>
+                <li class="mb-3"><div class="flex"><span class="text-gray-500 font-medium text-sm ">До конца акции </span><span class="text-white font-medium text-sm  ml-1">{{ promo.time_left }}</span></div></li>
+            </ul>
         </div>
+    </div>
+    <div class="m-auto text-center pb-2  p-2">
+        <a href="{% url 'main:promo-page' promo_id=promo.pk %}" class="btn bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-6 border border-amber-700 me-2 mb-2 w-full">
+            Подробнее
+        </a>
     </div>
 </div>

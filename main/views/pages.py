@@ -23,7 +23,7 @@ class IndexView(View):
             'new_flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:12],
             'promos': Promo.objects.filter(is_deleted=False, favorite=True),
             'url': reverse_lazy('main:index'),
-            'articles': Article.objects.filter(is_deleted=False)
+            'articles': Article.objects.filter(is_deleted=False).order_by('-created_at')[:12]
         })
 
 
@@ -45,9 +45,10 @@ class ContactView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {
             'title': 'Контакты',
-            'flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:12],
+            'flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:3],
             'yandex_map_key': settings.YANDEX_MAP_KEY,
-            'url': reverse_lazy('main:contacts')
+            'url': reverse_lazy('main:contacts'),
+            'articles': Article.objects.filter(is_deleted=False).order_by('-created_at')[:3],
         })
 
 
@@ -82,10 +83,19 @@ class EliteView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {
             'title': 'Элитная недвижимость',
-            'flats': Flat.objects.all().distinct('obj').order_by('obj', '-price')[:12],
+            'flats': Flat.objects.filter(is_deleted=False).distinct('obj').order_by('obj', '-price')[:12],
             'url': reverse_lazy('main:elite-page')
         })
 
+class HomeView(View):
+    template_name = 'home.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {
+            'title': 'Дома и таунхаусы',
+            'flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:3],
+            'url': reverse_lazy('main:home-page')
+        })
 
 class SaveImage(View):
     def post(self, request, *args, **kwargs):

@@ -1,16 +1,48 @@
 {% extends 'base_view.html' %}
-
+{% load static %}
 {% block hero_class %}hero-article is-medium{% endblock %}
 {% block hero_body %}<h1 class="title is-size-2 is-uppercase">Новости</h1>{% endblock %}
 
 {% block container %}
-<section class="section">
+<!-- <section class="section">
     <div class="fixed-grid has-3-cols-tablet has-1-cols-mobile">
         <div class="grid">
             {% for article in articles %}
                 {% include 'article/card.html' with article=article %}
             {% endfor %}
         </div>
+    </div>
+</section> -->
+ <!-- Шапка Акции -->
+<section class="flex items-center justify-center  pt-5">
+  <div>
+    
+  </div>
+    <div class="max-w-7xl lg:mx-0 w-full ">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6 mx-6  ">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-5x1 font-bold">Новости</h2>
+                <p class="mt-2 text-white sm:text-2x1 ">Делимся опытом и рассказываем об актуальных событиях в сфере недвижимости</p>
+               <div class="flex  py-5 m-auto justify-center sm:justify-start">
+                   <button class="bg-[#BF6128]  p-2 mx-1 rounded-lg"><a href=""><img src="{%static 'pic/vk-n.svg'%}"></a></button>
+                    <button class="bg-[#BF6128] p-2 mx-1 rounded-lg"><a href=""><img src="{%static 'pic/tg-n.svg'%}"></a></button>
+                    <button class="bg-[#BF6128] p-2 mx-1 rounded-lg"><a href=""><img src="{%static 'pic/yt-n.svg'%}"></a></button>
+                    <button class="bg-[#BF6128] p-2 mx-1 rounded-lg"><a href=""><img src="{%static 'pic/r-n.svg'%}"></a></button>
+               </div>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+                <img src="{%static 'pic/news.svg'%}" alt="Акции" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+    
+</section>
+<!-- Секция Новости основная  -->
+<section class="mt-5">
+    <div class="grid  gap-4  mx-auto max-w-7xl px-6 py-4  lg:items-center lg:px-8 sm:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 ">
+        {% for article in articles %}
+            {% include 'article/card.html' with article=article %}
+        {% endfor %}
     </div>
 </section>
 {% include 'blocks/consultation.html' %}

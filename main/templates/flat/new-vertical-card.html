@@ -1,0 +1,61 @@
+{% load static %}
+{% load humanize %}
+
+<div class="max-w-sm bg-[#2C2C2E] mx-auto">
+    <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
+        <img class="rounded-t-lg" src="{{ flat.flatphoto_set.first.photo.url }}" alt="" />
+    </a>
+    <div class="p-5  ">
+        <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ flat.price|floatformat:0 }} Р</h5>
+        </a>
+        <p class="mb-3 text-white font-medium text-sm">{{ flat }}</p>
+    <div class="flex">
+        <ul class="">
+            <li class="text-gray-500 font-medium text-sm">Площадь</li>
+            <li class="text-white font-medium text-sm">{{ flat.square|intcomma }}м<sup>2</sup></li>
+        </ul>
+        <ul class="m-auto">
+            <li class="text-gray-500 font-medium text-sm">Этаж</li>
+            <li class="text-white font-medium text-sm">{{ flat.floor }}{% if flat.obj.floors %} /{{ flat.obj.floors }}{% endif %} эт</li>
+        </ul>
+        <ul class="m-auto">
+            <li class="text-gray-500 font-medium text-sm">Отделка</li>
+            <li class="text-white font-medium text-sm">{{ flat.decoration }}</li>
+        </ul>
+    </div>
+    </div>
+    <div class="p-3">
+        <ul>
+            <li class="mb-3">
+                <div class="flex">
+                    <img src="{% static 'pic/geo.svg'%}" class="px-2">
+                    <span class="text-gray-500 font-medium text-sm">
+                        {% if flat.obj.parent.city %}{{ flat.obj.parent.city }}{% endif %}
+                    </span>
+                </div>
+            </li>
+            <li class="mb-3">
+                <div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2">
+                    <span class="text-gray-500 font-medium text-sm">
+                    {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- {% load humanize %}
+<a class="vertical-flat" href="{% url 'main:flat-page' flat_id=flat.pk %}">
+    <div class="image is-square mb-3" style="background-image: url('{{ flat.flatphoto_set.first.photo.url }}')"></div>
+    <p class="is-size-3 mb-3">{{ flat.price|floatformat:0 }} руб</p>
+    <p class="has-text-weight-medium mb-3">{{ flat }} {{ flat.square|intcomma }} м<sup>2</sup> {{ flat.floor }}{% if flat.obj.floors %} /{{ flat.obj.floors }}{% endif %} эт</p>
+    <p class="has-text-grey	mb-2">
+        <i class="fa-regular fa-building"></i> {{ flat.obj }}
+    </p>
+    <p class="has-text-grey">
+        <i class="fa-solid fa-location-dot"></i> {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
+    </p>
+</a> -->

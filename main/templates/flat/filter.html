@@ -1,0 +1,59 @@
+{%load static %}
+
+<!-- Фильтр квартир -->  
+<div class=" text-white flex justify-center items-center p-4">
+    <div class="w-full max-w-7xl  px-6 lg:px-8 mx-auto bg-[#191B1D]">
+         <h1 class="text-3xl font-semibold mb-6 text-left text-white">{{ block_title|default:"Каталог вариантов" }}</h1>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 items-center">
+            <select class="bg-[#2C2C2E] p-3 border border-gray-600 text-white rounded-md w-full">
+                <option>Купить</option>
+            </select>
+            <select class="bg-[#2C2C2E] p-3 border border-gray-600 text-white rounded-md w-full">
+                <option>Вид объекта</option>
+            </select>
+            <select class="bg-[#2C2C2E] p-3 border border-gray-600 text-white rounded-md w-full">
+                <option>Цена</option>
+            </select>
+            <select class="bg-[#2C2C2E] p-3 border border-gray-600 text-white rounded-md w-full">
+                <option>Площадь</option>
+            </select>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-2 items-center">
+            <div> <button class="w-full p-3 bg-[#2C2C2E] hover:bg-orange-600 text-white border border-gray-600 rounded-md flex items-center justify-center space-x-1">
+                        <span>Дополнительно</span>
+                        <img src="{%static 'pic/filter.svg'%}" class="w-6 h-6">
+                    </button>
+                </div>
+            <div>  
+                <input type="text" class="bg-white p-3 text-gray-600  md:col-span-2 lg:col-span-1" placeholder="Район, адрес">
+            </div>
+            <div class="flex gap-2 w-full md:col-span-2 lg:col-span-1 justify-end">
+                <button class="bg-white text-black p-3 flex items-center gap-2 w-full md:w-auto">На карте 🗺️</button>
+                <button class="bg-orange-500 text-white p-3 w-full md:w-auto">Показать объявления</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex justify-between items-center w-full text-white py-5 max-w-7xl  px-6 lg:px-8 mx-auto">
+    <button class="flex items-center space-x-1"> 
+        <span class="text-1xl">Сортировка</span>
+        <img src="{%static 'pic/dropdown.svg'%}" class="w-4 h-4"/>
+    </button>
+    <div class="hidden md:flex">
+        <div class="">
+          <nav class="isolate flex" aria-label="Tabs">
+            <a href="#" class="group relative min-w-0 flex-1 overflow-hidden px-4 py-4 text-center text-md text-white-900 hover:bg-gray-50 focus:z-10" aria-current="page">
+              <span >Карточками</span>
+              <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 bg-white"></span>
+            </a>
+            <a href="#" class="group relative min-w-0 flex-1 overflow-hidden px-4 py-4 text-center text-md text-gray-500 hover:bg-[#2C2C2E] hover:text-white focus:z-10">
+              <span >Списком</span>
+              <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 bg-gray-500"></span>
+            </a>
+          </nav>
+        </div>
+    </div>
+    <span class="text-1xl">{{ flats_count|default:"0" }} вариантов</span>
+</div>

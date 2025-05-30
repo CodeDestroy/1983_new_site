@@ -296,103 +296,10 @@
 </section>
 
 <section class=""> <!-- Секция 4 с фильтром -->
-    <div class=""> <!-- Баннер 4 -->
-        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-15 lg:flex lg:items-center lg:justify-between lg:px-8">
-            <div class="mt-10 inline-grid  items-center gap-x-4 lg:mt-0 lg:flex-shrink-0">
-                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Каталог</button>
-                <span class="text-sm font-semibold leading-6 text-white">Узнайте, какие предложения<br>подходят именно вам</span>
-            </div>
-            <div class="m-auto">
-                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mx-5">Авторский каталог<br>недвижимости</h1>
-            </div>
-        </div>
-    </div>
-    <div class=" text-white flex justify-center items-center p-4">
-        <div class="w-full max-w-7xl p-4 bg-[#2C2C2E]">
-            <h2 class="text-lg font-semibold mb-4">Подобрать недвижимость в <span class="text-orange-500">Воронеже</span></h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 items-center">
-                <select class="bg-[#2C2C2E] p-3 text-white w-full">
-                    <option>Купить</option>
-                </select>
-                <select class="bg-[#2C2C2E] p-3 text-white w-full">
-                    <option>Вид недвижимости</option>
-                </select>
-                <select class="bg-[#2C2C2E] p-3 text-white w-full">
-                    <option>Комнатность</option>
-                </select>
-                <select class="bg-[#2C2C2E] p-3 text-white w-full">
-                    <option>Цена</option>
-                </select>
-                <select class="bg-[#2C2C2E] p-3 text-white w-full">
-                    <option>Площадь</option>
-                </select>
-                <select class="bg-[#2C2C2E] p-3 text-white w-full">
-                    <option>Этаж</option>
-                </select>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-2 items-center">
-                <button class="bg-[#2C2C2E] p-3 text-white flex items-center justify-center gap-2 w-full md:col-span-2 lg:col-span-1">
-                    Дополнительно <span class="text-lg">⚙️</span>
-                </button>
-                <input type="text" class="bg-gray-600 p-3 text-white w-full md:col-span-2 lg:col-span-1" placeholder="ЖК, район, адрес, застройщик">
-                <div class="flex gap-2 w-full md:col-span-2 lg:col-span-1 justify-end">
-                    <button class="bg-white text-black p-3 flex items-center gap-2 w-full md:w-auto">На карте 🗺️</button>
-                    <button class="bg-orange-500 text-white p-3 w-full md:w-auto">Показать объявления</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
+    {% include 'flat/filter.html' with flats_count=new_flats|length block_title="Подобрать недвижимость в Воронеже" %}
     <div class="grid  gap-6  mx-auto max-w-7xl px-6  sm:py-15  lg:items-center lg:px-8 sm:grid-cols-1 md:grid-cols-3">
-        {% for flat in new_flats %}
-            {% load humanize %}
-            <div class="max-w-sm bg-[#2C2C2E] mx-auto">
-                <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
-                    <img class="rounded-t-lg" src="{{ flat.flatphoto_set.first.photo.url }}" alt="" />
-                </a>
-                <div class="p-5  ">
-                    <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ flat.price|floatformat:0 }} Р</h5>
-                    </a>
-                    <p class="mb-3 text-white font-medium text-sm">{{ flat }}</p>
-                <div class="flex">
-                    <ul class="">
-                        <li class="text-gray-500 font-medium text-sm">Площадь</li>
-                        <li class="text-white font-medium text-sm">{{ flat.square|intcomma }}м<sup>2</sup></li>
-                    </ul>
-                    <ul class="m-auto">
-                        <li class="text-gray-500 font-medium text-sm">Этаж</li>
-                        <li class="text-white font-medium text-sm">{{ flat.floor }}{% if flat.obj.floors %} /{{ flat.obj.floors }}{% endif %} эт</li>
-                    </ul>
-                    <ul class="m-auto">
-                        <li class="text-gray-500 font-medium text-sm">Отделка</li>
-                        <li class="text-white font-medium text-sm">{{ flat.decoration }}</li>
-                    </ul>
-                </div>
-                </div>
-                <div class="p-3">
-                    <ul>
-                        <li class="mb-3">
-                            <div class="flex">
-                                <img src="{% static 'pic/geo.svg'%}" class="px-2">
-                                <span class="text-gray-500 font-medium text-sm">
-                                    {% if flat.obj.parent.city %}{{ flat.obj.parent.city }}{% endif %}
-                                </span>
-                            </div>
-                        </li>
-                        <li class="mb-3">
-                            <div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2">
-                                <span class="text-gray-500 font-medium text-sm">
-                                {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        {% endfor %}
+        {% for flat in new_flats %}{% include 'flat/new-vertical-card.html' with flat=flat %}{% endfor %}
         <!-- <div class="max-w-sm bg-[#2C2C2E] mx-auto">
             <a href="#">
                 <img class="rounded-t-lg" src="{% static 'pic/shop.png'%}" alt="" />
@@ -894,6 +801,7 @@
     </div>
 </section>
 
+<!-- Шапка главной страницы -->
 {% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
 
 <!-- Опираемся на многолетний опыт -->

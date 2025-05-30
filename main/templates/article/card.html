@@ -1,8 +1,13 @@
-<div class="cell">
-    <div class="article-card card is-fullheight">
-        <div class="card-content content">
-            <p class="is-size-5">{{ article.title }}</p>
-            <a href="{% url 'main:article-page' article_id=article.pk %}" class="button is-warning is-medium is-rounded is-fullwidth">Подробнее</a>
-        </div>
-    </div>
+{% load static %}
+
+<div class="mb-3 mx-auto">
+    <figure class="relative max-w-sm transition-all duration-300 cursor-pointer">
+        <a href="{% url 'main:article-page' article_id=article.pk %}">
+            <img class="rounded-lg" src="{{ article.articlephoto_set.first.photo.url }}" alt="image description">
+        </a>
+        <figcaption class="absolute px-4  bottom-6">
+            <p class="text-white font-medium text-s mb-1">{{ article.created_at }}</p>
+            <p class="text-xl text-white mb-3 font-bold">{{ article.title }}</p>
+        </figcaption>
+    </figure>
 </div>

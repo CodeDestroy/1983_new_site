@@ -1,6 +1,7 @@
 {% extends 'base_view.html' %}
 
 {% load tools %}
+{% load static %}
 
 {% block hero_class %}is-medium{% endblock %}
 {% block hero_body %}
@@ -9,11 +10,74 @@
 {% endblock %}
 
 {% block container %}
-<section class="section">
-    <div class="columns is-multiline">
+
+ <!-- Шапка Акции -->
+<section class="flex items-center justify-center  pt-5">
+  <div>
+    
+  </div>
+    <div class="max-w-7xl lg:mx-0 w-full ">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6 mx-6 sm:h-[210px] md:h-[315px]  ">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Акции</h2>
+                <p class="mt-2 text-gray-300">Эксклюзивные предложения от застройщиков для клиентов компании «1983»</p>
+                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+                <img src="{%static 'pic/stock.svg'%}" alt="Акции" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+    
+</section>
+<!-- Секция Акций основная  -->
+<section class="mt-5">
+    <form method="get" class="md:flex sm:block items-center space-x-4 text-white mx-auto max-w-7xl px-8">
+        <div class="relative">
+            <select name="obj"
+                    onchange="this.form.submit()"
+                    class="appearance-none bg-[#191B1D] border-0 border-gray-600 text-white text-sm rounded-lg px-4 py-2 pr-8 focus:ring-amber-500 focus:border-amber-500 cursor-pointer">
+                <option value="">Сортировать по ЖК</option>
+                {% for object in objects %}
+                    <option value="{{ object.id }}" {% if selected_obj == object.id %}selected{% endif %}>
+                        {{ object.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="relative">
+            <select name="developer"
+                    onchange="this.form.submit()"
+                    class="appearance-none bg-[#191B1D] border-0 border-gray-600 text-white text-sm rounded-lg px-4 py-2 pr-8 focus:ring-amber-500 focus:border-amber-500 cursor-pointer">
+                <option value="">Сортировать по застройщику</option>
+                {% for developer in developers %}
+                    <option value="{{ developer.id }}" {% if selected_dev == developer.id %}selected{% endif %}>
+                        {{ developer.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <a href="{% url 'main:promo-list' %}" class="text-gray-400 ml-2 text-sm hover:underline">
+            Очистить фильтры
+        </a>
+    </form>
+    <div class="grid  gap-3  mx-auto max-w-7xl px-6 py-4  lg:items-center lg:px-8 sm:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 ">
         {% for promo in promos %}{% include 'promo/card.html' with promo=promo %}{% endfor %}
     </div>
 </section>
+
+<!-- Лучшие условия -->
+{% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
 {% include 'base_pagination.html' %}
 {% include 'blocks/consultation.html' %}
 {% endblock %}

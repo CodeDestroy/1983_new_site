@@ -8,7 +8,7 @@
 {% block hero_body %}<h1 class="title is-size-2 is-uppercase">Дома и таунхаусы от 3 до 50 млн. рублей</h1>{% endblock %}
 
 {% block container %}
-<section id="questions" class="section">
+<!-- <section id="questions" class="section">
     <h2 class="is-size-3 mb-6">Пройдите тест за 1 минуту и получите подборку подходящих вариантов</h2>
     <form class="card tab-panels" method="post" action="{% url 'main:feedback-page' %}">{% csrf_token %}
         <input type="hidden" name="url" value="{{ url }}">
@@ -217,6 +217,93 @@
 </section>
 <section class="section has-text-centered">
     <a href="https://yandex.ru/maps/193/voronezh/?ll=39.184269%2C51.697948&mode=poi&poi%5Bpoint%5D=39.184127%2C51.697789&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D28974348316&z=19.3" target="_blank" class="button is-warning is-rounded is-medium">Больше отзывов о нас на Яндекс.Картах</a>
+</section> -->
+
+
+<!-- Шапка отделка и дизайн -->
+
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Дома и таунхаусы</h2>
+                <p class="mt-2 text-gray-300">Дома и таунхаусы от 3 до 50 млн ₽</p>
+                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">  
+                <img src="{%static 'pic/houses.svg'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg"> 
+            </div>
+        </div>
+    </div>
+    
 </section>
+<section>
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="flex">
+               <img src="{%static 'pic/h-1.svg'%}" class="py-1">
+            </div>
+              
+            <div class="pt-4">
+               
+                <p class="mb-3 text-white font-medium text-xl ">Большой выбор готовых и строящихся объектов</p>
+      
+            </div>
+            
+        </div>
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+               <img src="{%static 'pic/h-2.svg'%}">
+            </div>
+            <div class="pt-4">
+                
+                <p class="mb-3 text-white font-medium text-xl ">Услуги по строительству дома и подбору участка</p>
+            </div>
+        </div>
+        <div class="col-span-1 sm:col-span-2 md:col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                
+                     <img src="{%static 'pic/h-3.svg'%}">
+             
+            </div>
+            <div class="pt-12">
+               
+                <p class="mb-3 text-white font-medium text-xl ">Новые дома и «вторичка»</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Каталог (подбор недвижимости) -->
+<section class="pt-10"> <!-- Секция 6 -->
+    <!-- Фильтр квартир -->  
+    {% include 'flat/filter.html' with flats_count=flats|length block_title="Каталог объектов" %}
+    <div class="grid gap-6 mx-auto max-w-7xl px-6 pt-5 lg:items-center lg:px-8 sm:grid-cols-2 grid-cols-1 md:grid-cols-3">
+
+        {% for flat in flats %}{% include 'flat/new-vertical-card.html' with flat=flat %}{% endfor %}
+        
+        <div class="md:col-end-3 md:col-span-1 sm:col-span-2 sm:col-start-1 col-span-1 mx-auto w-full text-center pb-6">
+            <button type="button" class="w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+                Показать все результаты
+            </button>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Лучшие условия -->
+{% include 'blocks/consultation.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
+
 {% endblock %}
 {% block scripts %}<script src="{% static 'js/tabs.js' %}"></script>{% endblock %}

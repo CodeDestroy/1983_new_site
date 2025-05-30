@@ -6,6 +6,10 @@ from django.db import models
 
 
 class Flat(models.Model):
+    TYPES = [('Flat', 'Квартира'),
+        ('Commerce', 'Коммерческая недвижимость'),
+        ('House', 'Дом'),
+        ('Elite', 'Элитная недвижимость')]
     obj = models.ForeignKey('Object', on_delete=models.CASCADE, verbose_name='Объект')
     import_id = models.BigIntegerField(verbose_name='Import ID', default=0)
     description = models.TextField(verbose_name='Описание', blank=True, null=True)
@@ -27,7 +31,7 @@ class Flat(models.Model):
     domclick_hide = models.BooleanField(default=False, verbose_name='Спрятано на домклик?')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
-
+    type = models.CharField(max_length=60, verbose_name='Тип', choices=TYPES, blank=True, null=True)
     def __str__(self):
         if self.rooms in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
             return f'{self.rooms}-комнатная квартира'
@@ -52,3 +56,6 @@ class Flat(models.Model):
         db_table = 'flats'
         verbose_name = 'квартира'
         verbose_name_plural = 'квартиры'
+
+    
+    
