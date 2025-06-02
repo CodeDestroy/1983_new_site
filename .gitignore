@@ -7,6 +7,6 @@ media/
 ./.venv/
 main/__pycache__/
 main/views/__pycache__/
-newCrm/settings.py
+newNovo/settings.py
 __pycache__/
 *.py[cod]
