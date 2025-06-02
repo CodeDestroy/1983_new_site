@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block container %}
-<section class="section">
+<!-- <section class="section">
     <div class="columns is-gap-5">
         <div class="column">
             <div class="box has-background-info-light is-fullheight">
@@ -329,7 +329,182 @@
             </div>
         </div>
     </div>
+</section> -->
+
+<!-- Зарубежная недвижимость -->
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6 mx-6 sm:h-[228px] md:h-[328px] ">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Зарубежная недвижимость</h2>
+                <p class="mt-2 text-gray-300">Поможем подобрать рентабельные объекты в Турции, ОАЭ, Таиланде и на Северном Кипре</p>
+                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Подобрать недвижимость
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+                <img src="{%static 'pic/flip_house.png'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+
 </section>
+
+<!-- Онлайн-показ -->
+<section>
+    <div class="grid sm:grid-cols-6 grid-cols-1 gap-6  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+      
+        <div class="h-full sm:col-span-2 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Онлайн-показ</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/l-9.svg'%}">
+            </div>
+        </div>
+        <div class="h-full sm:col-span-2 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Безопасная удаленная сделка</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/l-10.svg'%}">
+            </div>
+        </div>
+        <div class="h-full sm:col-span-2 p-3 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 grid grid-cols-3">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="col-span-2 xl:p-3 text-md xl:text-2xl md:text-xl font-normal text-white content-center">
+                <h1>Экскурсии на месте</h1>
+            </div>
+            <div class="col-span-1 p-3 justify-items-end content-center">
+                <img src="{%static 'pic/l-11.svg'%}">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Поможем подобрать недвижимость -->
+{% include 'blocks/feedback.html' %}
+
+<!-- Вам может понравится квартиры -->
+{% include 'blocks/you-may-like.html' with flats=flats %}
+
+<!-- Почему стоит доверить подбор недвижимости нам -->
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Почему стоит доверить подбор недвижимости нам</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+        <div class=" p-6 bg-[#2C2C2E] h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <!-- <img src="pic/main-1.svg" class="py-1"> -->
+            <div class="flex">
+                <svg width="45" height="48" viewBox="0 0 45 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.725 31.4625V8.96245V3.93745C38.725 2.73745 37.75 1.76245 36.55 1.76245H3.175C1.975 1.76245 1 2.73745 1 3.93745V8.96245V31.9125C1 33.1125 1.975 34.0875 3.175 34.0875H26.575" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M1 8.9624H38.8" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M13.375 18.9375V29.8125H17.575H22.225H25.225" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M26.4258 27.4875V18.9375" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M29.2016 21.4871L19.9016 12.8621L10.6016 21.4871" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M22.2992 23.2124H17.5742V29.8124H22.2992V23.2124Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M28.4492 5.51245H30.3992" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M33.5508 5.51245H35.4258" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M34.825 40.0875L40.45 45.7125L43.15 43.0125L37.525 37.3125L43.75 33.1125L24.25 26.8125L30.55 46.2375L34.825 40.0875Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">1</h1>
+            </div>
+              
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-xl font-semibold text-white">Наши услуги полностью бесплатны</h5>
+                </a>
+                
+      
+            </div>
+            
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M36.9766 7.60547H11.1016" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M47 34.4122C47 30.3716 43.7365 27.1081 39.6959 27.1081H36.9764V1H39.6959C43.7365 1 47 4.26351 47 8.30405V7.60473V27.1081V35.1115C47 38.1419 44.5135 40.6284 41.4831 40.6284H6.51689C3.48649 40.6284 1 38.1419 1 35.1115V27.1081V7.60473V8.30405C1 4.26351 4.26351 1 8.30405 1H11.0236V27.1081H8.30405C4.26351 27.1081 1 30.3716 1 34.4122" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M17.941 17.3964L16.3869 15.8423L19.0288 13.2004L20.5829 14.7545C21.0491 14.4437 21.593 14.2105 22.2146 14.0551V11.8018H25.9444V14.0551C26.4883 14.2105 27.0322 14.4437 27.5761 14.7545L29.1302 13.2004L31.7721 15.8423L30.218 17.3964C30.5288 17.8626 30.7619 18.4065 30.8396 19.0281H33.093V22.7578H30.8396C30.6842 23.3018 30.4511 23.8457 30.218 24.3896L31.7721 25.9437L29.1302 28.5855L27.5761 27.0315C27.1099 27.3423 26.566 27.5754 25.9444 27.7308V29.9842H22.2146V27.7308C21.6707 27.5754 21.1268 27.3423 20.5829 27.0315L19.0288 28.5855L16.3869 25.9437L17.941 24.3896C17.6302 23.9234 17.3971 23.3795 17.2417 22.7578H14.9883V19.0281H17.2417C17.3971 18.4065 17.6302 17.8626 17.941 17.3964Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M24.001 24.2333C25.8892 24.2333 27.4199 22.7026 27.4199 20.8144C27.4199 18.9262 25.8892 17.3955 24.001 17.3955C22.1127 17.3955 20.582 18.9262 20.582 20.8144C20.582 22.7026 22.1127 24.2333 24.001 24.2333Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">2</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-xl font-semibold text-white">Тщательно подбираем базу объектов</h5>
+                </a>
+               
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="43" height="46" viewBox="0 0 43 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.075 38.075H3.175C1.975 38.075 1 37.1 1 35.9V3.72505C1 2.52505 1.975 1.55005 3.175 1.55005H30.25C31.45 1.55005 32.425 2.52505 32.425 3.72505V6.95005" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M32.425 23.75V35.9C32.425 37.1 31.45 38.075 30.25 38.075H12.625" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M38.8766 12.9504V13.0254V23.7504H25.9766V13.0254" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M41.5734 15.4997L32.4234 7.02466L23.2734 15.4997" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M34.7516 17.2251H30.1016V23.7501H34.7516V17.2251Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9.85078 35.15C12.2946 35.15 14.2758 33.1689 14.2758 30.725C14.2758 28.2812 12.2946 26.3 9.85078 26.3C7.40692 26.3 5.42578 28.2812 5.42578 30.725C5.42578 33.1689 7.40692 35.15 9.85078 35.15Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M12.6242 34.175V44.45L9.84922 42.05L7.07422 44.45V34.175" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M12.4766 13.625H20.5016" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.0742 18.3501H22.8992" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.0742 23.0754H22.8992" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M23.1258 5.75H9.92578V9.5H23.1258V5.75Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M17.8008 30.2751C17.8008 30.2751 21.1758 28.3251 23.1258 30.2751C25.0758 32.2251 28.5258 30.2751 28.5258 30.2751" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">3</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-xl font-semibold text-white">
+                    Экономим ваше время</h5>
+                </a>
+      
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  h-64 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <svg width="43" height="48" viewBox="0 0 43 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.9 45.6484C5.425 45.6484 1 41.2234 1 35.7484V4.69839C1 3.12339 2.275 1.84839 3.85 1.84839H18.025C19.6 1.84839 20.875 3.12339 20.875 4.69839V35.7484C20.8 41.2234 16.375 45.6484 10.9 45.6484Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M16.7516 6.64844H4.97656V11.5234H16.7516V6.64844Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M16.7516 15.7234H4.97656V20.5984H16.7516V15.7234Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M16.7516 24.8738H4.97656V29.7488H16.7516V24.8738Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.9016 41.2238C12.9312 41.2238 14.5766 39.5784 14.5766 37.5488C14.5766 35.5191 12.9312 33.8738 10.9016 33.8738C8.87192 33.8738 7.22656 35.5191 7.22656 37.5488C7.22656 39.5784 8.87192 41.2238 10.9016 41.2238Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.8008 13.4733L27.1008 7.17334C28.2258 6.04834 30.0258 6.04834 31.1508 7.17334L41.1258 17.2233C42.2508 18.3483 42.2508 20.1483 41.1258 21.2733L19.1508 43.2483C16.1508 46.2483 11.7258 46.9233 8.05078 45.2733" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36.9199 19.7839L28.5938 11.4578L25.1466 14.9049L33.4727 23.231L36.9199 19.7839Z" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.8008 23.4484L27.0258 29.6734L30.4758 26.2234L22.1508 17.8984L20.8008 19.2484" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.8008 29.5234L24.0258 32.6734L20.8008 35.8234" stroke="#BF6128" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">4</h1>
+            </div>
+            <div class="pt-16">
+                <a href="#">
+                    <h5 class="mb-2 text-xl font-semibold text-white">Проводим сделки «под ключ»</h5>
+                </a>
+               
+            </div>
+        </div>
+      
+
+       <div class="md:col-end-3 md:col-span-2 sm:col-span-2 sm:col-start-1 col-span-1 mx-auto w-full text-center pb-6">
+            <button type="button" class="w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-6 px-2 border border-amber-700 xs:mt-1 mt-4 mb-2 text-sm">
+             Оставить заявку
+            </button>
+        </div>
+  
+    </div>
+</section>
+
+
 {% include 'blocks/consultation.html' %}
 {% endblock %}
 {% block scripts %}<script src="{% static 'js/tabs.js' %}"></script>{% endblock %}

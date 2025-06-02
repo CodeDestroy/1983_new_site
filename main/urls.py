@@ -61,16 +61,11 @@ urlpatterns = [
     path('international/', TemplateView.as_view(
         template_name='international.html', extra_context={'title': 'Международная недвижимость', 'url': reverse_lazy('main:international-page')}),
         name='international-page'),
-    path('moscow/', TemplateView.as_view(template_name='moscow.html', extra_context={
-        'title': 'Актуальный каталог жилой недвижимости премиум-класса Москвы, Московской области, Турции и Северного Кипра',
-        'url': reverse_lazy('main:moscow-page')
-    }), name='moscow-page'),
+    path('moscow/', views.MoscowView.as_view(), name='moscow-page'),
     path('design/', TemplateView.as_view(template_name='design.html', extra_context={
         'title': 'Отделка и дизайн', 'url': reverse_lazy('main:design-page')}), name='design-page'),
-    path('flip/', TemplateView.as_view(template_name='flip.html', extra_context={
-        'title': 'Инвестиции в недвижимость', 'url': reverse_lazy('main:flip-page')}), name='flip-page'),
-    path('recommendation/', TemplateView.as_view(template_name='recommendation.html', extra_context={
-        'title': 'Зарабатывайте вместе с нами', 'url': reverse_lazy('main:recommendation-page')}), name='recommendation-page'),
+    path('flip/', views.FlipView.as_view(), name='flip-page'),
+    path('recommendation/', views.RecommendationView.as_view(), name='recommendation-page'),
     
     path('VTB/', TemplateView.as_view(template_name='agents/client_from_agent.html', extra_context={
         'title': 'Специальное предложение', 'url': reverse_lazy('main:index')}), name='client-from-vtb'),

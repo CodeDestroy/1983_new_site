@@ -84,9 +84,43 @@ class EliteView(View):
         return render(request, self.template_name, {
             'title': 'Элитная недвижимость',
             'flats': Flat.objects.filter(is_deleted=False).distinct('obj').order_by('obj', '-price')[:12],
+            'articles': Article.objects.filter(is_deleted=False)[:3],
             'url': reverse_lazy('main:elite-page')
         })
 
+class MoscowView(View):
+    template_name = 'moscow.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {
+            'title': 'Актуальный каталог жилой недвижимости премиум-класса Москвы, Московской области, Турции и Северного Кипра',
+            'flats': Flat.objects.filter(is_deleted=False).distinct('obj').order_by('obj', '-price')[:3],
+            'articles': Article.objects.filter(is_deleted=False)[:3],
+            'url': reverse_lazy('main:moscow-page')
+        })
+    
+class FlipView(View):
+    template_name = 'flip.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {
+            'title': 'Инвестиции в недвижимость',
+            'flats': Flat.objects.filter(is_deleted=False).distinct('obj').order_by('obj', '-price')[:12],
+            'articles': Article.objects.filter(is_deleted=False)[:3],
+            'url': reverse_lazy('main:flip-page')
+        })
+    
+class RecommendationView(View):
+    template_name = 'recommendation.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {
+            'title': 'Программа лояльности',
+            'flats': Flat.objects.filter(is_deleted=False).distinct('obj').order_by('obj', '-price')[:12],
+            'articles': Article.objects.filter(is_deleted=False)[:3],
+            'partners': Partner.objects.filter(is_deleted=False),
+            'url': reverse_lazy('main:recommendation-page')
+        })
 class HomeView(View):
     template_name = 'home.html'
 

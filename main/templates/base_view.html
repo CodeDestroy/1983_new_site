@@ -26,10 +26,14 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 	<link rel="stylesheet" href="{% static 'css/inter/inter.css' %}">
 	<link href="{% static 'css/daisyui/full.min.css'%}" rel="stylesheet" type="text/css" />
+    <!-- from cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="{% static 'js/tailwind/tailwind.min.js'%}"></script>
     <script src="{% static 'js/tailwind/tailwind.pugins.min.js'%}"></script>
     <script src="{% static 'js/tailwind/index.global.js'%}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
     {% block head_scripts %}{% endblock %}
 </head>
 <body class="bg-[#191B1D]">
@@ -40,17 +44,59 @@
                 <span class="sr-only">1983</span>
                 <img class="h-8 w-auto" src="{% static 'pic/logo.svg'%}" alt="">
             </a>
-            <div class="hidden lg:flex lg:gap-x-10">
+            <!-- <div class="hidden lg:flex lg:gap-x-10">
                 <a href="{% url 'main:search-list' %}" class="text-sm font-semibold leading-6 text-white">Недвижимость</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-white">Услуги</a> <!-- выпадающий -->
-                <a href="#" class="text-sm font-semibold leading-6 text-white">Бонусы</a> <!-- Выпадающий -->
+                <a href="#" class="text-sm font-semibold leading-6 text-white">Услуги</a> 
+                <a href="#" class="text-sm font-semibold leading-6 text-white">Бонусы</a> 
+                
                 <a href="{% url 'main:promo-list' %}" class="text-sm font-semibold leading-6 text-white">Акции</a>
                 <a href="{% url 'main:article-list' %}" class="text-sm font-semibold leading-6 text-white">Новости</a>
                 <a href="{% url 'main:about' %}" class="text-sm font-semibold leading-6 text-white">О компании</a>
                 <a href="{% url 'main:contacts' %}" class="text-sm font-semibold leading-6 text-white">Контакты</a>
+            </div> -->
+            <div class="hidden xl:flex lg:gap-x-10" x-data="{ servicesOpen: false, bonusOpen: false }">
+                <a href="{% url 'main:search-list' %}" class="text-sm font-semibold leading-6 text-white">Недвижимость</a>
+
+                <!-- Dropdown: Услуги -->
+                <div class="relative" @click.away="servicesOpen = false">
+                    <button @click="servicesOpen = !servicesOpen" class="text-sm font-semibold leading-6 text-white">
+                        Услуги
+                    </button>
+                    <div x-show="servicesOpen" x-transition class="bg-[#191B1D] absolute left-0 mt-2 min-w-[20rem] rounded-md shadow-lg ring-1 ring-[#191B1D] z-10">
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:mortgage' %}">Ипотека</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:trade-in-page' %}">Меняем старое на новое</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:elite-page' %}">Элитная недвижимость</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:international-page' %}">Международная недвижимость</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:moscow-page' %}">Новостройки Москвы</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:commerce-page' %}">Коммерческая недвижимость</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:design-page' %}">Отделка и дизайн</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:flip-page' %}">Инвестиции в недвижимость</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:purchase-page' %}">Срочный выкуп квартир</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:home-page' %}">Дома и таунхаусы</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:legal-page' %}">Юридические услуги</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown: Бонусы -->
+                <div class="relative" @click.away="bonusOpen = false">
+                    <button @click="bonusOpen = !bonusOpen" class="text-sm font-semibold leading-6 text-white">
+                        Бонусы
+                    </button>
+                    <div x-show="bonusOpen" x-transition class="bg-[#191B1D] absolute left-0 mt-2 min-w-[10rem] rounded-md shadow-lg ring-1 ring-[#191B1D] z-10">
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:recommendation-page' %}">Зарабатывайте вместе с нами</a>
+                        <a class="block px-4 py-2 text-sm text-white hover:bg-gray-700" href="{% url 'main:bonus-page' %}">Программа лояльности</a>
+                    </div>
+                </div>
+
+                <a href="{% url 'main:promo-list' %}" class="text-sm font-semibold leading-6 text-white">Акции</a>
+                <a href="{% url 'main:article-list' %}" class="text-sm font-semibold leading-6 text-white">Новости</a>
+                <a href="{% url 'main:about' %}" class="text-sm font-semibold leading-6 text-white">О компании</a>
+                <a href="{% url 'main:contacts' %}" class="text-sm font-semibold leading-6 text-white">Контакты</a>
+
             </div>
+
         </div>
-        <div class="flex lg:hidden">
+        <div class="flex xl:hidden">
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
                 <span class="sr-only">Открыть</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -58,19 +104,19 @@
                 </svg>
             </button>
         </div>
-        <div class="hidden lg:flex lg:gap-x-4">
-            <a href="#" class="text-sm font-semibold leading-6 text-white"> <img src="{% static 'pic/tg.svg'%}"></a>
-            <a href="#" class="text-sm font-semibold leading-6 text-white"> <img src="{% static 'pic/vk.svg'%}"></a>
+        <div class="hidden xl:flex lg:gap-x-4">
+            <a href="https://t.me/novstroy36" class="text-sm font-semibold leading-6 text-white"> <img src="{% static 'pic/tg.svg'%}"></a>
+            <a href="https://vk.com/novstroy36" class="text-sm font-semibold leading-6 text-white"> <img src="{% static 'pic/vk.svg'%}"></a>
             <button class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
                 Воронеж
             </button>
-            <button class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
+            <button data-modal-target="modal" data-modal-toggle="modal" class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
                 Cвязаться
             </button>
         </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div style="display: none;" class="lg:hidden" role="dialog" aria-modal="true">
+    <div style="display: none;" class="xl:hidden" role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-10"></div>
         <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto  px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -87,12 +133,12 @@
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
                         <a href="{% url 'main:search-list' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Недвижимость</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Услуги</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Бонусы</a>
+                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Услуги</a> <!-- Выпадающий список -->
+                        <a href="" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Бонусы</a> <!-- Выпадающий список -->
                         <a href="{% url 'main:promo-list' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Акции</a>
                         <a href="{% url 'main:article-list' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Новости</a>
                         <a href="{% url 'main:about' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">О компании</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Контакты</a>
+                        <a href="{% url 'main:contacts' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-500">Контакты</a>
                     </div>
                     <div class="py-6">
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-500"> 
@@ -101,7 +147,7 @@
                             </button>
                         </a>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-500"> 
-                            <button class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
+                            <button data-modal-target="modal" data-modal-toggle="modal" class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
                                 Связаться
                             </button>
                         </a>
@@ -336,7 +382,10 @@
                         <a href="{% url 'main:contacts' %}" class="hover:underline">Контакты</a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="hover:underline">Акции и новости</a>
+                        <a href="{% url 'main:promo-list' %}" class="hover:underline">Акции</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="{% url 'main:article-list' %}" class="hover:underline">Новости</a>
                     </li>
                     <li class="mb-3">
                         <a href="#" class="hover:underline">Бонусы</a>
@@ -347,10 +396,10 @@
                 <h2 class="mb-3  font-semibold text-gray-500"><a href="{% url 'main:contacts' %}">Контакты</a></h2>
                 <ul class="text-white text-sm">
                     <li class="mb-1">
-                        <a href="#" class="hover:underline ">+7(473)202-32-33</a>
+                        <a href="tel:+74732023233" class="hover:underline ">+7(473)202-32-33</a>
                     </li>
                     <li class="mb-1">
-                        <a href="#" class="hover:underline ">info@квартиры36.рф</a>
+                        <a href="mailto:info@квартиры36.рф" class="hover:underline ">info@квартиры36.рф</a>
                     </li>
                     <li class="mb-1">
                         <a href="#" class="hover:underline ">ул. Беговая, 63<br>Московский пр-кт, 132</a>
@@ -359,7 +408,7 @@
                         <span class="text-sm">Пн-пт: 9:00-20:00<br>Cб: 10:00-17:00<br>Вс: 10:00-16:00</span>
                     </li>
                     <li class="mb-3">
-                        <button class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
+                        <button data-modal-target="modal" data-modal-toggle="modal"  class="bg-amber-600 hover:bg-amber-600 text-white font-bold py-2 px-4 border border-amber-700 rounded">
                             Связаться с нами
                         </button>
                     </li>
@@ -374,12 +423,13 @@
         </div>
     </div>
 </footer>
-<div id="modal" class="modal">
+<div id="modal" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="modal-background"></div>
     <form class="modal-card" method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;">{% csrf_token %}
         <header class="modal-card-head">
             <p class="modal-card-title">Бесплатная консультация</p>
             <button class="delete" aria-label="close"></button>
+            <button data-modal-hide="modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
         </header>
         <section class="modal-card-body">
             <input type="hidden" name="url" value="{{ url }}">

@@ -1,0 +1,69 @@
+
+{% load static tools %}
+<section class="bg-[#1C1C1E] py-6 max-w-7xl mx-auto px-6 lg:px-8 space-y-10 text-white">
+    <div class="lg:flex lg:items-center lg:justify-between pb-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Поможем подобрать недвижимость</span>
+        </h1>
+    </div> 
+    <div class="max-w-7xl mx-auto bg-[#2C2C2E] rounded-xl p-6 flex flex-col lg:flex-row gap-6 items-stretch">
+        
+        <!-- Левая колонка: форма -->
+        <form class="w-full lg:w-1/2 flex flex-col justify-between">
+        
+        <!-- Прогресс шагов -->
+        <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-1 bg-orange-500 rounded-sm"></div>
+            <div class="w-8 h-1 bg-gray-600 rounded-sm"></div>
+            <div class="w-8 h-1 bg-gray-600 rounded-sm"></div>
+            <div class="w-8 h-1 bg-gray-600 rounded-sm"></div>
+        </div>
+
+        <!-- Вопрос -->
+        <h2 class="text-xl font-semibold mb-4">Вопрос №1. Какое жилье вы ищете?</h2>
+
+        <!-- Чекбоксы -->
+        <div class="flex flex-col gap-2 mb-6 text-sm">
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            Студию
+            </label>
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            1-комнатную квартиру
+            </label>
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            2-комнатную квартиру
+            </label>
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            3-комнатную квартиру
+            </label>
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            Квартиру более 4 комнат
+            </label>
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            Эксклюзивную планировку
+            </label>
+            <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-orange-500" />
+            Коттедж или таунхаус
+            </label>
+        </div>
+
+        <!-- Кнопка -->
+        <button type="submit" class="bg-orange-500 hover:bg-orange-600 transition px-6 py-2 text-white rounded-md w-fit">
+            Далее
+        </button>
+        </form>
+
+        <!-- Правая колонка: изображение -->
+        <div class="w-full lg:w-1/2 hidden lg:block rounded-lg overflow-hidden">
+        <img src="{% static 'pic/invB3.png'%}" alt="Изображение вопроса" class="w-full h-full object-cover">
+        </div>
+
+    </div>
+</section>

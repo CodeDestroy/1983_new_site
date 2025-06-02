@@ -1,38 +1,43 @@
 {% load tools %}
 {% if is_paginated %}
-<section class="section">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+<section class="flex max-w-7xl w-full mx-auto">
+    <div class="flex max-w-7xl px-6 pt-5 lg:items-center lg:px-8">
+        {# Первая страница #}
         {% if page_obj.has_previous %}
-            <a class="pagination-previous has-background-white" href="?{% fix_page_request request.GET %}page=1"><span class="icon"><i class="fa-solid fa-angles-left"></i></span></a>
-            {% if page_obj.previous_page_number != 1 %}
-                <a class="pagination-previous has-background-white" href="?{% fix_page_request request.GET %}page={{ page_obj.previous_page_number }}"><span class="icon"><i class="fa-solid fa-chevron-left"></i></span></a>
-            {% else %}
-                <a class="pagination-previous has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-left"></i></span></a>
-            {% endif %}
+            <a href="?{% fix_page_request request.GET %}page=1"
+            class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] hover:bg-gray-700 mr-1">&laquo;</a>
+            <a href="?{% fix_page_request request.GET %}page={{ page_obj.previous_page_number }}"
+            class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] hover:bg-gray-700 mr-1">&lsaquo;</a>
         {% else %}
-            <a class="pagination-previous has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-angles-left"></i></span></a>
-            <a class="pagination-previous has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-left"></i></span></a>
+            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E]">&laquo;</span>
+            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E]">&lsaquo;</span>
         {% endif %}
-        {% if page_obj.has_next %}
-            {% if page_obj.next_page_number != page_obj.paginator.num_pages %}
-                <a class="pagination-next has-background-white" href="?{% fix_page_request request.GET %}page={{ page_obj.next_page_number }}"><span class="icon"><i class="fa-solid fa-chevron-right"></i></span></a>
-            {% else %}
-                <a class="pagination-next has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-right"></i></span></a>
-            {% endif %}
-            <a class="pagination-next has-background-white" href="?{% fix_page_request request.GET %}page={{ page_obj.paginator.num_pages }}"><span class="icon"><i class="fa-solid fa-angles-right"></i></span></a>
-        {% else %}
-            <a class="pagination-next has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-chevron-right"></i></span></a>
-            <a class="pagination-next has-background-white is-disabled" disabled><span class="icon"><i class="fa-solid fa-angles-right"></i></span></a>
-        {% endif %}
-        <ul class="pagination-list">
-            {% for p in page_obj.paginator.page_range %}
-                {% if page_obj.number == p %}
-                    <li><a class="pagination-link is-current">{{ p }}</a></li>
-                {% elif p >= page_obj.number|add:-4 and p <= page_obj.number|add:4 %}
-                    <li><a href="?{% fix_page_request request.GET %}page={{ p }}" class="pagination-link has-background-white">{{ p }}</a></li>
+
+        {# Номера страниц с сокращением #}
+        {% for num in page_obj.paginator.page_range %}
+            {% if num == 1 or num == page_obj.paginator.num_pages or num >= page_obj.number|add:"-1" and num <= page_obj.number|add:"1" %}
+                {% if page_obj.number == num %}
+                    <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] mr-1">{{ num }}</span>
+                {% else %}
+                    <a href="?{% fix_page_request request.GET %}page={{ num }}"
+                    class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] hover:bg-gray-700 mr-1">{{ num }}</a>
                 {% endif %}
-            {% endfor %}
-        </ul>
-    </nav>
+            {% elif num == page_obj.number|add:"-2" or num == page_obj.number|add:"2" %}
+                <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] mr-1">...</span>
+            {% endif %}
+        {% endfor %}
+
+        {# Последняя страница #}
+        {% if page_obj.has_next %}
+            <a href="?{% fix_page_request request.GET %}page={{ page_obj.next_page_number }}"
+            class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] hover:bg-gray-700 mr-1">&rsaquo;</a>
+            <a href="?{% fix_page_request request.GET %}page={{ page_obj.paginator.num_pages }}"
+            class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] hover:bg-gray-700 mr-1">&raquo;</a>
+        {% else %}
+            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] mr-1">&rsaquo;</span>
+            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] mr-1">&raquo;</span>
+        {% endif %}
+    </div>
 </section>
+
 {% endif %}

@@ -228,7 +228,7 @@
             <div class="order-2 sm:order-1 flex-1">
                 <h2 class="text-3xl sm:text-2xl font-bold">Дома и таунхаусы</h2>
                 <p class="mt-2 text-gray-300">Дома и таунхаусы от 3 до 50 млн ₽</p>
-                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
                     Оставить заявку
                 </button>
             </div>
@@ -287,9 +287,9 @@
         {% for flat in flats %}{% include 'flat/new-vertical-card.html' with flat=flat %}{% endfor %}
         
         <div class="md:col-end-3 md:col-span-1 sm:col-span-2 sm:col-start-1 col-span-1 mx-auto w-full text-center pb-6">
-            <button type="button" class="w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+            <a href="{% url 'main:search-list' %}" class="btn w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
                 Показать все результаты
-            </button>
+            </a>
         </div>
     </div>
     

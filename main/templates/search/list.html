@@ -1,9 +1,9 @@
 {% extends 'base_view.html' %}
 
 {% block hero_body %}<h1 class="title is-size-1 is-uppercase">{{ title }}</h1>{% endblock %}
-
+{% load static %}
 {% block container %}
-<section class="section">
+<!-- <section class="section">
     <div class="fixed-grid has-1-cols-mobile has-4-cols">
         <form method="get" class="grid">
             <div class="cell">
@@ -63,10 +63,49 @@
 </section>
 <section class="section">
     <p class="is-size-3 has-text-weight-bold">{{ page_obj.paginator.count }} результата</p>
-</section>
-{% for flat in flats %}
+</section> -->
+<!-- {% for flat in flats %}
     {% include 'flat/horizontal-card.html' with flat=flat %}
-{% endfor %}
+{% endfor %} -->
+
+<section class="flex items-center justify-center  pt-5 my-5 bg-[#1c1c1e]">
+  <div>
+    
+  </div>
+    <div class="max-w-7xl lg:mx-0 w-full   ">
+        <div class="bg-[#2C2C2E] text-white rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6 mx-6  ">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Каталог недвижимости</h2>
+                <p class="mt-2 text-gray-300">в Воронеже</p>
+               
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-80 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+                <img src="{% static 'pic/flats.svg'%}" alt="Акции" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+    
+</section>
+<section class=""> <!-- Секция 6 -->
+  <!-- Калькулятор ипотеки -->  
+
+    {% include 'flat/filter.html' with flats_count=flats|length block_title="Каталог вариантов" %}
+    <div class="grid gap-6 mx-auto max-w-7xl px-6 pt-5 lg:items-center lg:px-8 sm:grid-cols-2 grid-cols-1 md:grid-cols-3">
+        {% for flat in flats %}{% include 'flat/new-vertical-card.html' with flat=flat %}{% endfor %}
+    </div>
+</section>
+
+
 {% include 'base_pagination.html' %}
+
+<!-- Консультация -->
 {% include 'blocks/consultation.html' %}
+
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' %}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
 {% endblock %}

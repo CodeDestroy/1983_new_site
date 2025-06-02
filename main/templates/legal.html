@@ -1,5 +1,5 @@
 {% extends 'base_view.html' %}
-
+{% load static %}
 {% block hero_class %}hero-legal is-medium{% endblock %}
 {% block hero_body %}
     <h1 class="title is-size-2 is-uppercase">Профессиональная юридическая помощь</h1>
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block container %}
-<section class="section">
+<!-- <section class="section">
     <div class="box content">
         <p>Для Вас работает профессиональный юридический отдел.</p>
         <p>Наши специалисты:</p>
@@ -398,6 +398,389 @@
     <p>Дополнительные услуги оплачиваются по Прайс-листу</p>
     <p>Способ оплаты: наличный/ безналичный (+ 1 000 р)</p>
     <p class="is-size-7">Все цены актуальны на 12.09.2024 г.</p>
+</section>-->
+
+<section class="flex items-center justify-center  pt-5">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Профессиональная юридическая помощь</h2>
+                <p class="mt-2 text-gray-300">Мы оказываем квалифицированную юридическую помощь для физических и юридических лиц</p>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+              
+                    
+              <img src="{%static 'pic/law.svg'%}" alt="Услуги" class="w-full h-full object-cover rounded-lg"> 
+            </div>
+        </div>
+    </div>
 </section>
+<section class="items-center justify-center  pt-5 mx-auto ">
+    <div class="grid gap-4 md:grid-cols-2 grid-cols-1 mx-auto max-w-7xl block mx-auto text-center px-6 lg:px-8"> 
+        <button class="rounded-lg py-10 bg-[#2C2C2E] mt-2">
+            <h2 class="text-[#BF6128] font-bold text-4xl">10-25 лет</h2>
+            <span class="text-white text-sm mt-3">Опыт работы наших специалистов</span>
+        </button>
+        <button class="rounded-lg py-10 bg-[#2C2C2E] mt-2">
+            <h2 class="text-[#BF6128] font-bold  text-4xl">94%</h2>
+            <span class="text-white text-sm mt-3">Выигранных судебных процессов</span>
+        </button>
+    </div>
+</section>
+<!-- Секция Услуг основная  -->
+<section class="pt-5">
+      <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8 px-6 sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Наши услуги</span>
+        </h1>
+    </div>
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Консультация</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Устная</span>
+                        <span>Бесплатно</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Письменная</span>
+                        <span>от 2000₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Составление и экспертиза документов</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Составление документа в государственные и негосударственные органы и организации (письмо, заявление, запрос, ответ, жалоба, прочее)</span>
+                        <span>от 1500 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление проекта (формы) договора, соглашения (типовой договор для определенного типа правоотношений)</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление/экспертиза простого договора, соглашения</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление/экспертиза сложного договора, соглашения</span>
+                        <span>от 5000₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Претензионная работа</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Составление претензии, ответа на претензию</span>
+                        <span>от 2000 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Проведение переговоров, выезд (до двух часов)</span>
+                        <span>от 3000₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Судебная работа</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Анализ предоставленных документов на предмет наличия оснований для обращения в суд</span>
+                        <span>от 3000 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление досудебной претензии</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление искового заявления (отзыва) в мировой, районный суд</span>
+                        <span>от 7000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление ходатайства, дополнения искового заявления, иных процессуальных документов, ознакомление с делом (один день)</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Представительство в суде первой инстанции (одно заседание)</span>
+                        <span>от 5000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление апелляционной жалобы или отзыва на жалобу</span>
+                        <span>от 10000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Представительство в суде апелляционной инстанции (одно заседание)</span>
+                        <span>от 10000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление кассационной жалобы или отзыва на жалобу</span>
+                        <span>от 10000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Представительство в суде кассационной инстанции (одно заседание)</span>
+                        <span>от 15000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Дополнительное вознаграждение за положительный исход дела по имущественным спорам</span>
+                        <span>от 5% от цены иска</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Предъявление исполнительного листа судебным приставам, в банк</span>
+                        <span>от 5000₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Общие услуги по сопровождению сделок с недвижимостью</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Анализ предоставленных документов на жилое помещение</span>
+                        <span>от 1000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Анализ предоставленных документов на нежилое помещение или земельный участок</span>
+                        <span>от 2000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Анализ предоставленных документов на здание</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Экспертиза правовой чистоты сделки (проверка объекта, сторон сделки, документов, наличия рисков при совершении сделки)</span>
+                        <span class="">от3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление проекта (формы) договора, соглашения (типовой договор для определенного типа правоотношений)</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Составление/экспертиза договора на совершение сделки</span>
+                        <span>от 3000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Подача документов на регистрацию в МФЦ без сопровождения (с очередью в МФЦ)</span>
+                        <span>от 10000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Подача документов на регистрацию в МФЦ без сопровождения (без очереди в МФЦ)</span>
+                        <span>от 2000₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Комплексные услуги по регистрации объектов недвижимости</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Регистрация сделки (купля-продажа, дарение, мена, аренда). 
+Регистрация права собственности на объект недвижимости (земельный участок, квартира, дом, дача, гараж, сарай) при наличии документа-основания.</span>
+                        <span>от 5000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Регистрация права собственности на вновь созданный или ранее не оформленный объект недвижимости или земельный участок</span>
+                        <span>от 15 000 ₽ + услуги специалистов</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Внесение изменений в сведения об объекте недвижимости или о земельном участке (изменение площади, наименования объекта, реконструкция, перепланировка, раздел, прочее)</span>
+                        <span>от 12 000 ₽ + услуги специалистов</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Регистрация обременений/снятия обременений</span>
+                        <span class="">от 15000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Приватизация</span>
+                        <span>от 15000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Вступление в наследство</span>
+                        <span>от 15 000 ₽ + услуги нотариуса</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Дополнительные услуги для регистрации прав на недвижимость и сделок с ней</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Изготовление Кадастрового плана объекта</span>
+                        <span>от 12000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Получение обезличенной выписки из ЕГРН в электронной форме.</span>
+                        <span>от 150₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Подача и получение иных документов из органов Кадастра, Росреестра, БТИ, Архива, Администрации</span>
+                        <span>от 5000₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Изготовление Плана земельного участка (геосъемка). Изготовление Межевого дела земельного участка.</span>
+                        <span>от 5000 ₽ + услуги специалиста</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Приватизация</span>
+                        <span>от 5000 ₽ + услуги специалиста</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Изготовление, согласование, утверждение Схемы расположения земельного участка на КПТ</span>
+                        <span>от 5000 ₽ + услуги специалиста</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Регистрация ИП, ЮЛ, НКО</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Подготовка документов для регистрации ИП</span>
+                        <span>2000 ₽ + пошлина 800 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Подготовка документов для регистрации юридического лица</span>
+                        <span>от 10 000 ₽ +пошлина 4000 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Подготовка документов для регистрации некоммерческой организации</span>
+                        <span>от 15 000 ₽ +пошлина 4000 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Регистрация изменений в сведения об ИП, ЮЛ, НКО</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Подготовка документов для регистрации изменений в сведения об ИП для подачи в регистрирующий орган</span>
+                        <span>2000 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Подготовка документов для регистрации изменений в сведения о ЮЛ, НКО/в учредительные документы ЮЛ, НКО для подачи в регистрирующий орган (смена наименования, адреса, директора, участника, ОКВЭД, уставного капитала)</span>
+                        <span>4000 – 10 000 ₽ + пошлина 800 ₽ (при изменении устава) + услуги нотариуса</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 max-w-7xl mx-auto text-white px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-5 rounded-lg bg-[#2C2C2E] items-start">
+            <div class="p-5">
+                <h2 class="text-lg font-semibold mb-4">Дополнительные услуги для юридических лиц и ИП</h2>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto">
+                    Оставить заявку
+                </button>
+            </div>
+            <div class="md:col-span-2 bg-[#2C2C2E] rounded-lg overflow-hidden text-sm">
+                <div class="divide-y divide-[#787878]  lg:text-sm  text-xs">
+                    <div class="flex justify-between p-4 ">
+                        <span>Юридическое сопровождение бизнеса для юридических лиц</span>
+                        <span>по договоренности</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Консультация об особенностях осуществления деятельности и ответственности ИП, ООО, ОАО, ЗАО, НКО.
+Консультация по выбору ОКВЭД. Выбор системы налогообложения</span>
+                        <span>3000 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Получение информационного письма статистики</span>
+                        <span>2000 ₽</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Восстановление документов юридического лица, ИП</span>
+                        <span>2000 ₽ + пошлина</span>
+                    </div>
+                    <div class="flex justify-between p-4">
+                        <span>Открытие расчетного счета юридического лица, ИП</span>
+                        <span>2000 ₽ + услуги банка</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% include 'blocks/consultation.html' with block_title='Бесплатная консультация юридического отдела' block_description='Мы начнем разбираться в Вашей проблеме. Поможем с оформление всех необходимых документов' %}
 {% endblock %}

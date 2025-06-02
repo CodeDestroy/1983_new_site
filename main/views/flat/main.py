@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 
 from main.models.realty import Flat
 
+from main.models import Article
 
 class SearchList(ListView):
     paginate_by = 10
@@ -18,7 +19,9 @@ class SearchList(ListView):
         context = super().get_context_data(**kwargs)
         context['districts'] = None # Complex.objects.values('district').distinct()
         context['flat_types'] = Flat.objects.values('rooms').distinct().annotate(tcount=Count('rooms')).order_by()
-        context['url'] = reverse_lazy('main:search-list')
+        context['url'] = reverse_lazy('main:search-list'),
+        context['articles'] = Article.objects.filter(is_deleted=False)[:3]
+
         return context
 
     def get_queryset(self):
@@ -67,6 +70,7 @@ class FlatPage(DetailView):
         context['flats'] = Flat.objects.filter(is_deleted=False).order_by('-created_at')[:12]
         context['yandex_map_key'] = settings.YANDEX_MAP_KEY
         context['url'] = reverse_lazy('main:flat-page', kwargs={'flat_id': self.object.id})
+        context['articles'] = Article.objects.filter(is_deleted=False)[:3]
         return context
 
     def get_queryset(self):

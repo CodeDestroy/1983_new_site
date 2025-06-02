@@ -1,4 +1,7 @@
-<section class="section" id="infrastructure">
+{% load static %}
+
+
+<!-- <section class="section" id="infrastructure">
     <div class="card">
         <div class="card-header is-shadowless">
             <p class="card-header-title is-size-4">Инфраструктура</p>
@@ -68,6 +71,125 @@
             </div>
         </div>
     </div>
+</section> -->
+<section id="infrastructure">
+    <div class="text-white flex justify-center items-center py-5  lg:px-8">
+        <div class=" max-w-7xl p-10 w-full">
+            <h1 class="text-3xl font-semibold mb-6 text-left text-white">Инфраструктура</h1>
+            <div class="hidden lg:grid grid-cols-6 w-full gap-4">
+                <div class="col-span-2 rounded-lg bg-[#2C2C2E]">
+                    <div class="px-8 pb-4 pt-8">
+                        <div >
+                            <ul class="text-white">
+                                <li class="">
+                                    <div class="flex">
+                                        <img src="{% static 'pic/bus.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Автобусные осановки</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/busket.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Магазины</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/bag.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Торговые центры</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/medicine_hat.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Образовательные учреждения</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/medicine.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Медицинские учреждения</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/sport.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Спорт</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/entertainment.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Развлечения и отдых</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-4 rounded-lg">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Add4657602ed736aceb62be1ba1dad33277f8482fff67e3d226dc95a12cf7c03a&amp;source=constructor" width="100%" height="560" frameborder="0" class="rounded-lg"></iframe>
+                </div>
+            </div>
+            <div class="block lg:hidden bg-[#2C2C2E] rounded-lg w-full mt-4">
+                <div class="p-4 rounded-lg">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Add4657602ed736aceb62be1ba1dad33277f8482fff67e3d226dc95a12cf7c03a&amp;source=constructor" width="100%" height="560" frameborder="0" class="rounded-lg"></iframe>
+                </div>
+                <div class="bg-[#2C2C2E] rounded-lg">
+                    <div class="px-8 pb-4">
+                        <div >
+                            <ul class="text-white">
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/bus.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Автобусные осановки</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/busket.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Магазины</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/bag.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Торговые центры</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/medicine_hat.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Образовательные учреждения</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/medicine.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Медицинские учреждения</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/sport.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Спорт</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="flex">
+                                        <img src=" {% static 'pic/entertainment.svg'%}" class="py-2 pr-2">
+                                        <span class="font-normal text-lg content-center">Развлечения и отдых</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
 </section>
 <script src="https://api-maps.yandex.ru/2.1/?apikey={{ yandex_map_key }}&lang=ru_RU" type="text/javascript"></script>
 <script type="text/javascript">

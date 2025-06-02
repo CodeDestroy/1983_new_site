@@ -16,9 +16,9 @@
             <div class="order-2 sm:order-1 flex-1">
                 <h2 class="text-3xl sm:text-2xl font-bold">Отделка и дизайн</h2>
                 <p class="mt-2 text-gray-300">Помогаем на всех этапах сделки:  от выбора объекта до дизайна, ремонта и переезда</p>
-                <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                <a href="{% url 'main:search-list' %}" class="btn mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
                     Оставить заявку
-                </button>
+                </a>
             </div>
             <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
              
@@ -375,12 +375,12 @@
 
                 <!-- Кнопка и соцсети -->
                 <div class="flex items-center gap-4 mt-6">
-                    <button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded">
+                    <button data-modal-target="modal" data-modal-toggle="modal" type="button"  class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded">
                         Скачать дизайн-проект
                     </button>
                     <div class="flex gap-2">
-                        <a href="#"><img src="{%static 'pic/tg.svg'%}" class="w-8 h-8"></a>
-                        <a href="#"><img src="{%static 'pic/vk.svg'%}" class="w-8 h-8"></a>
+                        <a href="https://t.me/novstroy36"><img src="{%static 'pic/tg.svg'%}" class="w-8 h-8"></a>
+                        <a href="https://vk.com/novstroy36"><img src="{%static 'pic/vk.svg'%}" class="w-8 h-8"></a>
                     </div>
                 </div>
            </div>
