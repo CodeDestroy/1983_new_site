@@ -9,8 +9,8 @@
             <a href="?{% fix_page_request request.GET %}page={{ page_obj.previous_page_number }}"
             class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] hover:bg-gray-700 mr-1">&lsaquo;</a>
         {% else %}
-            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E]">&laquo;</span>
-            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E]">&lsaquo;</span>
+            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] mr-1">&laquo;</span>
+            <span class="w-10 h-10 flex items-center justify-center rounded bg-[#2C2C2E] mr-1">&lsaquo;</span>
         {% endif %}
 
         {# Номера страниц с сокращением #}
