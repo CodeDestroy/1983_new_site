@@ -423,38 +423,69 @@
         </div>
     </div>
 </footer>
-<div id="modal" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="modal" class="bg-[#78787880] hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="modal-background"></div>
-    <form class="modal-card" method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;">{% csrf_token %}
+    <form class="rounded-lg flex flex-col max-w-2xl bg-[#2C2C2E]" method="post" action="{% url 'main:feedback-page' %}" onsubmit="ym(68282848,'reachGoal','zayavka'); return true;">{% csrf_token %}
         <header class="modal-card-head">
-            <p class="modal-card-title">Бесплатная консультация</p>
-            <button class="delete" aria-label="close"></button>
-            <button data-modal-hide="modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+            
+            <!-- <button class="delete" aria-label="close"></button> -->
+            <button data-modal-hide="modal" type="button" class="block ml-auto mr-0 pb-1 pt-4 px-3 text-sm font-medium focus:outline-none rounded-lg focus:z-10 focus:ring-4 focus:ring-gray-100 text-[#787878] hover:text-white">
+                <svg width="18" height="18" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 0.5L13 12.5M13 0.500002L1 12.5" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </header>
         <section class="modal-card-body">
+            <!-- <div class="m-auto min-h-64 px-8 py-5 " style="">
+                <img src="{% static 'pic/feedback_pic.jpg'%}" alt="Бесплатная консультация" class="w-full"/>
+            </div> -->
+            <div class="px-8 pb-5 ">
+                <div class="m-auto min-h-48 w-full block max-h-64 rounded-t-lg"
+                    style="
+                        background-image: url('{% static "pic/feedback_pic.jpg" %}'); 
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;">
+                </div>  
+            </div>
+            
+            <p class="px-8 text-white text-4xl">Бесплатная консультация</p>
+            <p class="px-8 pt-2 text-white text-2xl">Заполните форму, мы свяжемся с вами</p>
             <input type="hidden" name="url" value="{{ url }}">
-            <div class="field">
-                <label class="label is-medium" for="modal-name">Ваше имя</label>
-                <div class="control has-icons-left">
-                    <input id="modal-name" class="input is-medium" type="text" name="name">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-user"></i>
-                    </span>
+            <div class="px-8 pt-5 mt-2">
+                <input required
+                    type="text" 
+                    name="name" 
+                    id="modal-name" 
+                    class="min-h-16 block w-full rounded-md border-1 border-amber-600 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-amber-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-900 sm:text-md sm:leading-6" 
+                    placeholder="Ваше имя">
+            </div>
+            <div class="px-8 mt-3">
+                <input required
+                    type="text" 
+                    name="phone" 
+                    id="modal-phone" 
+                    class="min-h-16 block w-full rounded-md border-1 border-amber-600 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-amber-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-900 sm:text-md sm:leading-6" 
+                    placeholder="Телефон">
+            </div>
+            <div class="px-8 mt-3 relative flex items-start">
+                <div class="flex h-6 items-center">
+                    <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="h-5 w-5 rounded border-gray-300 text-amber-600 focus:ring-amber-600">
+                </div>
+                <div class="ml-3 text-base leading-[1]">
+                    <label for="comments" class="text-white">Оставляя заявку вы соглашаетесь с политикой <br><a class="text-amber-600" href="{% url 'main:privacy-page' %}">обработки персональных данных</a></label>
+                    <!-- <p id="comments-description" class="text-amber-600"><a href="{% url 'main:privacy-page' %}">обработки персональных данных</a></p> -->
                 </div>
             </div>
-            <div class="field">
-                <label class="label is-medium" for="modal-phone">Номер телефона</label>
-                <div class="control has-icons-left">
-                    <input id="modal-phone" type="text" name="phone" class="input is-medium phone-mask" required>
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-phone"></i>
-                    </span>
-                </div>
-            </div>
-            <p class="mb-0">Отправляя форму Вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p>
+            <!-- <p class="mb-0">Отправляя форму Вы даете согласие на обработку <a href="{% url 'main:privacy-page' %}">персональных данных</a></p> -->
         </section>
         <footer class="modal-card-foot">
-            <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button>
+            <div class="m-auto text-center pb-6 px-8">
+                <button type="submit" class="w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+                    Оставить заявку
+                </button>
+            </div>
+            <!-- <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button> -->
         </footer>
     </form>
     <button class="modal-close is-large" aria-label="close"></button>

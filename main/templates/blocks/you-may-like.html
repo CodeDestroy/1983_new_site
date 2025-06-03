@@ -8,7 +8,7 @@
     <div class="grid gap-6 mx-auto max-w-7xl px-6  sm:py-15  lg:items-center grid-cols-1 lg:px-8 sm:grid-cols-2 md:grid-cols-3">
         {% for flat in flats %}
             {% load humanize %}
-            <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+            <!-- <div class="max-w-sm bg-[#2C2C2E] mx-auto">
                 <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
                     <img class="rounded-t-lg" src="{{ flat.flatphoto_set.first.photo.url }}" alt="" />
                 </a>
@@ -52,6 +52,61 @@
                         </li>
                     </ul>
                 </div>
+            </div> -->
+            <div class="w-full bg-[#2C2C2E] mx-auto rounded-lg">
+                <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
+                    <div class="w-full block min-h-80 rounded-t-lg"
+                        style="
+                            background-image: url('{{ flat.flatphoto_set.first.photo.url }}'); 
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            background-position: center;">
+                        <!-- <img class="rounded-t-lg" src="{{ flat.flatphoto_set.first.photo.url }}" alt="" /> -->
+                        <!-- <div 
+                        class="image is-square mb-3" 
+                        style="background-image: url({%static 'pic/apartment.png'%}); background-repeat: no-repeat; background-position: center;">
+                    </div> -->
+                    </div>
+                    <div class="p-5  ">
+                        <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ flat.price|floatformat:0 }} Р</h5>
+                        </a>
+                        <p class="mb-3 text-white font-medium text-sm">{{ flat }}</p>
+                    <div class="flex">
+                        <ul class="">
+                            <li class="text-gray-500 font-medium text-sm">Площадь</li>
+                            <li class="text-white font-medium text-sm">{{ flat.square|intcomma }}м<sup>2</sup></li>
+                        </ul>
+                        <ul class="m-auto">
+                            <li class="text-gray-500 font-medium text-sm">Этаж</li>
+                            <li class="text-white font-medium text-sm">{{ flat.floor }}{% if flat.obj.floors %} /{{ flat.obj.floors }}{% endif %} эт</li>
+                        </ul>
+                        <ul class="m-auto">
+                            <li class="text-gray-500 font-medium text-sm">Отделка</li>
+                            <li class="text-white font-medium text-sm">{{ flat.decoration }}</li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="p-3">
+                        <ul>
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <img src="{% static 'pic/geo.svg'%}" class="px-2">
+                                    <span class="text-gray-500 font-medium text-sm">
+                                        {% if flat.obj.parent.city %}{{ flat.obj.parent.city }}{% endif %}
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <div class="flex"><img src="{% static 'pic/geo-1.svg'%}" class="px-2">
+                                    <span class="text-gray-500 font-medium text-sm">
+                                    {% if flat.obj.address %}{{ flat.obj.address }}{% else %}{{ flat.obj.parent.address }}{% endif %}
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
             </div>
         {% endfor %}
     </div>
@@ -60,4 +115,5 @@
             Показать все квартиры
         </a>
     </div>
+    
 </section>
