@@ -16,7 +16,69 @@ class IndexView(View):
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
+        print(request.GET)
+        flats = Flat.objects.filter(is_deleted=False)
+
+        # По типу недвижимости
+        if (flat_type := request.GET.get('type')):
+            flats = flats.filter(type=flat_type)
+
+        # По количеству комнат
+        if (rooms := request.GET.get('rooms')):
+            flats = flats.filter(rooms=rooms)
+
+        # По этажу
+        if (floor := request.GET.get('floor')):
+            flats = flats.filter(floor=floor)
+
+        # По цене (диапазон)
+        price = request.GET.get('price')
+        if price == '2000000':
+            flats = flats.filter(price__lte=price)
+        elif price == '5000000':
+            flats = flats.filter(price__gte='2000000').filter(price__lte=price)
+        elif price == '1000000':
+            flats = flats.filter(price__gte='5000000').filter(price__lte=price)
+        elif price == '1000000+':
+            flats = flats.filter(price__gte='1000000')
+
+        
+        square = request.GET.get('square')
+        if square == '30':
+            flats = flats.filter(square__lte=square)
+        elif square == '50':
+            flats = flats.filter(square__gte='2000000').filter(square__lte=square)
+        elif square == '70':
+            flats = flats.filter(square__gte='5000000').filter(square__lte=square)
+        elif square == '100':
+            flats = flats.filter(square__gte='7000000').filter(square__lte=square)
+        elif square == '100+':
+            flats = flats.filter(square__gte='100')
+
+        sort = request.GET.get('sort')
+        if sort == 'priceGte':
+            flats = flats.order_by('-price')
+        elif sort == 'priceLte':
+            flats = flats.order_by('+price')
+        elif sort == 'squareGte':
+            flats = flats.order_by('-square')
+        elif sort == 'priceLte':
+            flats = flats.order_by('+square')
+        elif sort == 'roomsGte':
+            flats = flats.order_by('-rooms')
+        elif sort == 'roomsLte':
+            flats = flats.order_by('+rooms')
+
         return render(request, self.template_name, {
+            'title': 'Главная страница',
+            'districts': None,
+            'flat_types': Flat.objects.values('rooms').distinct().annotate(tcount=Count('rooms')),
+            'new_flats': flats.order_by('-created_at')[:12],
+            'promos': Promo.objects.filter(is_deleted=False, favorite=True),
+            'url': reverse_lazy('main:index'),
+            'articles': Article.objects.filter(is_deleted=False).order_by('-created_at')[:12],
+        })
+        """ return render(request, self.template_name, {
             'title': 'Главная страница',
             'districts': None, # Complex.objects.all().exclude(district__isnull=True).exclude(district='').values('district').distinct(),
             'flat_types': Flat.objects.values('rooms').distinct().annotate(tcount=Count('rooms')).order_by(),
@@ -24,7 +86,7 @@ class IndexView(View):
             'promos': Promo.objects.filter(is_deleted=False, favorite=True),
             'url': reverse_lazy('main:index'),
             'articles': Article.objects.filter(is_deleted=False).order_by('-created_at')[:12]
-        })
+        }) """
 
 
 class AboutView(View):
