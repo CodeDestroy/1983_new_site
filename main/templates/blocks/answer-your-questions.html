@@ -1,5 +1,62 @@
 {% load static %}
-<section class=" pt-12"> 
+<section class="pt-12" x-data="{ activeFaq: null }">
+    <div class="mx-auto max-w-7xl lg:flex lg:items-center lg:justify-between pb-8 px-6 sm:py-5 lg:px-8">
+        <h1 class="mx-2 text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>{{ block_title|default:"Отвечаем на ваши вопросы" }}</span>
+        </h1>
+    </div>
+
+    <div class="grid w-full max-w-7xl py-10 px-8 mx-auto">
+        <div class="space-y-2">
+
+            <!-- FAQ Item -->
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" @click="activeFaq === 1 ? activeFaq = null : activeFaq = 1">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Какой минимальный первоначальный взнос по ипотеке?</span>
+                    <span class="text-orange-500 text-2xl" x-text="activeFaq === 1 ? '−' : '+'"></span>
+                </div>
+                <div x-show="activeFaq === 1" x-transition class="mt-2 text-gray-300">
+                    Ответ минимальный первоначальный взнос по ипотеке на текущий момент от 20,1%.
+                </div>
+            </div>
+
+            <!-- FAQ Item -->
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" @click="activeFaq === 2 ? activeFaq = null : activeFaq = 2">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Какая минимальная стоимость квартир в Воронеже?</span>
+                    <span class="text-orange-500 text-2xl" x-text="activeFaq === 2 ? '−' : '+'"></span>
+                </div>
+                <div x-show="activeFaq === 2" x-transition class="mt-2 text-gray-300">
+                    В Воронеже можно купить квартиру от 2,7 млн. руб.
+                </div>
+            </div>
+
+            <!-- FAQ Item -->
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" @click="activeFaq === 3 ? activeFaq = null : activeFaq = 3">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Кто имеет право воспользоваться программой семейная ипотека?</span>
+                    <span class="text-orange-500 text-2xl" x-text="activeFaq === 3 ? '−' : '+'"></span>
+                </div>
+                <div x-show="activeFaq === 3" x-transition class="mt-2 text-gray-300">
+                     Семьи с дети до 6 лет включительно.
+                </div>
+            </div>
+
+            <!-- FAQ Item -->
+            <div class="bg-[#2C2C2E] p-4 cursor-pointer" @click="activeFaq === 4 ? activeFaq = null : activeFaq = 4">
+                <div class="flex justify-between items-center">
+                    <span class="text-white">Есть ли скидка при оплате наличными?</span>
+                    <span class="text-orange-500 text-2xl" x-text="activeFaq === 4 ? '−' : '+'"></span>
+                </div>
+                <div x-show="activeFaq === 4" x-transition class="mt-2 text-gray-300">
+                    При покупке квартир в разных жилых комплексах за наличный расчет дают скидки до 12%.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- <section class=" pt-12"> 
     <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-5 lg:px-8">
         <h1 class="mx-2 text-left text-white md:text-5xl sm:text-4xl text-4xl">
             <span>{{ block_title|default:"Отвечаем на ваши вопросы" }}</span>
@@ -46,4 +103,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
