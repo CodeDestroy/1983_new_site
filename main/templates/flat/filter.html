@@ -3,6 +3,7 @@
 <!-- Фильтр квартир -->  
 <div class=" text-white flex justify-center items-center p-4">
     <form method="get">
+        {% csrf_token %}
         <div class="w-full max-w-7xl  px-6 lg:px-8 mx-auto bg-[#191B1D]">
             <h1 class="text-3xl font-semibold mb-6 text-left text-white">{{ block_title|default:"Каталог вариантов" }}</h1>
             
@@ -52,11 +53,12 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-2 items-center">
-                <div> <button class="w-full p-3 bg-[#2C2C2E] hover:bg-orange-600 text-white border border-gray-600 rounded-md flex items-center justify-center space-x-1">
-                            <span>Дополнительно</span>
-                            <img src="{%static 'pic/filter.svg'%}" class="w-6 h-6">
-                        </button>
-                    </div>
+                <div> 
+                    <button  data-modal-target="modal-filter" data-modal-toggle="modal-filter" type="button"  class="w-full p-3 bg-[#2C2C2E] hover:bg-orange-600 text-white border border-gray-600 rounded-md flex items-center justify-center space-x-1">
+                        <span>Дополнительно</span>
+                        <img src="{%static 'pic/filter.svg'%}" class="w-6 h-6">
+                    </button>
+                </div>
                 <div>  
                     <input type="text" class="hidden md:block bg-white p-3 text-gray-600  md:col-span-2 lg:col-span-1" placeholder="Район, адрес">
                 </div>
@@ -127,4 +129,147 @@
         </div>
     </div>
     <span class="text-1xl">{{ flats_count|default:"0" }} вариантов</span>
+</div>
+
+<div id="modal-filter" class="bg-[#78787880] hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="modal-background"></div>
+    <form method="get" class="bg-[#2C2C2E]  max-h-[80vh] overflow-y-auto">{% csrf_token %}
+        <header class="modal-card-head">
+            
+            <!-- <button class="delete" aria-label="close"></button> -->
+            <button data-modal-hide="modal-filter" type="button" class="block ml-auto mr-0 pb-1 pt-4 px-3 text-sm font-medium focus:outline-none rounded-lg focus:z-10 focus:ring-4 focus:ring-gray-100 text-[#787878] hover:text-white">
+                <svg width="18" height="18" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 0.5L13 12.5M13 0.500002L1 12.5" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </header>
+        <section class="modal-card-body px-6 pt-2 pb-4 space-y-6 text-white rounded-lg">
+            <h2 class="text-2xl font-semibold">Все фильтры</h2>
+            
+            <!-- Количество комнат -->
+            <div>
+                <h3 class="font-medium mb-2">Количество комнат</h3>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="rooms" value="0">Студия</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="rooms" value="1">1 комната</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="rooms" value="2" >2 комнаты</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="rooms" value="3">3 комнаты</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="rooms" value="4">4 комнаты</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="rooms" value="5">5+ комнат</label>
+                </div>
+            </div>
+
+            <!-- Цена -->
+            <div>
+                <h3 class="font-medium mb-2">Цена</h3>
+                <div class="flex space-x-2">
+                <input type="number" name="price_min" placeholder="от 1 400 000" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                <input type="number" name="price_max" placeholder="до 5 000 000" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                </div>
+            </div>
+
+            <!-- Площадь -->
+            <div>
+                <h3 class="font-medium mb-2">Площадь</h3>
+                <div class="flex space-x-2">
+                <input type="number" name="square_min" placeholder="от 40" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                <input type="number" name="square_max" placeholder="до 80" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                </div>
+            </div>
+
+            <!-- Этаж -->
+            <div>
+                <h3 class="font-medium mb-2">Этаж</h3>
+                <div class="flex space-x-2 mb-2">
+                <input type="number" name="floor_min" placeholder="от 5" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                <input type="number" name="floor_max" placeholder="до 17" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                </div>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="not_first">Не первый</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="not_last">Не последний</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" name="only_last">Только последний</label>
+                </div>
+            </div>
+
+            <!-- Срок сдачи -->
+            <div>
+                <h3 class="font-medium mb-2">Срок сдачи</h3>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">до 4 квартала 2024</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">до 1 квартала 2025</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" >до 2 квартала 2025</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">до 3 квартала 2025</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">до 4 квартала 2025</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">2026 и позднее</label>
+                </div>
+            </div>
+
+            <!-- Отделка -->
+            <div>
+                <h3 class="font-medium mb-2">Отделка</h3>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Без отделки</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Предчистовая</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128" >Чистовая</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">до 3 квартала 2025</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">до 4 квартала 2025</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">2026 и позднее</label>
+                </div>
+            </div>
+
+            <!-- Площадь кухни -->
+            <div>
+                <h3 class="font-medium mb-2">Площадь кухни</h3>
+                <div class="flex space-x-2">
+                <input type="number" name="kitchen_min" placeholder="от 5" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                <input type="number" name="kitchen_max" placeholder="до 17" class="w-full p-2 rounded bg-white text-black border border-gray-700">
+                </div>
+            </div>
+
+            <!-- Тип дома -->
+            <div>
+                <h3 class="font-medium mb-2">Тип дома</h3>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Кирпичный</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Панельный</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Блочный</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Монолитный</label>
+                </div>
+            </div>
+
+            <!-- Эксклюзивные варианты -->
+            <div>
+                <h3 class="font-medium mb-2">Эксклюзивные варианты</h3>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">С террасой</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Двухуровневые</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">С мастер-спальней</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">С окном в ванной</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">С эркером</label>
+                </div>
+            </div>
+
+            <!-- Район -->
+            <div>
+                <h3 class="font-medium mb-2">Район</h3>
+                <div class="space-y-1">
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Центральный</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Советский</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Коминтерновский</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Ленинский</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Железнодорожный</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-2" style="color: #BF6128">Левобережный</label>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <div class="m-auto text-center pb-6 px-8">
+                <button type="submit" class="w-full rounded-lg bg-amber-600 hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+                    Показать объявления
+                </button>
+            </div>
+            <!-- <button type="submit" class="button is-warning is-medium is-fullwidth is-rounded">Оставить заявку</button> -->
+        </footer>
+    </form>
+    <button class="modal-close is-large" aria-label="close"></button>
 </div>

@@ -5,11 +5,11 @@ from django.views.generic import DetailView
 from django.views.generic.list import ListView
 
 from main.models.realty import Flat
-
+from main.utils.flat_filters import apply_flat_filters
 from main.models import Article
 
 class SearchList(ListView):
-    paginate_by = 10
+    paginate_by = 12
     model = Flat
     template_name = 'search/list.html'
     context_object_name = 'flats'
@@ -26,14 +26,39 @@ class SearchList(ListView):
 
     def get_queryset(self):
         qs = super().get_queryset().filter(is_deleted=False, hide=False)
+
+        # Поисковый запрос
+        if name := self.request.GET.get('name'):
+            qs = qs.filter(
+                Q(obj__name__icontains=name) |
+                Q(obj__parent__name__icontains=name) |
+                Q(obj__developer__name__icontains=name) |
+                Q(obj__parent__developer__name__icontains=name) |
+                Q(obj__address__icontains=name) |
+                Q(obj__parent__address__icontains=name)
+            )
+
+        # Применим общую фильтрацию
+        qs = apply_flat_filters(self.request, queryset=qs)
+
+        # Удалим скрытые родительские/объекты
+        qs = qs.exclude(
+            Q(obj__parent__isnull=False, obj__parent__hide=True, obj__parent__is_deleted=True) |
+            Q(obj__parent__isnull=True, obj__hide=True, obj__is_deleted=True),
+            is_deleted=True,
+            hide=True
+        )
+
+        return qs
+        """ qs = super().get_queryset().filter(is_deleted=False, hide=False)
         if name := self.request.GET.get('name'):
             qs = qs.filter(Q(obj__name__icontains=name) | Q(obj__parent__name__icontains=name) |
                            Q(obj__developer__name__icontains=name) | Q(obj__parent__developer__name__icontains=name) |
                            Q(obj__address__icontains=name) | Q(obj__parent__address__icontains=name))
         if rooms := self.request.GET.get('rooms'):
             qs = qs.filter(rooms=rooms)
-        #if district := self.request.GET.get('district'):
-        #    qs = qs.filter(build__complex__district__icontains=district)
+        --if district := self.request.GET.get('district'):
+         --   qs = qs.filter(build__complex__district__icontains=district)
         if price_type := self.request.GET.get('price'):
             match price_type:
                 case '1':
@@ -56,7 +81,7 @@ class SearchList(ListView):
             else:
                 qs = qs.order_by('-price')
         return qs.exclude(Q(obj__parent__isnull=False, obj__parent__hide=True, obj__parent__is_deleted=True)
-                          | Q(obj__parent__isnull=True, obj__hide=True, obj__is_deleted=True), is_deleted=True, hide=True)
+                          | Q(obj__parent__isnull=True, obj__hide=True, obj__is_deleted=True), is_deleted=True, hide=True) """
 
 
 class FlatPage(DetailView):
