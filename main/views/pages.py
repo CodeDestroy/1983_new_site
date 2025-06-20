@@ -94,9 +94,11 @@ class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {
             'title': 'О компании',
-            'flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:12],
+            'flats': Flat.objects.filter(is_deleted=False).order_by('-created_at')[:3],
             'yandex_map_key': settings.YANDEX_MAP_KEY,
-            'url': reverse_lazy('main:about')
+            'url': reverse_lazy('main:about'),
+            'partners': Partner.objects.filter(is_deleted=False),
+            'articles': Article.objects.filter(is_deleted=False).order_by('-created_at')[:3],
         })
 
 
@@ -532,6 +534,7 @@ class RecommendationView(View):
             flats = flats.order_by('-rooms')
         elif sort == 'roomsLte':
             flats = flats.order_by('+rooms')
+        
         return render(request, self.template_name, {
             'title': 'Программа лояльности',
             'flats': flats[:12],

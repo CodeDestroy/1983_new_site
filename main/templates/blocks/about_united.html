@@ -1,0 +1,105 @@
+{% load static %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey={{ yandex_map_key }}&lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+    // Функция ymaps.ready() будет вызвана, когда загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        let myMap = new ymaps.Map("map", {
+            // Координаты центра карты. Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную, воспользуйтесь инструментом Определение координат.
+            center: [51.697840, 39.184225],
+            // Уровень масштабирования. Допустимые значения: от 0 (весь мир) до 19.
+            zoom: 17
+        });
+        myMap.geoObjects.add(new ymaps.GeoObject({
+            geometry: {type: 'Point', coordinates: [51.697840, 39.184225]},
+        }));
+    }
+</script>
+
+<section>
+    <div class="mx-auto max-w-7xl px-6  sm:py-10  lg:items-center lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-9 gap-4 bg-[#2C2C2E] rounded-lg p-6">
+            <div class="col-span-3 mb-auto  ">
+                <h5 class="mb-2 font-semibold text-white text-5xl">Наши офисы</h5>
+                
+                <div class="flex pt-3">
+                    <img src="{% static 'pic/call.svg'%}" class="w-5 h-5"/>
+                    <p class="text-xl  text-white pl-3">+7 (473) 202-32-33</p>
+                </div>
+                <span class="pl-8">Воронеж</span>
+            
+                <div class="flex pt-3">
+                    <img src="{% static 'pic/call.svg'%}" class="w-5 h-5"/>
+                    <p class="text-xl  text-white pl-3">+7 (495) 145-88-25</p>
+                </div>
+                <span class="pl-8">Москва</span>
+            
+                <div class="flex pt-3">
+                    <img src="{% static 'pic/mail.svg'%}" class="w-5 h-5"/>
+                    <p class="text-xl  text-white pl-3">info@квартиры36.рф</p>
+                </div>
+
+                <div class="flex pt-3">
+                    <img src="{% static 'pic/geo-1.svg'%}" class="w-5 h-5"/>
+                    <p class="text-xl  text-white pl-3">ул. Беговая, 63 <br> Московский пр-кт, 132</p>
+                </div>
+                <div>
+                    <p class="text-md  text-white pl-8">
+                        Пн-пт: 9:00–20:00 <br>
+                        Сб: 10:00–17:00 <br>
+                        Вс: 10:00–16:00
+                    </p>
+                </div>
+                <div class="pt-6">
+                    <img src="{% static '/pic/banner-c.png' %}" class="w-auto h-auto rounded-lg"/>
+                </div>
+                
+            </div>
+            
+            <div class="sm:col-span-6 col-span-1 rounded-lg">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3119913823cae4727b2767c64019ba6733f5c45e8b32cd1d731cd77ad088fa0e&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- <section> 
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-4  mx-auto max-w-7xl px-6  sm:py-10  lg:items-center lg:px-8">
+        <div class=" p-4 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-gray-500  text-sm">Телефон</h5>
+            </a>
+            <p class="mb-3 text-white font-medium text-xl pt-20"><a href="tel:+74732023233">+7 (473) 202-32-33</a></p>
+        </div>
+       <div class=" p-4 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-gray-500  text-sm">Адреса</h5>
+            </a>
+            <p class="mb-3 text-white font-medium text-xl pt-12">ул. Беговая, 63<br> Московский пр-кт, 132</p>
+        </div>
+          <div class=" p-4 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-gray-500  text-sm">Почта</h5>
+            </a>
+            <p class="mb-3 text-white font-medium text-xl pt-20"><a href="mailto:info@квартиры36.рф">info@квартиры36.рф</a></p>
+        </div>
+          <div class=" p-4 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
+            
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold text-gray-500  text-sm">Время работы</h5>
+            </a>
+            <p class="mb-3 text-white font-medium text-xl pt-5">Будни: 9–20:00<br>Суббота: 10–17:00<br>Воскресенье: 10–16:00</p>
+        </div>
+    </div>
+    <div class="flex justify-center items-center pt-5 md:pt-0">
+        <div class="max-w-7xl lg:mx-0 w-full px-6 lg:px-8">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3119913823cae4727b2767c64019ba6733f5c45e8b32cd1d731cd77ad088fa0e&amp;width=100%&amp;height=595&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+    </div>
+</section> -->

@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block container %}
-<section class="section">
+<!-- <section class="section">
     <div class="columns is-multiline">
         {% for bonus in bonuses %}
         <div class="column is-one-third-tablet">
@@ -67,7 +67,238 @@
         <footer class="modal-card-foot"><button class="button">Закрыть</button></footer>
     </div>
 </div>
-{% endfor %}
+{% endfor %} -->
+
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="sm:text-4xl text-3xl font-bold">Программа лояльности</h2>
+                <p class="mt-2 text-gray-300">Экономьте на товарах и услугах с единой картой скидок от компании «1983»!</p>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                   Оставить заявку
+                </button>
+            </div>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">  
+                <img src="{%static 'pic/present.png'%}" alt="Программа лояльности" class="w-full h-full object-cover rounded-lg"> 
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section class=" pt-20"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-2xl">
+            <span>Компании-партнёры</span>
+        </h1>
+    </div> 
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 gap-4 mx-auto px-6 py-8 sm:py-15 lg:items-center lg:px-8 max-w-7xl">
+        {% for partner in partners %}{% include 'partners/card.html' with partner=partner %}{% endfor %}
+        <!-- <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre1.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 10 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+                Студия ландшафтного дизайна «Катальпа»
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre2.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 12 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+                Мебельный магазин Dekora
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre3.svg'%}"  class="my-3 ">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 10 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+                Студия флористики «Подснежник»
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre4.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 10 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+                Озонирование
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+    
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre44.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 10 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+                Мебельная компания «Пинксдрев»
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre5.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 100 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+                Академия Мудрости
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre6.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 100 %
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+            Психолог Ксения Леонидовна Василенко 
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700  p-4  text-white font-sans space-y-2 m-4">
+            <div class="flex justify-center mb-2">
+                <div class=" rounded-sm">
+                    <img src="{%static 'pic/pre7.svg'%}">
+                </div>
+            </div>
+            <div class="mt-2 inline-block bg-[#D26932] text-white  px-2  rounded-xl">
+                Скидка 1000 Р
+            </div>
+            <div class="text-sm leading-tight my-2 px-1">
+            Стоматология «Лайм»
+            </div>
+            <button class="mt-2 mb-1 w-full bg-[#D26932] hover:bg-[#b35529] transition text-sm py-2 rounded">
+                Подробнее
+            </button>
+        </div> -->
+
+    </div>
+</section>
+
+<section class=" items-center justify-center flex ">
+    <div class="max-w-7xl lg:mx-0 w-full mx-6">
+        <div class="bg-[#2C2C2E] text-white px-6 pt-2 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Экономьте до 30% на ремонте с картой скидок от «1983»</h2>
+                <p class="mt-2 text-gray-300">Мы договорились за вас с сотнями магазинов по всему городу!</p>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                   Стать партнером компании «1983»
+                </button>
+            </div>
+            <div class="order-1 sm:order-2  h-40  sm:h-56 mb-4 sm:mb-0 sm:ml-6">  
+                <img src="{%static 'pic/stay_partner.svg'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg"> 
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section>
+    <div class="grid sm:grid-cols-2 grid-cols-1 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8 ">
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <img src="{%static 'pic/mq1.svg'%}">
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">1</h1>
+            </div>
+            <div class="pt-16">
+               
+                 <p class="mb-3 text-2xl font-semibold text-white">Зарегистрируйте карту</p>
+                 <p class="mb-3 text-xl font-semibold text-gray-500">Зарегистрируйтесь и получите карту с индивидуальным номером!</p>
+            </div>
+        </div>
+        <div class="col-span-1 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+            <div class="flex">
+                <img src="{%static 'pic/mq2.svg'%}">
+                    
+                <h1 class="text-5xl ml-auto font-bold" style="color: #787878;">2</h1>
+            </div>
+            <div class="pt-16">
+               
+                 <p class="mb-3 text-2xl font-semibold text-white">Покажите карту на кассе</p>
+                 <p class="mb-3 text-xl font-semibold text-gray-500">Покажите скриншот экрана или откройте карту в личном кабинете*</p>
+            </div>
+        </div>
+
+        <div class="sm:col-span-2 p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
+             
+            <div class="pt-5">
+                
+                <p class="mb-3 text-2xl font-semibold text-white">Магазины Hoff, «Орматек», «Барокко» работают только с пластиковой картой</p>
+     			 <p class="mb-3 text-xl font-semibold text-gray-500">Для получения скидки необходимо взять фирменную карту партнера в офисе продаж АН «1983»</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- Лучшие условия -->
+{% include 'blocks/consultation.html' %}
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' articles=articles%}
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
 {% endblock %}
 
 {% block scripts %}

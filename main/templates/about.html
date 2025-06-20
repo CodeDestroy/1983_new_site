@@ -11,176 +11,356 @@
 {% endblock %}
 
 {% block container %}
-<section class="section">
-    <div class="card is-background-info-light">
-        <div class="columns is-align-items-end">
-            <div class="column py-0">
-                <div class="card-content">
-                    <div class="content">
-                        <p class="title mb-3">Коротова Марина Валериевна</p>
-                        <p class="subtitle">Директор, СЕО АН «Новостройки Воронеж»</p>
-                        <ul>
-                            <li>Практикующий Топ-менеджер с 2010 года</li>
-                            <li>Сертифицированный бизнес-коуч, бизнес - тренер по международным стандартам ICU</li>
-                            <li>Основатель кадрового агентства и корпоративного университета для малого и среднего бизнеса Level UP</li>
-                            <li>Эксперт по развитию потенциала бизнеса и личности</li>
-                            <li>Международный спикер и победитель в номинации «Человек мира. Профессионал, эксперт, наставник, международное признание в области уникальных авторских программ с доказанной эффективностью» в церемонии вручения премии BEAUTYVISION Award by The Iconic в Дубае в 2024 году</li>
-                        </ul>
-                    </div>
-                </div>
+
+<section class="flex items-center justify-center">
+    <div class="max-w-7xl lg:mx-0 w-full">
+        <div class="bg-[#2C2C2E] text-white p-6 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left lg:px-8 lg:mx-8 px-6 mx-6 sm:h-[228px] md:h-[328px] ">
+            <div class="order-2 sm:order-1 flex-1">
+                <h2 class="text-3xl sm:text-2xl font-bold">Агентство недвижимости «1983»</h2>
+                <p class="mt-2 text-gray-300">Помогаем купить жилье от 2 до 100 млн. руб. в Воронеже, а также в Москве, Сочи, Калининграде, Турции, ОАЭ, Таиланде и на Кипре</p>
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="mt-4 bg-[#BF6128] hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto">
+                    Оставить заявку
+                </button>
             </div>
-            <div class="column is-one-third-tablet pb-0">
-                <figure class="image">
-                    <img src="{% static 'images/about/korotova.png' %}" alt="Коротова Марина Валериевна">
-                </figure>
+            <div class="order-1 sm:order-2 w-40 h-40 sm:w-56 sm:h-56 mb-4 sm:mb-0 sm:ml-6">
+                <img src="{% static 'pic/about.svg'%}" alt="Ипотека" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <div class="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 gap-8  mx-auto max-w-7xl px-6 py-8 sm:py-15  lg:items-center lg:px-8">
+      
+          
+              
+           <div class=" p-6 bg-[#2C2C2E]  h-35 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 text-center">
+           
+            <div class="pt-2">
+                <a href="#">
+                    <h2 class="mb-1 xl:text-5xl md:text-2xl text-4xl font-semibold text-amber-600 text-center">>500 тыс. м²</h2>
+                </a>
+               <p class="mb-3 text-sm  text-gray-500">продано за 2023 год</p>
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  h-35 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 text-center">
+           
+            <div class="pt-2">
+                <a href="#">
+                    <h2 class="mb-2 xl:text-5xl md:text-2xl text-4xl font-semibold text-amber-600 text-center">>14 000</h2>
+                </a>
+               <p class="mb-1 text-sm  text-gray-500">семей приобрели свое жилье </p>
+            </div>
+        </div>
+        <div class=" p-6 bg-[#2C2C2E]  h-35 rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 text-center">
+           
+            <div class="pt-2">
+                <a href="#">
+                    <h2 class="mb-1 xl:text-5xl md:text-2xl text-4xl font-semibold text-amber-600 text-center">>210 тыс м²</h2>
+                </a>
+               <p class="mb-3 text-sm  text-gray-500">коммерческой недвижимости продано за 2023 год</p>
+            </div>
+        </div>
+     
+  
+    </div>
+</section>
+
+<!-- Опираемся на многолетний опыт -->
+{% include 'blocks/many-years-experience.html'%}
+
+<section class=" pt-10"> <!-- Секция 6 -->
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Команда</span>
+        </h1>
+    </div> 
+    
+    <div class="grid gap-6 mx-auto max-w-7xl px-6 lg:px-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+    
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about1.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Протопопова Алена</h2>
+                <p class="text-md">Директор по продажам</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about2.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Анпилова Оксана</h2>
+                <p class="text-md">Руководитель направления новостроек</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about3.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Челнаков Максим</h2>
+                <p class="text-md">Руководитель направления загородной недвижимостик</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about4.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Бужинская Людмила</h2>
+                <p class="text-md">Руководитель юридического отдела</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about5.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Колесникова Ирина</h2>
+                <p class="text-md">Руководитель отдела маркетинга</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about6.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Коробкова Валерия</h2>
+                <p class="text-md">Эксперт по недвижимости</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about7.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Лаврова Маргарита</h2>
+                <p class="text-md">Эксперт по недвижимости</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about8.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Василенко Антон</h2>
+                <p class="text-md">Эксперт по недвижимости</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about9.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Мелихова Владлена</h2>
+                <p class="text-md">Эксперт по недвижимости</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about10.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+            <h2 class="text-lg font-semibold">Асанкин Виктор</h2>
+                <p class="text-md">Эксперт по недвижимости</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about11.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Дронова Татьяна</h2>
+                <p class="text-md">Маркетолог</p>
+            </div>
+        </div>
+
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about12.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Назаренко Анна</h2>
+                <p class="text-md">Бизнес-ассистент</p>
+            </div>
+        </div>
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about13.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Реуцкая Алина</h2>
+                <p class="text-md">SMM-специалист</p>
+            </div>
+        </div>
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/about14.svg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Заглядкина Ирина</h2>
+                <p class="text-md">Ипотечный брокер</p>
             </div>
         </div>
     </div>
 </section>
-<section class="section">
-    <div class="card">
-        <div class="card-header is-shadowless">
-            <p class="card-header-title">Компания «Новостройки Воронеж» - настоящий мультисервис недвижимости!</p>
-        </div>
-        <div class="card-content">
-            <div class="content">
-                <ul class="mt-0">
-                    <li>Неограниченный ассортимент квартир в новостройках (работаем со всеми застройщиками);</li>
-                    <li>Цена от Застройщика (без комиссий и переплат, можно проверить);</li>
-                    <li>Скидка 50% на подбор жилья на вторичном рынке;</li>
-                    <li>Ремонт и переезд - наша задача. Качественно и в согласованные сроки;</li>
-                    <li>Выберем лучшее место для жизни семьи или самый ликвидный объект для инвестиций.</li>
-                </ul>
+
+<!-- Работаем напрямую с застройщиками  -->
+<section class="pt-12">
+    <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-4 px-6 sm:py-5 lg:px-8">
+        <h1 class="text-left text-white md:text-5xl sm:text-4xl text-4xl">
+            <span>Работаем напрямую с застройщиками</span>
+        </h1>
+    </div>
+    <div class="flex items-center justify-center pt-12">
+        <div class="max-w-7xl lg:mx-0 w-full mx-6">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:mx-8">
+                {% for partner in partners %} 
+                    <div class="bg-[#2C2C2E] text-white p-6 flex items-center justify-center"><img src="{{ partner.partnerphoto_set.first.photo.url }}"></div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
-<section class="section">
-    <div id="directions" class="box">
-        <div class="tabs is-toggle is-toggle-rounded is-fullwidth">
-            <ul>
-                <li class="is-active"><a data-columns=".new, .old, .suburban, .com, .repair, .design, .cleaning">Воронеж</a></li>
-                <li><a data-columns=".new">Москва</a></li>
-                <li><a data-columns=".new">Калининград</a></li>
-                <li><a data-columns=".new">Турция</a></li>
-                <li><a data-columns=".new">Северный Кипр</a></li>
-                <li><a data-columns=".new">ОАЭ</a></li>
-            </ul>
-        </div>
-        <div class="columns is-multiline is-justify-content-center">
-            <div class="new column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold">Новостройки</p>
-                    <div class="content">
-                        <ul>
-                            <li>Воронеж</li>
-                            <li>Москва</li>
-                            <li>Калининград</li>
-                            <li>Турция</li>
-                            <li>Северный Кипр</li>
-                            <li>ОАЭ</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="old column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold">Вторичка</p>
-                    <div class="content">
-                        <ul>
-                            <li>Подбор</li>
-                            <li>Продажа</li>
-                            <li>Оформление документов</li>
-                            <li>Безопасная сделка</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="suburban column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold">Загородная</p>
-                    <div class="content">
-                        <ul>
-                            <li>Дома и коттеджи</li>
-                            <li>Дачи</li>
-                            <li>Земельные участки</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="com column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold">Коммерческая</p>
-                    <div class="content">
-                        <ul>
-                            <li>Торговые</li>
-                            <li>Офисные</li>
-                            <li>Производственные</li>
-                            <li>Гостиничные</li>
-                            <li>Ресторанные помещения</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="repair column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold mb-3">Ремонт</p>
-                    <p>Под ключ любого уровня сложности</p>
-                </div>
-            </div>
-            <div class="design column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold mb-3">Дизайн</p>
-                    <p>В любом стиле</p>
-                </div>
-            </div>
-            <div class="cleaning column is-one-quarter-tablet">
-                <div class="box is-shadowless is-radiusless is-fullheight">
-                    <p class="has-text-weight-semibold">Переезд и клининг</p>
-                </div>
+
+<!-- Оказываем полный спектр услуг в сфере недвижимости! -->
+<section class=""> <!-- Секция два  -->
+	<div class=""> <!-- Баннер 3 -->
+        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-15 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <!-- <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Услуги</button>
+                <span class="text-sm font-semibold leading-6 text-white">Выберем лучшее место для жизни<br>семьи или самый ликвидный обьект<br>для инвестиций</span>
+            </div> -->
+            <div>
+                <h1 class="font-bold tracking-tight text-white md:text-5xl sm:text-4xl text-4xl">Оказываем <span class="text-[#BF6128]">полный спектр<br>услуг </span><span>в сфере недвижимости!</span></h1>
             </div>
         </div>
+    </div>   
+
+    <div class=" text-white">
+        <div class="grid lg:grid-cols-3  md:grid-cols-2 sm: md:grid-cols-1 grid-rows-2  gap-4 mx-auto max-w-7xl px-6 py-2 sm:py-2 lg:items-start lg:px-8 text-white ">
+            <!-- Карточка 1 (увеличенная по высоте) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg lg:col-span-1 lg:row-span-2 md:row-span-1 flex flex-col justify-between lg:h-full ">
+                <h2 class="text-xl font-bold mb-4 z-1">Вторичная недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Подбор</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Безопасная сделка</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Продажа</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Документы</button>
+                </div>
+                <img src="{% static 'pic/pic-3.svg' %}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+            </div>
+            
+            <!-- Карточка 2 (справа сверху, широкая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg lg:col-span-2 flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Новостройки</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Воронеж</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Москва</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Сочи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Калининград</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Турция</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Северный Кипр</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">ОАЭ</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Таиланд</button>
+                </div>
+                <img src="{% static 'pic/pic-2.svg'%}" class="absolute right-0 bottom-0 w-1/3 lg:w-1/4 " alt="Background">
+            </div>
+            
+            <!-- Карточка 3 (справа снизу, левая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Коммерческая недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Торговля</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Офисы</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Производство</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Рестораны</button>
+                </div>
+                <img src="{% static 'pic/pic-3.svg'%}" class="absolute bottom-0 right-0  w-1/3 lg:w-1/4 " alt="Background">
+            </div>
+
+            <!-- Карточка 4 (справа снизу, правая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Загородная недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дома и коттеджи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дачи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Земельные участки</button>
+                </div>
+                <img src="{% static 'pic/pic-4.svg'%}" class="absolute bottom-0 right-0   w-1/3 lg:w-1.5/4  " alt="Background">
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto max-w-7xl px-6  sm:py-5 lg:items-start lg:px-8">
+            <!-- Карточка 1 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Оформление документов</h2>
+                <img src="{% static 'pic/pic-5.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Полный спектр</button>
+            </div>
+            
+            <!-- Карточка 2 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Ремонт и отделка</h2>
+                <img src="{% static 'pic/pic-6.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Под ключ</button>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Дизайн интерьера</h2>
+                <img src="{% static 'pic/pic-7.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">В любом стиле</button>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Переезд и клининг</h2>
+                <img src="{% static 'pic/pic-8.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Берем на себя</button>
+            </div>
+        </div>
+
     </div>
 </section>
-{% include 'blocks/exclusive.html' with extended_class='mb-5' %}
-<section class="section">
-    <div class="card">
-        <div class="fixed-grid has-3-cols has-1-cols-mobile">
-            <div class="grid is-gap-0">
-                <div class="cell is-col-span-3-tablet pt-5.5 px-5.5">
-                    <p class="has-text-weight-bold is-size-3">Почему лучше покупать квартиру с нами?</p>
-                </div>
-                <div class="cell p-5.5">
-                    <div class="advantage box is-background-info-light is-fullheight">
-                        <p class="count">&gt;500 тыс м<sup>2</sup></p>
-                        <p>продано за 2022 год</p>
-                    </div>
-                </div>
-                <div class="cell p-5.5">
-                    <div class="advantage box is-background-info-light is-fullheight">
-                        <p class="count">&gt;14 000 семей</p>
-                        <p>приобрели свое жилье</p>
-                    </div>
-                </div>
-                <div class="cell p-5.5">
-                    <div class="advantage box is-background-info-light is-fullheight">
-                        <p class="count">&gt;210 тыс м<sup>2</sup></p>
-                        <p>коммерческой недвижимости продано за 2022 год</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 {% include 'blocks/consultation.html' %}
-{% include 'blocks/about.html' %}
-{% include 'blocks/new_flats.html' with flats=flats block_title='Вам понравится' %}
+{% include 'blocks/about_united.html' %}
+
+
+<!-- Отзывы клиентов -->
+{% include 'blocks/reviews.html' with block_title='Отзывы наших клиентов' %}
+
+<!-- Вам может понравится квартиры -->
+{% include 'blocks/you-may-like.html' with flats=flats %}
+
+<!-- Новости -->
+{% include 'blocks/news_list.html' with block_title='Бесплатная консультация эксперта по недвижимости' articles=articles%}
+
+<!-- {% include 'blocks/new_flats.html' with flats=flats block_title='Вам понравится' %} -->
 <section class="section">
     <div class="sw-app" data-app="b17b4683bd9bad3469bc258965fde0d6"></div>
 </section>
-<section class="section has-text-centered">
+<!-- <section class="section has-text-centered">
     <a href="https://yandex.ru/maps/193/voronezh/?ll=39.184269%2C51.697948&mode=poi&poi%5Bpoint%5D=39.184127%2C51.697789&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D28974348316&z=19.3" target="_blank" class="button is-warning is-rounded is-medium">Больше отзывов о нас на Яндекс.Картах</a>
-</section>
+</section> -->
 {% endblock %}
 
 {% block scripts %}
