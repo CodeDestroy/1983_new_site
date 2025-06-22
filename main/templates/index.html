@@ -754,8 +754,8 @@
             </div>
         </div>
     </div>
-----------------------------------------------------
-видео
+<!-- ----------------------------------------------------
+видео -->
     <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 pt-24 sm:pt-15  lg:items-center lg:px-8">
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
             <img src="{% static 'pic/find.svg'%}" class="py-1">
@@ -839,10 +839,6 @@
     </div>
 </section> -->
 <!-- {% include 'blocks/new_flats.html' with flats=new_flats %} -->
-<section class="section">
-    <div class="columns is-multiline">
-        {% for promo in promos %}{% include 'promo/card.html' with promo=promo %}{% endfor %}
-    </div>
-</section>
+
 {% endblock %}
 {% block scripts %}<script src="{% static 'js/carousel.js' %}"></script>{% endblock %}
