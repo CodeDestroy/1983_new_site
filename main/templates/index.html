@@ -146,18 +146,25 @@
 </section>
 
 <section class=""> <!-- Секция два  -->
-	<div class=""> <!-- Баннер 3 -->
-        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-15 lg:flex lg:items-center lg:justify-between lg:px-8">
+	  
+    <div class=""> <!-- Баннер 6 -->
+        <div class="mx-auto max-w-7xl px-6 py-12 sm:py-12 lg:flex lg:items-center lg:justify-between lg:px-8">
             <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Услуги</button>
+                <a type="button" 
+                href="{% url 'main:trade-in-page' %}"
+                class="text-center button border border-white text-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5 me-2 mb-4 bg-[#191B1D] hover:bg-[#2C2C2E] dark:focus:ring-gray-700">
+                    Услуги
+                </a>
+
                 <span class="text-sm font-semibold leading-6 text-white">Выберем лучшее место для жизни<br>семьи или самый ликвидный обьект<br>для инвестиций</span>
             </div>
             <div>
-                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Оказываем <span class="text-amber-600">полный спектр<br>услуг </span><span>в сфере недвижимости!</span></h1>
+                <h1 class="sm:text-5xl font-bold tracking-tight text-white text-4xl">
+                    Оказываем <span class="text-[#BF6128]">полный спектр<br>услуг </span><span>в сфере недвижимости!</span>
+                </h1>
             </div>
         </div>
-    </div>   
-
+    </div>
     <div class=" text-white">
         <div class="grid lg:grid-cols-3  md:grid-cols-2 sm: md:grid-cols-1 grid-rows-2  gap-4 mx-auto max-w-7xl px-6 py-2 sm:py-2 lg:items-start lg:px-8 text-white ">
             <!-- Карточка 1 (увеличенная по высоте) -->
@@ -169,7 +176,7 @@
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Продажа</button>
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Документы</button>
                 </div>
-                <img src="{% static 'pic/pic-3.svg' %}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <img src="{% static 'pic/pic.png' %}" class="absolute bottom-0 right-0 h-full " alt="Background">
             </div>
             
             <!-- Карточка 2 (справа сверху, широкая) -->
@@ -185,11 +192,11 @@
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">ОАЭ</button>
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Таиланд</button>
                 </div>
-                <img src="{% static 'pic/pic-2.svg'%}" class="absolute right-0 bottom-0 w-1/3 lg:w-1/4 " alt="Background">
+                <img src="{% static 'pic/pic-02.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
             </div>
             
             <!-- Карточка 3 (справа снизу, левая) -->
-            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1  overflow-hidden">
                 <h2 class="text-xl font-bold mb-4 z-1">Коммерческая недвижимость</h2>
                 <div class="flex flex-wrap gap-2">
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Торговля</button>
@@ -197,7 +204,10 @@
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Производство</button>
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Рестораны</button>
                 </div>
-                <img src="{% static 'pic/pic-3.svg'%}" class="absolute bottom-0 right-0  w-1/3 lg:w-1/4 " alt="Background">
+                
+                <img src="{% static 'pic/cafe_full_new.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+
+                
             </div>
 
             <!-- Карточка 4 (справа снизу, правая) -->
@@ -208,7 +218,7 @@
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дачи</button>
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Земельные участки</button>
                 </div>
-                <img src="{% static 'pic/pic-4.svg'%}" class="absolute bottom-0 right-0   w-1/3 lg:w-1.5/4  " alt="Background">
+                <img src="{% static 'pic/pic-4.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
             </div>
         </div>
     
@@ -216,28 +226,28 @@
             <!-- Карточка 1 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Оформление документов</h2>
-                <img src="{% static 'pic/pic-5.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <img src="{% static 'pic/pic-5.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Полный спектр</button>
             </div>
             
             <!-- Карточка 2 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Ремонт и отделка</h2>
-                <img src="{% static 'pic/pic-6.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <img src="{% static 'pic/pic-6.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Под ключ</button>
             </div>
             
             <!-- Карточка 3 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Дизайн интерьера</h2>
-                <img src="{% static 'pic/pic-7.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <img src="{% static 'pic/pic-7.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">В любом стиле</button>
             </div>
 
             <!-- Карточка 4 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Переезд и клининг</h2>
-                <img src="{% static 'pic/pic-8.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <img src="{% static 'pic/pic-8.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Берем на себя</button>
             </div>
         </div>
@@ -246,18 +256,26 @@
 </section>
 
 <section class=""> <!-- Секция три -->
-    <div class=""> <!-- Баннер 3 --> <!-- Он вообще откуда тут? -->
-        <div class="mx-auto max-w-7xl px-6 py-14 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+
+    <div class=""> <!-- Баннер 6 -->
+        <div class="mx-auto max-w-7xl px-6 pt-24 sm:pt-24 lg:flex lg:items-center lg:justify-between lg:px-8">
             <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Преимушества</button>
+                <a type="button" 
+                href="{% url 'main:trade-in-page' %}"
+                class="text-center button border border-white text-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5 me-2 mb-4 bg-[#191B1D] hover:bg-[#2C2C2E] dark:focus:ring-gray-700">
+                    Преимущества
+                </a>
+
                 <span class="text-sm font-semibold leading-6 text-white">С нами ваш путь к идеальной<br> недвижимости будет быстрым,<br>комфортным и надежным</span>
             </div>
             <div>
-                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><span class="text-amber-600">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!</h1>
+                <h1 class="sm:text-5xl font-bold tracking-tight text-white text-4xl">
+                    <span class="text-[#BF6128]">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!
+                </h1>
             </div>
         </div>
     </div>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-24 sm:py-15  lg:items-center lg:px-8">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-12 sm:py-15  lg:items-center lg:px-8">
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
             <img src="{% static 'pic/main-1.svg'%}" class="py-1">
             <a href="#">
@@ -270,33 +288,50 @@
             <img src="{% static 'pic/main-2.svg'%}" class="py-1">
            <!--  </svg> -->
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Подбор жилья<br>на вторичном рынке</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Мы делаем процесс поиска простым и удобным</p>
         
         </div>
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
             <img src="{% static 'pic/main-3.svg'%}" class="py-1">
             <!-- </svg> -->
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Цена напрямую от застройщика</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Без комиссий и переплат, можно проверить</p>
         
         </div>
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
             <img src="{% static 'pic/main-4.svg'%}" class="py-1">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Ремонт, клининг, переезд — наша задача</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Берём на себя все хлопоты, связанные с ремонтом, уборкой и переездом</p>
         </div>
 
     </div>
 </section>
 
 <section class=""> <!-- Секция 4 с фильтром -->
-    
+    <div class="mb-3"> <!-- Баннер 6 -->
+        <div class="mx-auto max-w-7xl px-6 pt-12 lg:flex lg:items-center lg:justify-between lg:px-8">
+            <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                <a type="button" 
+                href="{% url 'main:search-list' %}"
+                class="text-center button border border-white text-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5 me-2 mb-4 bg-[#191B1D] hover:bg-[#2C2C2E] dark:focus:ring-gray-700">
+                    Каталог
+                </a>
+
+                <span class="text-sm font-semibold leading-6 text-white">Узнайте, какие предложения <br> подходят именно вам</span>
+            </div>
+            <div>
+                <h1 class="sm:text-5xl font-bold tracking-tight text-white text-4xl">
+                   Авторский каталог <br>недвижимости
+                </h1>
+            </div>
+        </div>
+    </div>
     {% include 'flat/filter.html' with flats_count=new_flats|length block_title="Подобрать недвижимость в Воронеже" %}
     <div class="grid  gap-6  mx-auto max-w-7xl px-6  sm:py-15  lg:items-center lg:px-8 sm:grid-cols-1 md:grid-cols-3">
         {% for flat in new_flats %}{% include 'flat/new-vertical-card.html' with flat=flat %}{% endfor %}
@@ -588,82 +623,31 @@
     </div>
 </section>
 
-<section class=""> <!-- Секция 6 -->
-	<div class=""> <!-- Баннер 8 -->
- 		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+<!-- Калькулятор ипотеки -->
+{% include 'blocks/calculator.html' %}
+
+<section>
+    <div class=""> <!-- Баннер 6 -->
+        <div class="mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:flex lg:items-center lg:justify-between lg:px-8">
             <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                <button type="button" class="border-white text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Преимушества</button>
-                <span class="text-sm font-semibold leading-6 text-white">С нами ваш путь к идеальной<br> недвижимости будет быстрым,<br>комфортным и надежным</span>
+                <a type="button" 
+                href="{% url 'main:mortgage' %}"
+                class="text-center button border border-white text-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5 me-2 mb-4 bg-[#191B1D] hover:bg-[#2C2C2E] dark:focus:ring-gray-700">
+                    Ипотека
+                </a>
+
+                <span class="text-sm font-semibold leading-6 text-white">Выбираем надежные банки, <br> подбираем программы и <br>процентные ставки</span>
             </div>
             <div>
-                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><span class="text-amber-600">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!</h1>
+                <h1 class="sm:text-5xl font-bold tracking-tight text-white text-4xl">
+                    <span class="text-[#BF6128]">9 из 10 </span>клиентов получают <br>одобрение по ипотеке <br> <span class="text-[#BF6128]">вместе с нами</span>
+                </h1>
             </div>
         </div>
     </div>
-  
-  <!-- Калькулятор ипотеки -->
-    <div class="text-white flex justify-center items-center py-5  lg:px-8">
-        <div class="w-full max-w-7xl p-10  shadow-lg">
-            <h1 class="text-3xl font-semibold mb-6 text-left text-white">Калькулятор ипотеки</h1>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div>
-                    <label class="block text-sm text-white">Программа</label>
-                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white">
-                        <option>Базовая программа</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm text-white">Вид недвижимости</label>
-                    <select class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-white">
-                        <option>Новостройка</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm text-white">Ставка</label>
-                    <input type="text" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-center text-white" value="13%">
-                </div>
-                <div>
-                    <label class="block text-sm text-white">Срок</label>
-                    <input type="text" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-center text-white" value="27 лет">
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                <div>
-
-                    <label class="block text-sm text-white">Стоимость недвижимости</label>
-                    <input type="number" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-right text-white" value="1000000">
-                    <input type="range" min="1000000" max="10000000" step="100000" class="w-full mt-2 accent-[#BF6128]">
-                </div>
-                <div>
-                    <label class="block text-sm text-white">Первоначальный взнос</label>
-                    <input type="number" class="w-full p-2 mt-1 bg-[#2C2C2E] border border-gray-600 text-right text-white" value="1000000">
-                    <input type="range" min="1000000" max="5000000" step="100000" class="w-full mt-2 accent-[#BF6128]">
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6">
-                <div class="p-3 bg-[#2C2C2E] text-center text-white border border-gray-600">
-                    <span class="text-sm">Сумма переплаты</span>
-                    <p class="text-lg font-bold">250 000 ₽</p>
-                </div>
-                <div class="p-3 bg-[#2C2C2E] text-center text-white border border-gray-600">
-                    <span class="text-sm">Полная сумма ипотеки</span>
-                    <p class="text-lg font-bold">4 500 000 ₽</p>
-                </div>
-                <div class="p-3 bg-[#2C2C2E] text-center text-white border border-gray-600">
-                    <span class="text-sm">Платёж</span>
-                    <p class="text-lg font-bold">12 152 ₽/мес.</p>
-                </div>
-            </div>
-            <div class="flex justify-center mt-6">
-                <button data-modal-target="modal" data-modal-toggle="modal" type="button" class=" p-3 bg-orange-500 hover:bg-orange-600 text-white border border-gray-600">Оставить заявку</button>
-            </div>
-        </div>
-    </div>
-
-
-
     <div class="grid  gap-4  mx-auto max-w-7xl px-6 sm:py-15  lg:items-center lg:px-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  ">
-        <div class="max-w-sm bg-[#2C2C2E] mx-auto">
+        {% for promo in promos %}{% include 'promo/card.html' with promo=promo %}{% endfor %}
+        <!-- <div class="max-w-sm bg-[#2C2C2E] mx-auto">
             <a href="#">
                 <img class="rounded-t-lg" src="{% static 'pic/f01.png' %}" alt="" />
             </a>
@@ -679,7 +663,7 @@
                 </div>
             </div>
             <div class="m-auto text-center pb-4">
-                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                <button  data-modal-target="modal" data-modal-toggle="modal" type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
                     Подобрать варианты
                 </button>
             </div>
@@ -700,7 +684,7 @@
                 </div>
             </div>
             <div class="m-auto text-center pb-4">
-                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                <button  data-modal-target="modal" data-modal-toggle="modal" type="button"class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
                     Подобрать варианты
                 </button>
             </div>
@@ -721,7 +705,7 @@
                 </div>
             </div>
             <div class="m-auto text-center pb-4">
-                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                <button data-modal-target="modal" data-modal-toggle="modal" type="button"class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
                     Подобрать варианты
                 </button>
             </div>
@@ -742,11 +726,11 @@
                 </div>
             </div>
             <div class="m-auto text-center pb-4">
-                <button type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
+                <button  data-modal-target="modal" data-modal-toggle="modal" type="button" class=" bg-amber-600 hover:bg-amber-600 text-white font-bold py-3 px-6 border border-amber-700 me-2 mb-2">
                     Подобрать варианты
                 </button>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </section>
@@ -755,49 +739,59 @@
     <div class=""> <!-- Баннер 6 -->
         <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
             <div class="mt-10 inline-grid  items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                <button type="button" class="border-white		 text-white  hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-4 dark:bg-[#2C2C2E] dark:hover:bg-[#2C2C2E] dark:focus:ring-gray-700 border-white">Преимушества		</button>
-                <span class="text-sm font-semibold leading-6 text-white">С нами ваш путь к идеальной<br> недвижимости будет быстрым,<br>комфортным и надежным</span>
+                <a type="button" 
+                href="{% url 'main:trade-in-page' %}"
+                class="text-center button border border-white text-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5 me-2 mb-4 bg-[#191B1D] hover:bg-[#2C2C2E] dark:focus:ring-gray-700">
+                    Старое на новое
+                </a>
+
+                <span class="text-sm font-semibold leading-6 text-white">Сформировали собственный отдел <br> подбора и продажи вторичной <br> недвижимости</span>
             </div>
             <div>
-                <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    <span class="text-amber-600">Агентство "1983"</span>-<br>настоящий мультисервис недвижимости!
+                <h1 class="sm:text-5xl font-bold tracking-tight text-white text-4xl">
+                    <span class="text-[#BF6128]">Быстро и выгодно продадим</span> <br> вашу квартиру, пока <br> вы подбираете новую
                 </h1>
             </div>
         </div>
     </div>
 ----------------------------------------------------
 видео
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 py-24 sm:py-15  lg:items-center lg:px-8">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8  mx-auto max-w-7xl px-6 pt-24 sm:pt-15  lg:items-center lg:px-8">
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
-            <img src="{% static 'pic/main-1.svg'%}" class="py-1">
+            <img src="{% static 'pic/find.svg'%}" class="py-1">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Оценим квартиру</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Оценим стоимость и подскажем, как сделать квартиру привлекательнее для покупателей</p>
 
         </div>
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
-            <img src="{% static 'pic/main-2.svg'%}" class="py-1">
+            <img src="{% static 'pic/ga1.svg'%}" class="py-1">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Найдём клиентов</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">В короткие сроки найдём потенциальных покупателей и проверим дееспособность сторон</p>
         
         </div>
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700">
-            <img src="{% static 'pic/main-3.svg'%}" class="py-1">
+            <img src="{% static 'pic/ga3.svg'%}" class="py-1">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Сопроводим сделку</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Займёмся правильной регистрацией, проследим за сроками и безопасностью сделки</p>
         </div>
         <div class=" p-6 bg-[#2C2C2E]  rounded-lg shadow-sm dark:bg-[#2C2C2E] dark:border-gray-700 ">
-            <img src="{% static 'pic/main-4.svg'%}" class="py-1">
+            <img src="{% static 'pic/main-5.svg'%}" class="py-1">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-semibold text-white">Неограниченный<br>ассортимент квартир</h5>
+                <h5 class="mb-2 text-2xl font-semibold text-white">Подберём новую квартиру</h5>
             </a>
-            <p class="mb-3 text-gray-500 font-medium text-sm">Работаем со всеми застройщиками</p>
+            <p class="mb-3 text-gray-500 font-medium text-sm">Расскажем об актуальных предложениях от застройщиков и подберем новую квартиру</p>
         </div>
+    </div>
+    <div class="m-auto text-center pt-5 pb-6">
+        <button data-modal-target="modal" data-modal-toggle="modal" type="button" class="rounded-lg bg-[#BF6128] hover:bg-amber-600 text-white font-bold py-4 px-8 border border-amber-700 xs:mt-1 mt-4 mb-2">
+            Получить оценку квартиры
+        </button>
     </div>
 </section>
 

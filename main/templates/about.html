@@ -253,7 +253,6 @@
             </div>
         </div>
     </div>   
-
     <div class=" text-white">
         <div class="grid lg:grid-cols-3  md:grid-cols-2 sm: md:grid-cols-1 grid-rows-2  gap-4 mx-auto max-w-7xl px-6 py-2 sm:py-2 lg:items-start lg:px-8 text-white ">
             <!-- Карточка 1 (увеличенная по высоте) -->
@@ -265,7 +264,7 @@
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Продажа</button>
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Документы</button>
                 </div>
-                <img src="{% static 'pic/pic-3.svg' %}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+                <img src="{% static 'pic/pic.png' %}" class="absolute bottom-0 right-0 h-full " alt="Background">
             </div>
             
             <!-- Карточка 2 (справа сверху, широкая) -->
@@ -281,10 +280,96 @@
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">ОАЭ</button>
                     <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Таиланд</button>
                 </div>
-                <img src="{% static 'pic/pic-2.svg'%}" class="absolute right-0 bottom-0 w-1/3 lg:w-1/4 " alt="Background">
+                <img src="{% static 'pic/pic-02.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
             </div>
             
             <!-- Карточка 3 (справа снизу, левая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1  overflow-hidden">
+                <h2 class="text-xl font-bold mb-4 z-1">Коммерческая недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Торговля</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Офисы</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Производство</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Рестораны</button>
+                </div>
+                
+                <img src="{% static 'pic/cafe_full_new.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+
+                
+            </div>
+
+            <!-- Карточка 4 (справа снизу, правая) -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Загородная недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дома и коттеджи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Дачи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Земельные участки</button>
+                </div>
+                <img src="{% static 'pic/pic-4.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto max-w-7xl px-6  sm:py-5 lg:items-start lg:px-8">
+            <!-- Карточка 1 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Оформление документов</h2>
+                <img src="{% static 'pic/pic-5.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Полный спектр</button>
+            </div>
+            
+            <!-- Карточка 2 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Ремонт и отделка</h2>
+                <img src="{% static 'pic/pic-6.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Под ключ</button>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Дизайн интерьера</h2>
+                <img src="{% static 'pic/pic-7.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">В любом стиле</button>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
+                <h2 class="text-xl font-bold z-1">Переезд и клининг</h2>
+                <img src="{% static 'pic/pic-8.png'%}" class="absolute bottom-0 right-0 h-full " alt="Background">
+                <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Берем на себя</button>
+            </div>
+        </div>
+
+    </div>
+   <!--  <div class=" text-white">
+        <div class="grid lg:grid-cols-3  md:grid-cols-2 sm: md:grid-cols-1 grid-rows-2  gap-4 mx-auto max-w-7xl px-6 py-2 sm:py-2 lg:items-start lg:px-8 text-white ">
+
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg lg:col-span-1 lg:row-span-2 md:row-span-1 flex flex-col justify-between lg:h-full ">
+                <h2 class="text-xl font-bold mb-4 z-1">Вторичная недвижимость</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Подбор</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Безопасная сделка</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Продажа</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Документы</button>
+                </div>
+                <img src="{% static 'pic/pic-3.svg' %}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
+            </div>
+            
+            <div class="relative bg-[#2C2C2E] p-6 rounded-lg lg:col-span-2 flex flex-col justify-between md:row-span-1 ">
+                <h2 class="text-xl font-bold mb-4 z-1">Новостройки</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Воронеж</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Москва</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Сочи</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Калининград</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Турция</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Северный Кипр</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">ОАЭ</button>
+                    <button class="bg-[#A5A5A566] px-4 h-[2rem]  rounded-3xl z-1">Таиланд</button>
+                </div>
+                <img src="{% static 'pic/pic-2.svg'%}" class="absolute right-0 bottom-0 w-1/3 lg:w-1/4 " alt="Background">
+            </div>
+            
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
                 <h2 class="text-xl font-bold mb-4 z-1">Коммерческая недвижимость</h2>
                 <div class="flex flex-wrap gap-2">
@@ -296,7 +381,6 @@
                 <img src="{% static 'pic/pic-3.svg'%}" class="absolute bottom-0 right-0  w-1/3 lg:w-1/4 " alt="Background">
             </div>
 
-            <!-- Карточка 4 (справа снизу, правая) -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between md:row-span-1 ">
                 <h2 class="text-xl font-bold mb-4 z-1">Загородная недвижимость</h2>
                 <div class="flex flex-wrap gap-2">
@@ -309,28 +393,25 @@
         </div>
     
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto max-w-7xl px-6  sm:py-5 lg:items-start lg:px-8">
-            <!-- Карточка 1 -->
+       
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Оформление документов</h2>
                 <img src="{% static 'pic/pic-5.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Полный спектр</button>
             </div>
             
-            <!-- Карточка 2 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Ремонт и отделка</h2>
                 <img src="{% static 'pic/pic-6.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">Под ключ</button>
             </div>
             
-            <!-- Карточка 3 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Дизайн интерьера</h2>
                 <img src="{% static 'pic/pic-7.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
                 <button class="bg-[#A5A5A566] text-md px-3 py-1 rounded-3xl mt-auto self-start z-1">В любом стиле</button>
             </div>
 
-            <!-- Карточка 4 -->
             <div class="relative bg-[#2C2C2E] p-6 rounded-lg flex flex-col justify-between overflow-hidden h-60">
                 <h2 class="text-xl font-bold z-1">Переезд и клининг</h2>
                 <img src="{% static 'pic/pic-8.svg'%}" class="absolute bottom-0 right-0 w-2/5 " alt="Background">
@@ -338,7 +419,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 </section>
 
 {% include 'blocks/consultation.html' %}

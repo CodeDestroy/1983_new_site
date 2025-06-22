@@ -24,7 +24,7 @@ class IndexView(View):
             'districts': None,
             'flat_types': Flat.objects.values('rooms').distinct().annotate(tcount=Count('rooms')),
             'new_flats': flats[:12],
-            'promos': Promo.objects.filter(is_deleted=False, favorite=True),
+            'promos': Promo.objects.filter(is_deleted=False)[:4],
             'url': reverse_lazy('main:index'),
             'articles': Article.objects.filter(is_deleted=False).order_by('-created_at')[:12],
         })
