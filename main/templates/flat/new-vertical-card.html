@@ -3,10 +3,10 @@
 
 <div class="w-full bg-[#2C2C2E] mx-auto rounded-lg">
     <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
-        {% if flat.flatphoto_set.all|length > 1 %}
+        {% if flat.flatphoto_set.all|length > 2 %}
             <div class="w-full block min-h-80 rounded-t-lg"
                 style="
-                    background-image: url('{{ flat.flatphoto_set.all.1.photo.url }}'); 
+                    background-image: url('{{ flat.flatphoto_set.all.2.photo.url }}'); 
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;">
