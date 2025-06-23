@@ -5,7 +5,7 @@
     <a href="{% url 'main:flat-page' flat_id=flat.pk %}">
         <div class="w-full block min-h-80 rounded-t-lg"
             style="
-                background-image: url('{{ flat.flatphoto_set.first.photo.url }}'); 
+                background-image: url('{{ flat.flatphoto_set.last.photo.url }}'); 
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;">

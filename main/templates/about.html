@@ -68,7 +68,9 @@
 </section>
 
 <!-- Опираемся на многолетний опыт -->
-{% include 'blocks/many-years-experience.html'%}
+{% include "blocks/many-years-experience.html" with image="pic/about_photo.jpg" %}
+
+
 
 <section class=" pt-10"> <!-- Секция 6 -->
     <div class="mx-auto max-w-7xl  lg:flex lg:items-center lg:justify-between pb-8  px-6  sm:py-15 lg:px-8">
@@ -89,16 +91,7 @@
             </div>
         </div>
 
-        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
-
-            <div class="h-64  flex items-center justify-center">
-                <img src="{% static 'pic/about2.svg'%}">
-            </div>
-            <div class="py-4 mt-4">
-                <h2 class="text-lg font-semibold">Анпилова Оксана</h2>
-                <p class="text-md">Руководитель направления новостроек</p>
-            </div>
-        </div>
+        
 
         <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
 
@@ -111,16 +104,7 @@
             </div>
         </div>
 
-        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
-
-            <div class="h-64  flex items-center justify-center">
-                <img src="{% static 'pic/about4.svg'%}">
-            </div>
-            <div class="py-4 mt-4">
-                <h2 class="text-lg font-semibold">Бужинская Людмила</h2>
-                <p class="text-md">Руководитель юридического отдела</p>
-            </div>
-        </div>
+        
 
         <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
             <div class="h-64  flex items-center justify-center">
@@ -132,25 +116,7 @@
             </div>
         </div>
 
-        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
-            <div class="h-64  flex items-center justify-center">
-                <img src="{% static 'pic/about6.svg'%}">
-            </div>
-            <div class="py-4 mt-4">
-                <h2 class="text-lg font-semibold">Коробкова Валерия</h2>
-                <p class="text-md">Эксперт по недвижимости</p>
-            </div>
-        </div>
 
-        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
-            <div class="h-64  flex items-center justify-center">
-                <img src="{% static 'pic/about7.svg'%}">
-            </div>
-            <div class="py-4 mt-4">
-                <h2 class="text-lg font-semibold">Лаврова Маргарита</h2>
-                <p class="text-md">Эксперт по недвижимости</p>
-            </div>
-        </div>
 
         <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
             <div class="h-64  flex items-center justify-center">
@@ -210,15 +176,46 @@
                 <p class="text-md">SMM-специалист</p>
             </div>
         </div>
+        
+
         <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
             <div class="h-64  flex items-center justify-center">
-                <img src="{% static 'pic/about14.svg'%}">
+                <img src="{% static 'pic/Алина Панкова эксперт по вторичной недвижимости.jpg'%}">
             </div>
             <div class="py-4 mt-4">
-                <h2 class="text-lg font-semibold">Заглядкина Ирина</h2>
-                <p class="text-md">Ипотечный брокер</p>
+                <h2 class="text-lg font-semibold">Алина Панкова</h2>
+                <p class="text-md">Эксперт по вторичной недвижимости</p>
             </div>
         </div>
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/Елена Сотникова Юрисконсульт.jpg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Елена Сотникова</h2>
+                <p class="text-md">Юрисконсульт</p>
+            </div>
+        </div>
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/Людмила Антонова менеджер по продажам.jpg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Людмила Антонова </h2>
+                <p class="text-md">Менеджер по продажам</p>
+            </div>
+        </div>
+        <div class="max-w-xs  text-white rounded-lg overflow-hidden shadow-lg">
+            <div class="h-64  flex items-center justify-center">
+                <img src="{% static 'pic/Мария Мельникова Юрисконсульт.jpg'%}">
+            </div>
+            <div class="py-4 mt-4">
+                <h2 class="text-lg font-semibold">Мария Мельникова</h2>
+                <p class="text-md">Юрисконсульт</p>
+            </div>
+        </div>
+
+        
     </div>
 </section>
 
